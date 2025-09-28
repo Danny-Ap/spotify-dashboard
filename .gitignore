@@ -2,10 +2,6 @@
 .env
 .env.local
 
-# Logs
-logs/*.txt
-logs/*.log
-
 # Python
 __pycache__/
 *.pyc
@@ -25,3 +21,12 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Logs - Allow pipeline logs but ignore other log files
+*.log
+# Comment out or remove this line that's blocking your pipeline logs:
+# logs/*.txt
+
+# If you want to ignore specific log files, be more specific:
+# logs/debug.txt
+# logs/temp.txt
