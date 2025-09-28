@@ -2,8 +2,12 @@ name: Spotify Data Pipeline
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # Every 2 hours (fixed the extra asterisk)
+    - cron: '0 */2 * * *'  # Every 2 hours
   workflow_dispatch:  # Manual trigger for testing
+
+# Add permissions for the workflow
+permissions:
+  contents: write  # Allow writing to repository contents
 
 jobs:
   run-pipeline:
@@ -12,6 +16,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}  # Use GitHub token for authentication
       
     - name: Set up Python
       uses: actions/setup-python@v4
@@ -39,7 +45,20 @@ jobs:
         if [ -d "logs" ]; then
           echo "✅ logs/ directory exists"
           ls -la logs/
-          echo "📊 Number of files: $(ls logs/ | wc -l)"
+          echo "📊 Number of files: $(find logs/ -name "*.txt" | wc -l)"
+          
+          # Check if any log files have content
+          for file in logs/*.txt; do
+            if [ -f "$file" ]; then
+              size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
+              echo "📄 $file: $size bytes"
+              if [ "$size" -gt "0" ]; then
+                echo "✅ File has content"
+              else
+                echo "⚠️ File is empty"
+              fi
+            fi
+          done
         else
           echo "❌ logs/ directory does not exist"
           mkdir -p logs
@@ -57,20 +76,35 @@ jobs:
           echo "📄 Found log files to commit:"
           ls -la logs/*.txt
           
-          # Add log files (force add to override .gitignore if needed)
-          git add logs/*.txt
+          # Only commit files that have content (size > 0)
+          has_content=false
+          for file in logs/*.txt; do
+            if [ -f "$file" ] && [ -s "$file" ]; then
+              echo "✅ $file has content, will commit"
+              has_content=true
+            else
+              echo "⚠️ $file is empty, skipping"
+            fi
+          done
           
-          # Check if there are changes to commit
-          if ! git diff --staged --quiet; then
-            echo "💾 Committing log files..."
-            git commit -m "📊 Pipeline logs - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+          if [ "$has_content" = true ]; then
+            # Add log files
+            git add logs/*.txt
             
-            # Push changes
-            echo "⬆️ Pushing to repository..."
-            git push
-            echo "✅ Log files committed and pushed successfully"
+            # Check if there are changes to commit
+            if ! git diff --staged --quiet; then
+              echo "💾 Committing log files..."
+              git commit -m "📊 Pipeline logs - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+              
+              # Push changes
+              echo "⬆️ Pushing to repository..."
+              git push
+              echo "✅ Log files committed and pushed successfully"
+            else
+              echo "ℹ️ No new changes to commit"
+            fi
           else
-            echo "ℹ️ No new changes to commit"
+            echo "⚠️ No log files with content found"
           fi
         else
           echo "⚠️ No .txt log files found in logs/ directory"
