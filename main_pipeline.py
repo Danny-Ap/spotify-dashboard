@@ -40,17 +40,26 @@ def setup_logging():
     timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M")
     log_file = log_dir / f"{timestamp}.txt"
     
-    # Configure logging
+    # Remove any existing handlers to prevent conflicts
+    for handler in logging.root.handlers[:]:
+        logging.root.removeHandler(handler)
+    
+    # Configure logging with force=True to override any existing config
     logging.basicConfig(
         level=logging.INFO,
         format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
         handlers=[
             logging.FileHandler(log_file, encoding='utf-8'),
             logging.StreamHandler(sys.stdout)
-        ]
+        ],
+        force=True  # This ensures we override any existing logging config
     )
     
-    return logging.getLogger(__name__)
+    # Get logger and test that it works
+    logger = logging.getLogger(__name__)
+    logger.info(f"📝 Logging initialized - writing to: {log_file}")
+    
+    return logger
 
 def main():
     """Run the complete Spotify analytics pipeline"""
@@ -81,6 +90,11 @@ def main():
             logger.info("=" * 80)
             logger.info("🎉 PIPELINE COMPLETED SUCCESSFULLY")
             logger.info("=" * 80)
+            
+            # Ensure logs are flushed before returning
+            for handler in logging.getLogger().handlers:
+                handler.flush()
+            
             return
         
         logger.info(f"🎶 Found {new_tracks_count} new tracks. Continuing pipeline...")
@@ -135,6 +149,17 @@ def main():
         
         # Re-raise the exception for GitHub Actions to detect failure
         raise
+    
+    finally:
+        # Ensure all logs are written to file before exiting
+        logger.info("🔄 Flushing logs to file...")
+        for handler in logging.getLogger().handlers:
+            handler.flush()
+        
+        # Also explicitly close file handlers
+        for handler in logging.getLogger().handlers:
+            if isinstance(handler, logging.FileHandler):
+                handler.close()
 
 if __name__ == "__main__":
     main()
