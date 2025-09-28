@@ -1,0 +1,183 @@
+2025-09-29 00:09:17,842 - __main__ - INFO - 📝 Logging initialized - writing to: logs/29-09-2025_00-09.txt
+2025-09-29 00:09:17,842 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:17,842 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-09-29 00:09:17,842 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:17,842 - __main__ - INFO - Execution Time: 2025-09-29 00:09:17
+2025-09-29 00:09:17,842 - __main__ - INFO - Pipeline Version: 2.0
+2025-09-29 00:09:17,842 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:17,842 - __main__ - INFO - 
+2025-09-29 00:09:17,842 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-09-29 00:09:17,842 - __main__ - INFO - ------------------------------------------------------------
+2025-09-29 00:09:17,843 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-09-29 00:09:17,843 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-09-29 00:09:19,108 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-09-29 00:09:19,109 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-09-29 00:09:19,299 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-09-29 00:09:19,300 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-09-29 00:09:19,441 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-09-29 00:09:19,442 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-09-29 00:09:19,701 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-09-29 00:09:19,702 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-09-29 00:09:19,703 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-09-29 00:09:19,803 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-09-28 20:09:18.934000
+2025-09-29 00:09:19,803 - data_collection.fetch_recent_tracks - INFO - Found 14 new tracks to insert (out of 50 total)
+2025-09-29 00:09:19,803 - data_collection.fetch_recent_tracks - INFO - Inserting 14 new tracks...
+2025-09-29 00:09:19,915 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 14 tracks
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:12:19 | Prince Ali - Robin Williams | 2.86min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:14:49 | A Whole New World - Lea Salonga | 2.68min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:17:48 | Jafar's Hour - Alan Menken | 2.72min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:18:48 | Prince Ali (Reprise) - Jonathan Freeman | 1.13min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:20:18 | The Ends Of The Earth - Alan Menken | 1.59min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:22:18 | The Kiss - Alan Menken | 1.85min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:25:18 | On A Dark Night - Alan Menken | 2.93min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:25:50 | Jasmine Runs Away - Alan Menken | 0.78min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:29:31 | Marketplace - Alan Menken | 2.62min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:33:42 | The Cave of Wonders - Alan Menken | 4.96min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:35:18 | Aladdin's Word - Alan Menken | 1.86min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:39:28 | The Battle - Alan Menken | 3.66min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:43:19 | Happy End in Agrabah - Alan Menken | 4.25min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:47:26 | A Whole New World (Aladdin's Theme) - Peabo Bryson | 4.17min
+2025-09-29 00:09:19,916 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - New tracks found: 14 tracks
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 14 tracks
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-09-28 20:09:18
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-09-28 20:47:26 | A Whole New World (Aladdin's Theme) - Peabo Bryson
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 38.1 minutes (0.6 hours)
+2025-09-29 00:09:19,917 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 14 new tracks for pipeline decision
+2025-09-29 00:09:20,017 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-09-29 00:09:20,018 - __main__ - INFO - ✅ Step 1 Complete: 14 new tracks found
+2025-09-29 00:09:20,018 - __main__ - INFO - 🎶 Found 14 new tracks. Continuing pipeline...
+2025-09-29 00:09:20,018 - __main__ - INFO - 
+2025-09-29 00:09:20,018 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-09-29 00:09:20,018 - __main__ - INFO - ------------------------------------------------------------
+2025-09-29 00:09:20,018 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-09-29 00:09:20,018 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-09-29 00:09:21,021 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-09-29 00:09:21,102 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-09-29 00:09:21,304 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO - ✅ Found 10912 existing songs and 3897 existing artists in master collections
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO - 🔍 Identified 4 new songs and 0 new artists
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO -   1. 'A Whole New World (Aladdin's Theme)' by Peabo Bryson
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO -   2. 'Happy End in Agrabah' by Alan Menken
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO -   3. 'Jasmine Runs Away' by Alan Menken
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO -   4. 'On A Dark Night' by Alan Menken
+2025-09-29 00:09:22,180 - data_collection.process_new_content - INFO - 🎵 Processing 4 new songs...
+2025-09-29 00:09:22,497 - data_collection.process_new_content - INFO -   ✅ 1/4: 'A Whole New World (Aladdin's Theme)' by Peabo Bryson
+2025-09-29 00:09:22,497 - data_collection.process_new_content - INFO -   ✅ 2/4: 'Happy End in Agrabah' by Alan Menken
+2025-09-29 00:09:22,498 - data_collection.process_new_content - INFO -   ✅ 3/4: 'Jasmine Runs Away' by Alan Menken
+2025-09-29 00:09:22,498 - data_collection.process_new_content - INFO -   ✅ 4/4: 'On A Dark Night' by Alan Menken
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - ✅ Inserted 4 new songs into songs_master
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - No new artists to process
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - ============================================================
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - ============================================================
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - New songs found: 4
+2025-09-29 00:09:22,611 - data_collection.process_new_content - INFO - New artists found: 0
+2025-09-29 00:09:22,612 - data_collection.process_new_content - INFO - Songs inserted: 4
+2025-09-29 00:09:22,612 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-09-29 00:09:22,612 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-09-29 00:09:22,612 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-09-29 00:09:22,612 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-09-29 00:09:22,712 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-09-29 00:09:22,714 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-09-29 00:09:22,714 - __main__ - INFO - 
+2025-09-29 00:09:22,714 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-09-29 00:09:22,714 - __main__ - INFO - ------------------------------------------------------------
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-29 00:09:22,714 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-09-29 00:09:23,694 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-09-29 00:09:23,695 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-09-29 00:09:23,798 - enrichment.enrich_with_lyrics - INFO - ✅ Found 4 unprocessed songs
+2025-09-29 00:09:23,798 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 4 songs...
+2025-09-29 00:09:23,798 - enrichment.enrich_with_lyrics - INFO - [1/4] Processing: 'A Whole New World (Aladdin's Theme)' by Peabo Bryson
+2025-09-29 00:09:24,502 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-09-29 00:09:24,604 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-09-29 00:09:24,707 - enrichment.enrich_with_lyrics - INFO - [2/4] Processing: 'Happy End in Agrabah' by Alan Menken
+2025-09-29 00:09:24,707 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-09-29 00:09:24,707 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-09-29 00:09:24,707 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-09-29 00:09:24,810 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-09-29 00:09:24,810 - enrichment.enrich_with_lyrics - INFO - [3/4] Processing: 'Jasmine Runs Away' by Alan Menken
+2025-09-29 00:09:24,810 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-09-29 00:09:24,810 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-09-29 00:09:24,810 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-09-29 00:09:24,913 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-09-29 00:09:24,913 - enrichment.enrich_with_lyrics - INFO - [4/4] Processing: 'On A Dark Night' by Alan Menken
+2025-09-29 00:09:24,913 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-09-29 00:09:24,913 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-09-29 00:09:24,913 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-09-29 00:09:25,018 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-09-29 00:09:25,018 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-09-29 00:09:25,223 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - Songs processed: 4/4
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 3
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-09-29 00:09:25,224 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-09-29 00:09:25,322 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-09-29 00:09:25,323 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-09-29 00:09:25,323 - __main__ - INFO - 
+2025-09-29 00:09:25,323 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-09-29 00:09:25,323 - __main__ - INFO - ------------------------------------------------------------
+2025-09-29 00:09:25,323 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-09-29 00:09:25,323 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-09-29 00:09:26,299 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-09-29 00:09:26,299 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-09-29 00:09:26,299 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-09-29 00:09:26,504 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-09-29 00:09:26,504 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-09-29 00:09:27,955 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-09-29 00:09:28,172 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-09-29 00:09:28,275 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-09-29 00:09:28,376 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-09-29 00:09:28,592 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-09-29 00:09:29,492 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-09-29 00:09:30,503 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-09-29 00:09:30,504 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-09-29 00:09:50,644 - enrichment.validate_data - WARNING - missing_master_records - Songs in StreamingHistory not found in songs_master: {'missing_songs_count': 1, 'sample_size': 100}
+2025-09-29 00:09:50,644 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-09-29 00:09:50,939 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-09-29 00:09:51,140 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO - ============================================================
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO - ============================================================
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO - Total errors found: 4
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-09-29 00:09:51,249 - enrichment.validate_data - WARNING - 📋 Found 4 validation issues
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO -   missing_master_records: 1 issues
+2025-09-29 00:09:51,249 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-09-29 00:09:51,348 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-09-29 00:09:51,348 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-09-29 00:09:51,349 - __main__ - INFO - 
+2025-09-29 00:09:51,349 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:51,349 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-09-29 00:09:51,349 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:51,349 - __main__ - INFO - 📊 Pipeline Summary:
+2025-09-29 00:09:51,349 - __main__ - INFO -    • New tracks processed: 14
+2025-09-29 00:09:51,349 - __main__ - INFO -    • New songs and artists added to master collections
+2025-09-29 00:09:51,349 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-09-29 00:09:51,349 - __main__ - INFO -    • Data validation completed
+2025-09-29 00:09:51,349 - __main__ - INFO - 
+2025-09-29 00:09:51,349 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-09-29 00:09:51,349 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-09-29 00:09:51,349 - __main__ - INFO - ================================================================================
+2025-09-29 00:09:51,349 - __main__ - INFO - 🔄 Flushing logs to file...
