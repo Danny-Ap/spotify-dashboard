@@ -4,9 +4,12 @@ A comprehensive personal analytics project that processes Spotify streaming data
 
 🎧 **[Live Dashboard](https://danny-spotify-dashboard.streamlit.app/)**
 
+<img width="1908" height="895" alt="dashboardpicture" src="https://github.com/user-attachments/assets/fcf3dae2-85f7-4fdc-9674-f635cf94ba2a" />
+
+
 ## Project Overview
 
-This project transforms raw Spotify streaming data into meaningful insights through automated data collection, processing, and visualization. The system processes extended streaming history, fetches additional metadata, detects song languages, and presents everything through a real-time dashboard that updates every 2 hours with recently played tracks.
+This project transforms raw Spotify streaming data into meaningful insights through automated data collection, processing, and visualization. The system started with historical Spotify extended streaming history data and evolved into a real-time analytics platform that automatically fetches and processes recently played tracks every 2 hours.
 
 ## Key Features
 
@@ -24,28 +27,30 @@ This project transforms raw Spotify streaming data into meaningful insights thro
 - **Visualization**: Streamlit dashboard with Altair charts
 - **Data Processing**: Python with pandas for data manipulation
 
-## Architecture & Workflow
-
 ## Data Pipeline
 
-### 1. Data Collection
-- **Historical Data**: Processes Spotify's extended streaming history export
-- **Real-time Data**: Fetches recently played tracks via Spotify API
-- **Metadata Enhancement**: Retrieves detailed track and artist information
+### 1. Initial Setup
+- **Historical Processing**: Uploaded and processed extended Spotify streaming history
+- **Database Population**: Established MongoDB collections with comprehensive track and artist data
 
-### 2. Language Detection System
+### 2. Real-time Automation
+- **Continuous Updates**: Automated system fetches recently played tracks every 2 hours
+- **New Content Detection**: Identifies and processes previously unseen songs and artists
+- **Metadata Enhancement**: Retrieves detailed track and artist information via Spotify API
+
+### 3. Language Detection System
 Since Spotify API doesn't provide language information for songs, I developed a sophisticated detection system:
 - **Lyrics Analysis**: Uses Genius API to fetch song lyrics for language detection
 - **Character Detection**: Identifies Hebrew and Japanese text using Unicode patterns
 - **Soundtrack Classification**: Detects instrumental/orchestral content using artist genres and composer databases
 - **Priority System**: Soundtrack → Hebrew → Japanese → Lyrics → Song Title → Artist Name
 
-### 3. Data Storage (MongoDB)
+### 4. Data Storage (MongoDB)
 - **StreamingHistory**: Main listening data with enriched metadata
 - **songs_master**: Unique songs with language and soundtrack classifications  
 - **artists_master**: Unique artists with aggregated language information
 
-### 4. Validation & Quality Control
+### 5. Validation & Quality Control
 - Cross-collection relationship validation
 - Data consistency checks
 - Automated error detection and reporting
@@ -61,26 +66,21 @@ Since Spotify API doesn't provide language information for songs, I developed a 
 - **Listening Heatmap**: Hour-by-hour and day-of-week activity patterns
 - **Advanced Filtering**: Date range, artist, album, language, and year filters
 
-## File Structure
+## Project Structure
 
-### Data Collection & Processing
-- `json_to_csv_claude4.py` - Converts Spotify export JSON to clean CSV format
-- `recently_played2.py` - Fetches recent tracks from Spotify API
-- `unique_songs_artists_mongodb.py` - Identifies and processes new songs/artists
+### Core Pipeline
+- `main_pipeline.py` - Main orchestration script for the automated pipeline
 
-### Language & Classification
-- `lyrics_language_mongodb.py` - Fetches lyrics and detects languages
-- `language_detection_script4.py` - Advanced language classification system
+### Data Collection (`src/data_collection/`)
+- `fetch_recent_tracks.py` - Fetches recent tracks from Spotify API
+- `process_new_content.py` - Identifies and processes new songs/artists
 
-### Spotify API Integration
-- `unique_songs_details.py` - Fetches detailed track metadata
-- `unique_artists_details.py` - Retrieves artist information and genres
+### Data Enrichment (`src/enrichment/`)
+- `enrich_with_lyrics.py` - Fetches lyrics and detects languages for new content
+- `validate_data.py` - Comprehensive data validation and error checking
 
-### Validation & Quality
-- `validation_mongodb.py` - Comprehensive data validation and error checking
-
-### Visualization
-- `streamlit_app9.py` - Interactive dashboard application
+### Dashboard (`src/dashboard/`)
+- `dashboard.py` - Interactive Streamlit dashboard application
 
 ## Requirements
 
@@ -99,4 +99,4 @@ Since Spotify API doesn't provide language information for songs, I developed a 
 
 ---
 
-*This project demonstrates end-to-end data engineering skills including API integration, data processing, language detection, database design, and interactive visualization.*
+*This project demonstrates end-to-end data analysis skills including API integration, data processing, language detection, database design, and interactive visualization.*
