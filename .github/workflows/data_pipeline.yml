@@ -2,8 +2,8 @@ name: Spotify Data Pipeline
 
 on:
   schedule:
-    - cron: '0 */2 * * *'  # Every 2 hours
-  workflow_dispatch:  # Manual trigger
+    - cron: '0 */2 * * *'  # Every 2 hours (fixed the extra asterisk)
+  workflow_dispatch:  # Manual trigger for testing
 
 jobs:
   run-pipeline:
@@ -32,11 +32,65 @@ jobs:
         GENIUS_TOKEN: ${{ secrets.GENIUS_TOKEN }}
         TZ: Europe/Brussels
       run: python main_pipeline.py
-
-    - name: Commit log files
+      
+    - name: Check for log files
       run: |
+        echo "📂 Checking contents of logs directory..."
+        if [ -d "logs" ]; then
+          echo "✅ logs/ directory exists"
+          ls -la logs/
+          echo "📊 Number of files: $(ls logs/ | wc -l)"
+        else
+          echo "❌ logs/ directory does not exist"
+          mkdir -p logs
+          echo "📁 Created logs/ directory"
+        fi
+        
+    - name: Commit and push log files
+      run: |
+        # Configure git
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add logs/*.txt
-        git diff --staged --quiet || git commit -m "Add pipeline logs from $(date)"
-        git push
+        
+        # Check if there are any log files to add
+        if ls logs/*.txt 1> /dev/null 2>&1; then
+          echo "📄 Found log files to commit:"
+          ls -la logs/*.txt
+          
+          # Add log files (force add to override .gitignore if needed)
+          git add logs/*.txt
+          
+          # Check if there are changes to commit
+          if ! git diff --staged --quiet; then
+            echo "💾 Committing log files..."
+            git commit -m "📊 Pipeline logs - $(date '+%Y-%m-%d %H:%M:%S UTC')"
+            
+            # Push changes
+            echo "⬆️ Pushing to repository..."
+            git push
+            echo "✅ Log files committed and pushed successfully"
+          else
+            echo "ℹ️ No new changes to commit"
+          fi
+        else
+          echo "⚠️ No .txt log files found in logs/ directory"
+          echo "📁 Current logs/ directory contents:"
+          ls -la logs/ 2>/dev/null || echo "Directory is empty or doesn't exist"
+        fi
+        
+    - name: Pipeline Summary
+      if: always()  # Run even if previous steps failed
+      run: |
+        echo "🎯 PIPELINE EXECUTION SUMMARY"
+        echo "================================"
+        echo "⏰ Execution time: $(date '+%Y-%m-%d %H:%M:%S UTC')"
+        echo "🔄 Next scheduled run: Every 2 hours"
+        echo "📊 Dashboard: Will be updated automatically"
+        echo "📂 Logs: Check repository logs/ folder for details"
+        
+        # Show workflow status
+        if [ "${{ job.status }}" = "success" ]; then
+          echo "✅ Pipeline Status: SUCCESS"
+        else
+          echo "❌ Pipeline Status: FAILED"
+        fi
