@@ -32,3 +32,11 @@ jobs:
         GENIUS_TOKEN: ${{ secrets.GENIUS_TOKEN }}
         TZ: Europe/Brussels
       run: python main_pipeline.py
+
+    - name: Commit log files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add logs/*.txt
+        git diff --staged --quiet || git commit -m "Add pipeline logs from $(date)"
+        git push
