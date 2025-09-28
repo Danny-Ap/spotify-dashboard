@@ -1,0 +1,164 @@
+2025-09-28 22:10:44,812 - __main__ - INFO - 📝 Logging initialized - writing to: logs/28-09-2025_22-10.txt
+2025-09-28 22:10:44,812 - __main__ - INFO - ================================================================================
+2025-09-28 22:10:44,812 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-09-28 22:10:44,812 - __main__ - INFO - ================================================================================
+2025-09-28 22:10:44,812 - __main__ - INFO - Execution Time: 2025-09-28 22:10:44
+2025-09-28 22:10:44,812 - __main__ - INFO - Pipeline Version: 2.0
+2025-09-28 22:10:44,812 - __main__ - INFO - ================================================================================
+2025-09-28 22:10:44,812 - __main__ - INFO - 
+2025-09-28 22:10:44,812 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-09-28 22:10:44,812 - __main__ - INFO - ------------------------------------------------------------
+2025-09-28 22:10:44,812 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-09-28 22:10:44,813 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-09-28 22:10:46,034 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-09-28 22:10:46,034 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-09-28 22:10:46,115 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-09-28 22:10:46,116 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-09-28 22:10:46,247 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-09-28 22:10:46,248 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-09-28 22:10:46,688 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-09-28 22:10:46,689 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-09-28 22:10:46,690 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-09-28 22:10:46,776 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-09-28 16:53:50.327000
+2025-09-28 22:10:46,777 - data_collection.fetch_recent_tracks - INFO - Found 8 new tracks to insert (out of 50 total)
+2025-09-28 22:10:46,777 - data_collection.fetch_recent_tracks - INFO - Inserting 8 new tracks...
+2025-09-28 22:10:46,877 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 8 tracks
+2025-09-28 22:10:46,877 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 19:01:47 | Sugar On My Tongue - Tyler, The Creator | 2.56min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 19:58:21 | Arabian Nights - Bruce Adler | 1.32min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 19:59:48 | Legend of the Lamp - Alan Menken | 1.42min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:02:18 | One Jump Ahead - Brad Kane | 2.37min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:04:18 | Street Urchins - Alan Menken | 1.88min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:05:19 | One Jump Ahead (Reprise) - Brad Kane | 1.02min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:07:48 | Friend Like Me - Robin Williams | 2.44min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO -   + 2025-09-28 20:09:18 | To Be Free - Alan Menken | 1.65min
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - New tracks found: 8 tracks
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 8 tracks
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-09-28 16:53:50
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-09-28 20:09:18 | To Be Free - Alan Menken
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 14.7 minutes (0.2 hours)
+2025-09-28 22:10:46,878 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 8 new tracks for pipeline decision
+2025-09-28 22:10:46,964 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-09-28 22:10:46,965 - __main__ - INFO - ✅ Step 1 Complete: 8 new tracks found
+2025-09-28 22:10:46,965 - __main__ - INFO - 🎶 Found 8 new tracks. Continuing pipeline...
+2025-09-28 22:10:46,965 - __main__ - INFO - 
+2025-09-28 22:10:46,965 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-09-28 22:10:46,965 - __main__ - INFO - ------------------------------------------------------------
+2025-09-28 22:10:46,965 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-09-28 22:10:46,966 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-09-28 22:10:47,907 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-09-28 22:10:47,986 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-09-28 22:10:48,160 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO - ✅ Found 10911 existing songs and 3896 existing artists in master collections
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO - 🔍 Identified 1 new songs and 1 new artists
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO -   1. 'Sugar On My Tongue' by Tyler, The Creator
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO -   1. Tyler, The Creator
+2025-09-28 22:10:48,930 - data_collection.process_new_content - INFO - 🎵 Processing 1 new songs...
+2025-09-28 22:10:49,251 - data_collection.process_new_content - INFO -   ✅ 1/1: 'Sugar On My Tongue' by Tyler, The Creator
+2025-09-28 22:10:49,344 - data_collection.process_new_content - INFO - ✅ Inserted 1 new songs into songs_master
+2025-09-28 22:10:49,345 - data_collection.process_new_content - INFO - 🎤 Processing 1 new artists...
+2025-09-28 22:10:49,970 - data_collection.process_new_content - INFO -   ✅ 1/1: Tyler, The Creator
+2025-09-28 22:10:50,061 - data_collection.process_new_content - INFO - ✅ Inserted 1 new artists into artists_master
+2025-09-28 22:10:50,061 - data_collection.process_new_content - INFO - ============================================================
+2025-09-28 22:10:50,061 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-09-28 22:10:50,061 - data_collection.process_new_content - INFO - ============================================================
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - New songs found: 1
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - New artists found: 1
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - Songs inserted: 1
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - Artists inserted: 1
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-09-28 22:10:50,062 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-09-28 22:10:50,149 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-09-28 22:10:50,150 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-09-28 22:10:50,150 - __main__ - INFO - 
+2025-09-28 22:10:50,151 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-09-28 22:10:50,151 - __main__ - INFO - ------------------------------------------------------------
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-28 22:10:50,151 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-09-28 22:10:51,095 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-09-28 22:10:51,095 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-09-28 22:10:51,188 - enrichment.enrich_with_lyrics - INFO - ✅ Found 1 unprocessed songs
+2025-09-28 22:10:51,188 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 1 songs...
+2025-09-28 22:10:51,188 - enrichment.enrich_with_lyrics - INFO - [1/1] Processing: 'Sugar On My Tongue' by Tyler, The Creator
+2025-09-28 22:10:51,833 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: artist_name)
+2025-09-28 22:10:51,923 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-09-28 22:10:52,016 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Tyler, The Creator → English
+2025-09-28 22:10:52,016 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-09-28 22:10:52,287 - enrichment.enrich_with_lyrics - INFO -   🎭 ARTIST: Doris Day: English → Soundtrack
+2025-09-28 22:10:52,377 - enrichment.enrich_with_lyrics - INFO -   🎭 ARTIST: Kitty Kallen: English → Soundtrack
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO -   🎭 ARTIST: Skrillex: Portuguese → Soundtrack
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - ✅ Fixed 0 songs and 3 artists with soundtrack language issues
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - Songs processed: 1/1
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-09-28 22:10:52,467 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-09-28 22:10:52,553 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-09-28 22:10:52,554 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-09-28 22:10:52,554 - __main__ - INFO - 
+2025-09-28 22:10:52,554 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-09-28 22:10:52,554 - __main__ - INFO - ------------------------------------------------------------
+2025-09-28 22:10:52,554 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-09-28 22:10:52,554 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-09-28 22:10:53,423 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-09-28 22:10:53,423 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-09-28 22:10:53,423 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-09-28 22:10:53,600 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-09-28 22:10:53,600 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-09-28 22:10:54,982 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-09-28 22:10:55,172 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-09-28 22:10:55,258 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-09-28 22:10:55,347 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-09-28 22:10:55,557 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-09-28 22:10:56,354 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-09-28 22:10:57,261 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-09-28 22:10:57,261 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-09-28 22:11:14,943 - enrichment.validate_data - WARNING - missing_master_records - Songs in StreamingHistory not found in songs_master: {'missing_songs_count': 1, 'sample_size': 100}
+2025-09-28 22:11:14,943 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-09-28 22:11:15,263 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-09-28 22:11:15,438 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO - ============================================================
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO - ============================================================
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO - Total errors found: 4
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-09-28 22:11:15,542 - enrichment.validate_data - WARNING - 📋 Found 4 validation issues
+2025-09-28 22:11:15,542 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-09-28 22:11:15,543 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-09-28 22:11:15,543 - enrichment.validate_data - INFO -   missing_master_records: 1 issues
+2025-09-28 22:11:15,543 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-09-28 22:11:15,630 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-09-28 22:11:15,630 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-09-28 22:11:15,630 - __main__ - INFO - 
+2025-09-28 22:11:15,630 - __main__ - INFO - ================================================================================
+2025-09-28 22:11:15,631 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-09-28 22:11:15,631 - __main__ - INFO - ================================================================================
+2025-09-28 22:11:15,631 - __main__ - INFO - 📊 Pipeline Summary:
+2025-09-28 22:11:15,631 - __main__ - INFO -    • New tracks processed: 8
+2025-09-28 22:11:15,631 - __main__ - INFO -    • New songs and artists added to master collections
+2025-09-28 22:11:15,631 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-09-28 22:11:15,631 - __main__ - INFO -    • Data validation completed
+2025-09-28 22:11:15,631 - __main__ - INFO - 
+2025-09-28 22:11:15,631 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-09-28 22:11:15,631 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-09-28 22:11:15,631 - __main__ - INFO - ================================================================================
+2025-09-28 22:11:15,631 - __main__ - INFO - 🔄 Flushing logs to file...
