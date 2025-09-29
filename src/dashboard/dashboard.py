@@ -94,18 +94,20 @@ st.markdown("""
 @st.cache_resource
 def get_mongo_client():
     """Create and cache MongoDB client connection."""
-    # Try different sources for connection string
-    connection_string = (
-        st.secrets.get("MONGODB_CONNECTION_STRING") or  # Streamlit Cloud secrets
-        os.getenv("MONGODB_CONNECTION_STRING")  # Environment variable
-    )
+    # Try environment variable first (local), then Streamlit secrets (cloud)
+    connection_string = os.getenv("MONGODB_CONNECTION_STRING")
     
     if not connection_string:
-        return None, "❌ MONGODB_CONNECTION_STRING not found in secrets or environment"
+        try:
+            connection_string = st.secrets["MONGODB_CONNECTION_STRING"]
+        except:
+            pass
+    
+    if not connection_string:
+        return None, "❌ MONGODB_CONNECTION_STRING not found in .env or secrets"
     
     try:
         client = pymongo.MongoClient(connection_string, serverSelectionTimeoutMS=5000)
-        # Test connection
         client.admin.command("ping")
         return client, "✅ Connected to MongoDB Atlas"
     except Exception as e:
@@ -706,7 +708,10 @@ def get_song_popularity_data():
         ]
         
         results = list(songs_collection.aggregate(pipeline, allowDiskUse=True))
-        return pd.DataFrame(results), status
+        df = pd.DataFrame(results)
+        if not df.empty:
+            df['popularity'] = df['popularity'].astype(int)
+        return df, status
         
     except Exception as e:
         return pd.DataFrame(), f"❌ Error getting song popularity data: {str(e)}"
@@ -770,7 +775,10 @@ def get_artist_popularity_data():
         ]
         
         results = list(artists_collection.aggregate(pipeline, allowDiskUse=True))
-        return pd.DataFrame(results), status
+        df = pd.DataFrame(results)
+        if not df.empty:
+            df['popularity'] = df['popularity'].astype(int)
+        return df, status
         
     except Exception as e:
         return pd.DataFrame(), f"❌ Error getting artist popularity data: {str(e)}"
@@ -916,7 +924,7 @@ def create_heatmap_chart(df):
             alt.Tooltip('hours:Q', title='Hours', format=',.2f')
         ]
     ).properties(
-        width=600,
+        width=700,
         height=400,
         title=alt.TitleParams(
             text="Listening Intensity by Hour and Day",
@@ -998,7 +1006,7 @@ def create_pie_chart(df, title):
             alt.Tooltip('value:Q', title='Value', format=',.0f')
         ]
     ).properties(
-        width=300,
+        width=250,
         height=400,
         title=alt.TitleParams(
             text=title,
@@ -1131,6 +1139,12 @@ def main():
     if st.session_state.sidebar_open:
         with st.sidebar:
             st.title("🔍 Filters")
+            
+            # Next update timer
+            hours, minutes, seconds, next_time = get_next_update_time()
+            st.info(f"⏰ Next update in: {hours}h {minutes}m {seconds}s (at {next_time} Brussels time)")
+            
+            st.markdown("---")
             
             # Date range filter
             if min_date and max_date:
@@ -1479,7 +1493,7 @@ def main():
                             column_config={
                                 "artist_name": st.column_config.TextColumn("Artist", width="medium"),
                                 "popularity": st.column_config.NumberColumn("Popularity", width="small"),
-                                "followers": st.column_config.NumberColumn("Followers", width="medium", format=",.0f")
+                                "followers": st.column_config.NumberColumn("Followers", width="medium", format=",")
                             },
                             hide_index=True,
                             use_container_width=True,
