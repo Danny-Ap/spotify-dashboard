@@ -977,7 +977,7 @@ def create_pie_chart(df, title):
             text="No data available",
             fontSize=16,
             color="gray"
-        ).properties(width=250, height=200)
+        ).properties(width=300, height=300)
     
     df_sorted = df.sort_values('value', ascending=False).reset_index(drop=True)
     
@@ -1007,7 +1007,7 @@ def create_pie_chart(df, title):
         ]
     ).properties(
         width=250,
-        height=400,
+        height=200,
         title=alt.TitleParams(
             text=title,
             fontSize=14,
@@ -1138,11 +1138,15 @@ def main():
     current_filters = {}
     if st.session_state.sidebar_open:
         with st.sidebar:
-            st.title("🔍 Filters")
-            
-            # Next update timer
+            # Next update timer (above title)
             hours, minutes, seconds, next_time = get_next_update_time()
             st.info(f"⏰ Next update in: {hours}h {minutes}m {seconds}s (at {next_time} Brussels time)")
+            
+            st.title("🔍 Filters")
+            
+            # Reset filters button
+            if st.button("🔄 Reset Filters", type="primary", use_container_width=True):
+                st.rerun()
             
             st.markdown("---")
             
