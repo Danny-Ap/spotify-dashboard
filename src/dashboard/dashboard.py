@@ -1053,7 +1053,7 @@ def create_pie_chart(df, title):
         ]
     ).properties(
         width=250,
-        height=200,
+        height=500,
         title=alt.TitleParams(
             text=title,
             fontSize=14,
