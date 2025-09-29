@@ -207,6 +207,52 @@ def apply_filters(base_pipeline, filters):
     return base_pipeline
 
 @st.cache_data(ttl=300)
+def get_last_song_played(filters=None):
+    """Get the most recently played song."""
+    client, status = get_mongo_client()
+    
+    if client is None:
+        return None, status
+    
+    try:
+        db = client[DB_NAME]
+        collection = db[STREAMING_COLLECTION]
+        
+        pipeline = [
+            {"$match": {
+                "track_name": {"$exists": True, "$ne": None, "$ne": ""},
+                "ts_utc": {"$exists": True, "$ne": None}
+            }},
+            {"$sort": {"ts_utc": -1}},
+            {"$limit": 1}
+        ]
+        
+        if filters:
+            pipeline = apply_filters(pipeline, filters)
+        
+        result = list(collection.aggregate(pipeline))
+        
+        if result:
+            song = result[0]
+            utc_time = song.get("ts_utc")
+            if isinstance(utc_time, datetime):
+                if utc_time.tzinfo is None:
+                    utc_time = utc_time.replace(tzinfo=timezone.utc)
+                local_tz = pytz.timezone('Europe/Brussels')
+                local_time = utc_time.astimezone(local_tz)
+                
+                return {
+                    "datetime": local_time,
+                    "song_name": song.get("track_name", "Unknown"),
+                    "artist_name": song.get("artist_name", "Unknown")
+                }, status
+        
+        return None, status
+        
+    except Exception as e:
+        return None, f"❌ Error getting last song: {str(e)}"
+
+@st.cache_data(ttl=300)
 def get_kpi_metrics(filters=None):
     """Get KPI metrics: total hours, unique songs, artists, albums."""
     client, status = get_mongo_client()
@@ -1154,14 +1200,28 @@ def main():
             if min_date and max_date:
                 st.markdown('<div class="filter-section">', unsafe_allow_html=True)
                 st.markdown("##### 📅 Date Range")
-                date_range = st.date_input(
+                date_range = st.slider(
                     "Select date range:",
-                    value=(min_date, max_date),
                     min_value=min_date,
-                    max_value=max_date
+                    max_value=max_date,
+                    value=(min_date, max_date),
+                    format="YYYY-MM-DD"
                 )
-                if len(date_range) == 2:
+                if date_range != (min_date, max_date):
                     current_filters["date_range"] = date_range
+                st.markdown('</div>', unsafe_allow_html=True)
+            
+            # Year filter
+            if filter_options.get("years"):
+                st.markdown('<div class="filter-section">', unsafe_allow_html=True)
+                st.markdown("##### 📆 Years")
+                selected_years = st.multiselect(
+                    "Select years:",
+                    options=filter_options.get("years", []),
+                    default=[]
+                )
+                if selected_years:
+                    current_filters["years"] = selected_years
                 st.markdown('</div>', unsafe_allow_html=True)
             
             # Song filter
@@ -1222,6 +1282,19 @@ def main():
     if kpi_data is None:
         st.error(kpi_status)
         st.stop()
+    
+    # Last song played section
+    last_song_data, _ = get_last_song_played(current_filters if current_filters else None)
+    
+    if last_song_data:
+        st.markdown(f'''
+        <div class="last-song-container">
+            <div class="last-song-text">
+                🎵 Last Played: <strong>{last_song_data["song_name"]}</strong> by <strong>{last_song_data["artist_name"]}</strong> 
+                | {last_song_data["datetime"].strftime("%Y-%m-%d at %H:%M")}
+            </div>
+        </div>
+        ''', unsafe_allow_html=True)
     
     # KPI Metrics
     st.markdown("### 📊 Key Metrics")
