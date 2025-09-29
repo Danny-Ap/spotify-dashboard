@@ -924,8 +924,8 @@ def create_heatmap_chart(df):
             alt.Tooltip('hours:Q', title='Hours', format=',.2f')
         ]
     ).properties(
-        width=700,
-        height=400,
+        width=600,
+        height=500,
         title=alt.TitleParams(
             text="Listening Intensity by Hour and Day",
             fontSize=16,
@@ -977,7 +977,7 @@ def create_pie_chart(df, title):
             text="No data available",
             fontSize=16,
             color="gray"
-        ).properties(width=300, height=300)
+        ).properties(width=250, height=200)
     
     df_sorted = df.sort_values('value', ascending=False).reset_index(drop=True)
     
@@ -1493,7 +1493,7 @@ def main():
                             column_config={
                                 "artist_name": st.column_config.TextColumn("Artist", width="medium"),
                                 "popularity": st.column_config.NumberColumn("Popularity", width="small"),
-                                "followers": st.column_config.NumberColumn("Followers", width="medium", format=",")
+                                "followers": st.column_config.NumberColumn("Followers", width="medium")
                             },
                             hide_index=True,
                             use_container_width=True,
