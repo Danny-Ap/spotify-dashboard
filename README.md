@@ -15,7 +15,7 @@ This project is an end-to-end data engineering endeavor built over a few months,
 ## Key Insights from My Data
 
 The analysis revealed some fascinating patterns:
-- **Language Evolution**: English dominated my early years (2015-2017), Dutch took over during 2021-2023, and soundtracks became the primary listening choice from 2023-2025
+- **Language Evolution**: English dominated my early years (2015-2017), Dutch took over during 2021-2023, and movie soundtracks became the primary listening choice from 2023-2025
 - **Top Artist**: Queen reigns supreme, with "Don't Stop Me Now" being the most played song at over 170 plays
 - **Nostalgia Factor**: Most songs are from 2010-2020, showing that nostalgia plays a significant role in music preferences
 
