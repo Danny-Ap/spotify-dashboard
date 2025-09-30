@@ -8,7 +8,7 @@ A comprehensive personal analytics project that processes 10 years of Spotify st
 
 ## Project Overview
 
-After accumulating over 10 years of listening history and more than 1,200 hours on Spotify, this project was born from curiosity: what trends exist in my music preferences over the years? What languages do I listen to most? How have my tastes evolved?
+After accumulating over 10 years of listening history and more than 1,200 hours on Spotify, I was curious: what trends exist in my music preferences over the years? What languages do I listen to most? How have my tastes evolved?
 
 This project is an end-to-end data engineering endeavor built over a few months, touching on database management, API integration, automated workflows, language detection, and interactive visualization. The goal was to learn a bit of everything while creating something personally meaningful.
 
