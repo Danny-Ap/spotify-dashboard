@@ -24,7 +24,7 @@ The analysis revealed some fascinating patterns:
 This project is split into two main parts:
 
 ### Part 1: Historical Data Processing
-The journey began with Spotify's Extended Streaming History - a complete export of listening data spanning 10 years. This raw data needed cleaning, enrichment, and structure. The process involved:
+My Spotify's Extended Streaming History - a complete export of listening data spanning 10 years. This raw data needed cleaning, enrichment, and structure. The process involved:
 
 Working through the extended streaming history data, cleaning it up to handle issues like missing values and character encoding problems (especially with Hebrew text), then enriching each track with additional metadata from the Spotify API. For language detection, lyrics were fetched from the Genius API and analyzed using the langdetect library. Since not all songs have lyrics, a fallback system was built: first attempting lyrics-based detection, then using song titles, and finally checking other songs by the same artist. Soundtracks were identified by looking for keywords like "orchestra" or "OST" in song metadata, or recognizing composer names like Hans Zimmer and John Williams. Once processed, all this data was organized into clear MongoDB schemas.
 
