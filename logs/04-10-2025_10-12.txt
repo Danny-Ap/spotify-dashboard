@@ -1,0 +1,148 @@
+2025-10-04 10:12:13,929 - __main__ - INFO - 📝 Logging initialized - writing to: logs/04-10-2025_10-12.txt
+2025-10-04 10:12:13,930 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:13,930 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-10-04 10:12:13,930 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:13,930 - __main__ - INFO - Execution Time: 2025-10-04 10:12:13
+2025-10-04 10:12:13,930 - __main__ - INFO - Pipeline Version: 2.0
+2025-10-04 10:12:13,930 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:13,930 - __main__ - INFO - 
+2025-10-04 10:12:13,930 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-10-04 10:12:13,930 - __main__ - INFO - ------------------------------------------------------------
+2025-10-04 10:12:13,930 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-10-04 10:12:13,930 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-10-04 10:12:15,504 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-10-04 10:12:15,504 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-10-04 10:12:15,621 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-10-04 10:12:15,622 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-10-04 10:12:15,814 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-10-04 10:12:15,815 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-10-04 10:12:16,089 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-10-04 10:12:16,090 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-10-04 10:12:16,091 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-10-04 10:12:16,228 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-09-30 22:32:39.762000
+2025-10-04 10:12:16,228 - data_collection.fetch_recent_tracks - INFO - Found 1 new tracks to insert (out of 50 total)
+2025-10-04 10:12:16,228 - data_collection.fetch_recent_tracks - INFO - Inserting 1 new tracks...
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 1 tracks
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO -   + 2025-10-04 06:29:21 | Als ze lacht - #LikeMe Cast | 3.98min
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-10-04 10:12:16,374 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - New tracks found: 1 tracks
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 1 tracks
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-09-30 22:32:39
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-10-04 06:29:21 | Als ze lacht - #LikeMe Cast
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 4.0 minutes (0.1 hours)
+2025-10-04 10:12:16,375 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 1 new tracks for pipeline decision
+2025-10-04 10:12:16,511 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-10-04 10:12:16,511 - __main__ - INFO - ✅ Step 1 Complete: 1 new tracks found
+2025-10-04 10:12:16,511 - __main__ - INFO - 🎶 Found 1 new tracks. Continuing pipeline...
+2025-10-04 10:12:16,511 - __main__ - INFO - 
+2025-10-04 10:12:16,511 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-10-04 10:12:16,512 - __main__ - INFO - ------------------------------------------------------------
+2025-10-04 10:12:16,512 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-10-04 10:12:16,512 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-10-04 10:12:17,788 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-10-04 10:12:17,875 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-10-04 10:12:18,142 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-10-04 10:12:19,285 - data_collection.process_new_content - INFO - ✅ Found 10918 existing songs and 3897 existing artists in master collections
+2025-10-04 10:12:19,285 - data_collection.process_new_content - INFO - 🔍 Identified 1 new songs and 0 new artists
+2025-10-04 10:12:19,286 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-10-04 10:12:19,286 - data_collection.process_new_content - INFO -   1. 'Als ze lacht' by #LikeMe Cast
+2025-10-04 10:12:19,286 - data_collection.process_new_content - INFO - 🎵 Processing 1 new songs...
+2025-10-04 10:12:19,638 - data_collection.process_new_content - INFO -   ✅ 1/1: 'Als ze lacht' by #LikeMe Cast
+2025-10-04 10:12:19,783 - data_collection.process_new_content - INFO - ✅ Inserted 1 new songs into songs_master
+2025-10-04 10:12:19,783 - data_collection.process_new_content - INFO - No new artists to process
+2025-10-04 10:12:19,783 - data_collection.process_new_content - INFO - ============================================================
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - ============================================================
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - New songs found: 1
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - New artists found: 0
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - Songs inserted: 1
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-10-04 10:12:19,784 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-10-04 10:12:19,916 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-10-04 10:12:19,917 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-10-04 10:12:19,917 - __main__ - INFO - 
+2025-10-04 10:12:19,917 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-10-04 10:12:19,917 - __main__ - INFO - ------------------------------------------------------------
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-10-04 10:12:19,918 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-10-04 10:12:21,239 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-10-04 10:12:21,240 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-10-04 10:12:21,385 - enrichment.enrich_with_lyrics - INFO - ✅ Found 1 unprocessed songs
+2025-10-04 10:12:21,385 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 1 songs...
+2025-10-04 10:12:21,385 - enrichment.enrich_with_lyrics - INFO - [1/1] Processing: 'Als ze lacht' by #LikeMe Cast
+2025-10-04 10:12:22,053 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: German (method: title)
+2025-10-04 10:12:22,191 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-10-04 10:12:22,337 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-10-04 10:12:22,616 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-10-04 10:12:22,616 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - Songs processed: 1/1
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-10-04 10:12:22,617 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-10-04 10:12:22,752 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-10-04 10:12:22,752 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-10-04 10:12:22,752 - __main__ - INFO - 
+2025-10-04 10:12:22,753 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-10-04 10:12:22,753 - __main__ - INFO - ------------------------------------------------------------
+2025-10-04 10:12:22,753 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-10-04 10:12:22,753 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-10-04 10:12:24,032 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-10-04 10:12:24,033 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-10-04 10:12:24,033 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-10-04 10:12:24,307 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-10-04 10:12:24,307 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-10-04 10:12:26,227 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-10-04 10:12:26,508 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-10-04 10:12:26,641 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-10-04 10:12:26,776 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-10-04 10:12:27,053 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-10-04 10:12:28,265 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-10-04 10:12:29,576 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-10-04 10:12:29,577 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-10-04 10:12:56,496 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-10-04 10:12:56,496 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-10-04 10:12:56,852 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-10-04 10:12:57,121 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-10-04 10:12:57,260 - enrichment.validate_data - INFO - ============================================================
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO - ============================================================
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO - Total errors found: 3
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-10-04 10:12:57,261 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-10-04 10:12:57,261 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-10-04 10:12:57,393 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-10-04 10:12:57,394 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-10-04 10:12:57,394 - __main__ - INFO - 
+2025-10-04 10:12:57,394 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:57,394 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-10-04 10:12:57,394 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:57,394 - __main__ - INFO - 📊 Pipeline Summary:
+2025-10-04 10:12:57,394 - __main__ - INFO -    • New tracks processed: 1
+2025-10-04 10:12:57,394 - __main__ - INFO -    • New songs and artists added to master collections
+2025-10-04 10:12:57,394 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-10-04 10:12:57,394 - __main__ - INFO -    • Data validation completed
+2025-10-04 10:12:57,394 - __main__ - INFO - 
+2025-10-04 10:12:57,394 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-10-04 10:12:57,394 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-10-04 10:12:57,394 - __main__ - INFO - ================================================================================
+2025-10-04 10:12:57,394 - __main__ - INFO - 🔄 Flushing logs to file...
