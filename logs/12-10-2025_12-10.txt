@@ -1,0 +1,29 @@
+2025-10-12 12:10:03,683 - __main__ - INFO - 📝 Logging initialized - writing to: logs/12-10-2025_12-10.txt
+2025-10-12 12:10:03,684 - __main__ - INFO - ================================================================================
+2025-10-12 12:10:03,684 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-10-12 12:10:03,684 - __main__ - INFO - ================================================================================
+2025-10-12 12:10:03,684 - __main__ - INFO - Execution Time: 2025-10-12 12:10:03
+2025-10-12 12:10:03,684 - __main__ - INFO - Pipeline Version: 2.0
+2025-10-12 12:10:03,684 - __main__ - INFO - ================================================================================
+2025-10-12 12:10:03,684 - __main__ - INFO - 
+2025-10-12 12:10:03,684 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-10-12 12:10:03,684 - __main__ - INFO - ------------------------------------------------------------
+2025-10-12 12:10:03,684 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-10-12 12:10:03,684 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-10-12 12:10:04,960 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-10-12 12:10:04,961 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-10-12 12:10:05,084 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-10-12 12:10:05,085 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-10-12 12:10:05,200 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-10-12 12:10:05,200 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-10-12 12:10:05,262 - data_collection.fetch_recent_tracks - ERROR - Failed to get recently played tracks: 503 - 
+2025-10-12 12:10:05,263 - data_collection.fetch_recent_tracks - ERROR - Failed to retrieve recently played tracks
+2025-10-12 12:10:05,353 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-10-12 12:10:05,354 - __main__ - INFO - ✅ Step 1 Complete: 0 new tracks found
+2025-10-12 12:10:05,354 - __main__ - INFO - 
+2025-10-12 12:10:05,354 - __main__ - INFO - 🛑 PIPELINE STOPPING: No new tracks found
+2025-10-12 12:10:05,354 - __main__ - INFO - All recent tracks are already in the database.
+2025-10-12 12:10:05,354 - __main__ - INFO - ================================================================================
+2025-10-12 12:10:05,354 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-10-12 12:10:05,354 - __main__ - INFO - ================================================================================
+2025-10-12 12:10:05,354 - __main__ - INFO - 🔄 Flushing logs to file...
