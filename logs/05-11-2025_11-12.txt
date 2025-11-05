@@ -1,0 +1,140 @@
+2025-11-05 11:12:52,446 - __main__ - INFO - 📝 Logging initialized - writing to: logs/05-11-2025_11-12.txt
+2025-11-05 11:12:52,446 - __main__ - INFO - ================================================================================
+2025-11-05 11:12:52,446 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-05 11:12:52,446 - __main__ - INFO - ================================================================================
+2025-11-05 11:12:52,446 - __main__ - INFO - Execution Time: 2025-11-05 11:12:52
+2025-11-05 11:12:52,446 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-05 11:12:52,446 - __main__ - INFO - ================================================================================
+2025-11-05 11:12:52,446 - __main__ - INFO - 
+2025-11-05 11:12:52,446 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-05 11:12:52,447 - __main__ - INFO - ------------------------------------------------------------
+2025-11-05 11:12:52,447 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-05 11:12:52,447 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-05 11:12:54,003 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-05 11:12:54,003 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-05 11:12:54,142 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-05 11:12:54,143 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-05 11:12:54,352 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-05 11:12:54,353 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-05 11:12:54,702 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 49 recently played tracks
+2025-11-05 11:12:54,703 - data_collection.fetch_recent_tracks - INFO - Processing 49 tracks...
+2025-11-05 11:12:54,704 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 49 tracks to streaming format
+2025-11-05 11:12:54,872 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-10-28 11:14:41.466000
+2025-11-05 11:12:54,872 - data_collection.fetch_recent_tracks - INFO - Found 22 new tracks to insert (out of 49 total)
+2025-11-05 11:12:54,872 - data_collection.fetch_recent_tracks - INFO - Inserting 22 new tracks...
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 22 tracks
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 14:52:49 | Glamdring - Howard Shore | 3.84min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 14:54:50 | Elven Rope - Howard Shore | 2.32min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 14:59:21 | Lost in Emyn Muil - Howard Shore | 4.24min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:02:19 | My Precious - Howard Shore | 2.94min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:03:49 | Uglúk's Warriors - Howard Shore | 1.69min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:09:49 | The Three Hunters - Howard Shore | 6.20min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:13:49 | The Banishment of Éomer - Howard Shore | 3.92min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:16:50 | Night Camp - Howard Shore | 2.84min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:20:49 | The Plains of Rohan - Howard Shore | 4.24min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:26:20 | Fangorn - Howard Shore | 5.22min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:31:19 | The Dead Marshes - Howard Shore | 5.13min
+2025-11-05 11:12:55,325 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:33:19 | Wraiths on Wings - Howard Shore | 2.13min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:40:19 | Gandalf the White - Howard Shore | 6.80min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 15:42:19 | The Dreams of Trees - Howard Shore | 1.92min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:02:19 | The Heir of Númenor - Howard Shore | 6.84min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:05:19 | Ent-draught - Howard Shore | 2.89min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:09:49 | Edoras - Howard Shore | 4.57min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:12:49 | The Court of Meduseld - Howard Shore | 3.18min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:19:19 | Théoden King / "The Funeral of Théodred" (feat. Miranda Otto) - Howard Shore | 6.20min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:21:19 | The King's Decision - Howard Shore | 2.13min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 16:26:50 | Exodus From Edoras - Howard Shore | 5.71min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-04 20:51:22 | The Forests of Ithilien - Howard Shore | 6.63min
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 49 tracks
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 49 tracks
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - New tracks found: 22 tracks
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 22 tracks
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-10-28 11:14:41
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-04 20:51:22 | The Forests of Ithilien - Howard Shore
+2025-11-05 11:12:55,326 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 91.6 minutes (1.5 hours)
+2025-11-05 11:12:55,327 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 22 new tracks for pipeline decision
+2025-11-05 11:12:55,479 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-05 11:12:55,480 - __main__ - INFO - ✅ Step 1 Complete: 22 new tracks found
+2025-11-05 11:12:55,480 - __main__ - INFO - 🎶 Found 22 new tracks. Continuing pipeline...
+2025-11-05 11:12:55,480 - __main__ - INFO - 
+2025-11-05 11:12:55,480 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-05 11:12:55,480 - __main__ - INFO - ------------------------------------------------------------
+2025-11-05 11:12:55,480 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-05 11:12:55,480 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-05 11:12:56,941 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-05 11:12:57,042 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-05 11:12:57,350 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-05 11:12:58,686 - data_collection.process_new_content - INFO - ✅ Found 10920 existing songs and 3898 existing artists in master collections
+2025-11-05 11:12:58,686 - data_collection.process_new_content - INFO - 🔍 Identified 0 new songs and 0 new artists
+2025-11-05 11:12:58,686 - data_collection.process_new_content - INFO - 🎉 No new songs or artists found in the last 50 streaming records!
+2025-11-05 11:12:58,687 - data_collection.process_new_content - INFO - All songs and artists are already in the master collections.
+2025-11-05 11:12:58,839 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-05 11:12:58,841 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-05 11:12:58,841 - __main__ - INFO - 
+2025-11-05 11:12:58,841 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-05 11:12:58,841 - __main__ - INFO - ------------------------------------------------------------
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-05 11:12:58,841 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-05 11:13:00,299 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-05 11:13:00,299 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-05 11:13:00,458 - enrichment.enrich_with_lyrics - INFO - ✅ Found 0 unprocessed songs
+2025-11-05 11:13:00,458 - enrichment.enrich_with_lyrics - INFO - 🎉 No unprocessed songs found! All songs have been processed.
+2025-11-05 11:13:00,611 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-05 11:13:00,611 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-05 11:13:00,611 - __main__ - INFO - 
+2025-11-05 11:13:00,611 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-05 11:13:00,611 - __main__ - INFO - ------------------------------------------------------------
+2025-11-05 11:13:00,611 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-05 11:13:00,611 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-05 11:13:02,072 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-05 11:13:02,073 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-05 11:13:02,073 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-05 11:13:02,405 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-05 11:13:02,405 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-05 11:13:04,710 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-05 11:13:05,030 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-05 11:13:05,184 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-05 11:13:05,339 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-05 11:13:05,665 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-05 11:13:07,063 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-05 11:13:08,586 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-05 11:13:08,587 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-05 11:13:39,653 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-05 11:13:39,654 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-05 11:13:40,052 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-05 11:13:40,361 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-05 11:13:40,521 - enrichment.validate_data - INFO - ============================================================
+2025-11-05 11:13:40,521 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-05 11:13:40,521 - enrichment.validate_data - INFO - ============================================================
+2025-11-05 11:13:40,522 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-05 11:13:40,522 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-05 11:13:40,522 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-05 11:13:40,522 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-05 11:13:40,522 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-05 11:13:40,522 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-05 11:13:40,674 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-05 11:13:40,674 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-05 11:13:40,675 - __main__ - INFO - 
+2025-11-05 11:13:40,675 - __main__ - INFO - ================================================================================
+2025-11-05 11:13:40,675 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-05 11:13:40,675 - __main__ - INFO - ================================================================================
+2025-11-05 11:13:40,675 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-05 11:13:40,675 - __main__ - INFO -    • New tracks processed: 22
+2025-11-05 11:13:40,675 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-05 11:13:40,675 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-05 11:13:40,675 - __main__ - INFO -    • Data validation completed
+2025-11-05 11:13:40,675 - __main__ - INFO - 
+2025-11-05 11:13:40,675 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-05 11:13:40,675 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-05 11:13:40,675 - __main__ - INFO - ================================================================================
+2025-11-05 11:13:40,675 - __main__ - INFO - 🔄 Flushing logs to file...
