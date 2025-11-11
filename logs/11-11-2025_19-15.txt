@@ -1,0 +1,195 @@
+2025-11-11 19:15:46,758 - __main__ - INFO - 📝 Logging initialized - writing to: logs/11-11-2025_19-15.txt
+2025-11-11 19:15:46,758 - __main__ - INFO - ================================================================================
+2025-11-11 19:15:46,758 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-11 19:15:46,758 - __main__ - INFO - ================================================================================
+2025-11-11 19:15:46,758 - __main__ - INFO - Execution Time: 2025-11-11 19:15:46
+2025-11-11 19:15:46,758 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-11 19:15:46,758 - __main__ - INFO - ================================================================================
+2025-11-11 19:15:46,758 - __main__ - INFO - 
+2025-11-11 19:15:46,759 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-11 19:15:46,759 - __main__ - INFO - ------------------------------------------------------------
+2025-11-11 19:15:46,759 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-11 19:15:46,759 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-11 19:15:48,176 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-11 19:15:48,176 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-11 19:15:48,349 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-11 19:15:48,350 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-11 19:15:48,526 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-11 19:15:48,527 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-11 19:15:49,009 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-11 19:15:49,010 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-11 19:15:49,011 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-11 19:15:49,127 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-11 16:13:46.235000
+2025-11-11 19:15:49,127 - data_collection.fetch_recent_tracks - INFO - Found 18 new tracks to insert (out of 50 total)
+2025-11-11 19:15:49,127 - data_collection.fetch_recent_tracks - INFO - Inserting 18 new tracks...
+2025-11-11 19:15:49,255 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 18 tracks
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:14:43 | The Paths of the Dead - Howard Shore | 6.37min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:23:55 | The Siege of Gondor - Howard Shore | 9.02min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:32:43 | Shelob's Lair - Howard Shore | 8.89min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:35:13 | Merry's Simple Courage - Howard Shore | 2.14min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:36:43 | Grond - The Hammer of the Underworld - Howard Shore | 1.55min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:41:43 | Shelob the Great - Howard Shore | 5.22min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:45:43 | The Tomb of the Stewards - Howard Shore | 3.97min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:49:43 | The Battle of the Pelennor Fields - Howard Shore | 4.17min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:52:43 | The Pyre of Denethor - Howard Shore | 2.99min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:53:43 | The Mûmakil - Howard Shore | 0.96min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:56:13 | Dernhelm in Battle - Howard Shore | 2.10min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 16:57:13 | A Far Green Country - Howard Shore | 1.47min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:02:43 | Shieldmaiden of Rohan - Howard Shore | 5.12min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:04:43 | The Passing of Théoden - Howard Shore | 2.27min
+2025-11-11 19:15:49,256 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:07:43 | The Houses of Healing (feat. Liv Tyler) - Howard Shore | 2.97min
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:12:44 | The Tower of Cirith Ungol - Howard Shore | 4.69min
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:16:43 | The Last Debate (feat. Sissel Performing "Asëa Aranion") - Howard Shore | 4.36min
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-11 17:23:14 | The Land of Shadow - Howard Shore | 6.49min
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - New tracks found: 18 tracks
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 18 tracks
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-11 16:13:46
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-11 17:23:14 | The Land of Shadow - Howard Shore
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 74.7 minutes (1.2 hours)
+2025-11-11 19:15:49,257 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 18 new tracks for pipeline decision
+2025-11-11 19:15:49,370 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-11 19:15:49,371 - __main__ - INFO - ✅ Step 1 Complete: 18 new tracks found
+2025-11-11 19:15:49,371 - __main__ - INFO - 🎶 Found 18 new tracks. Continuing pipeline...
+2025-11-11 19:15:49,371 - __main__ - INFO - 
+2025-11-11 19:15:49,371 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-11 19:15:49,371 - __main__ - INFO - ------------------------------------------------------------
+2025-11-11 19:15:49,371 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-11 19:15:49,371 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-11 19:15:50,446 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-11 19:15:50,584 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-11 19:15:50,799 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO - ✅ Found 10921 existing songs and 3898 existing artists in master collections
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO - 🔍 Identified 5 new songs and 0 new artists
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO -   1. 'The Land of Shadow' by Howard Shore
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO -   2. 'The Last Debate (feat. Sissel Performing "Asëa Aranion")' by Howard Shore
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO -   3. 'The Tower of Cirith Ungol' by Howard Shore
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO -   4. 'The Houses of Healing (feat. Liv Tyler)' by Howard Shore
+2025-11-11 19:15:51,733 - data_collection.process_new_content - INFO -   5. 'The Passing of Théoden' by Howard Shore
+2025-11-11 19:15:51,734 - data_collection.process_new_content - INFO - 🎵 Processing 5 new songs...
+2025-11-11 19:15:52,118 - data_collection.process_new_content - INFO -   ✅ 1/5: 'The Land of Shadow' by Howard Shore
+2025-11-11 19:15:52,119 - data_collection.process_new_content - INFO -   ✅ 2/5: 'The Last Debate (feat. Sissel Performing "Asëa Aranion")' by Howard Shore
+2025-11-11 19:15:52,119 - data_collection.process_new_content - INFO -   ✅ 3/5: 'The Tower of Cirith Ungol' by Howard Shore
+2025-11-11 19:15:52,119 - data_collection.process_new_content - INFO -   ✅ 4/5: 'The Houses of Healing (feat. Liv Tyler)' by Howard Shore
+2025-11-11 19:15:52,119 - data_collection.process_new_content - INFO -   ✅ 5/5: 'The Passing of Théoden' by Howard Shore
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - ✅ Inserted 5 new songs into songs_master
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - No new artists to process
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - ============================================================
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - ============================================================
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - New songs found: 5
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - New artists found: 0
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - Songs inserted: 5
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-11-11 19:15:52,234 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-11-11 19:15:52,341 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-11 19:15:52,342 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-11 19:15:52,342 - __main__ - INFO - 
+2025-11-11 19:15:52,342 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-11 19:15:52,342 - __main__ - INFO - ------------------------------------------------------------
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-11 19:15:52,342 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-11 19:15:53,516 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-11 19:15:53,516 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO - ✅ Found 5 unprocessed songs
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 5 songs...
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO - [1/5] Processing: 'The Land of Shadow' by Howard Shore
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-11-11 19:15:53,640 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-11-11 19:15:53,761 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-11 19:15:53,761 - enrichment.enrich_with_lyrics - INFO - [2/5] Processing: 'The Last Debate (feat. Sissel Performing "Asëa Aranion")' by Howard Shore
+2025-11-11 19:15:53,761 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-11-11 19:15:53,761 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-11-11 19:15:53,761 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-11-11 19:15:53,882 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-11 19:15:53,882 - enrichment.enrich_with_lyrics - INFO - [3/5] Processing: 'The Tower of Cirith Ungol' by Howard Shore
+2025-11-11 19:15:53,882 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-11-11 19:15:53,882 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-11-11 19:15:53,882 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-11-11 19:15:54,003 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-11 19:15:54,003 - enrichment.enrich_with_lyrics - INFO - [4/5] Processing: 'The Houses of Healing (feat. Liv Tyler)' by Howard Shore
+2025-11-11 19:15:54,003 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-11-11 19:15:54,003 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-11-11 19:15:54,003 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-11-11 19:15:54,123 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-11 19:15:54,123 - enrichment.enrich_with_lyrics - INFO - [5/5] Processing: 'The Passing of Théoden' by Howard Shore
+2025-11-11 19:15:54,123 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-11-11 19:15:54,123 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-11-11 19:15:54,124 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-11-11 19:15:54,245 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-11 19:15:54,245 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-11-11 19:15:54,487 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-11-11 19:15:54,487 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-11 19:15:54,487 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - Songs processed: 5/5
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 5
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 0
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-11-11 19:15:54,488 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-11-11 19:15:54,606 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-11 19:15:54,606 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-11 19:15:54,606 - __main__ - INFO - 
+2025-11-11 19:15:54,607 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-11 19:15:54,607 - __main__ - INFO - ------------------------------------------------------------
+2025-11-11 19:15:54,607 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-11 19:15:54,607 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-11 19:15:55,786 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-11 19:15:55,786 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-11 19:15:55,786 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-11 19:15:56,045 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-11 19:15:56,045 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-11 19:15:57,974 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-11 19:15:58,262 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-11 19:15:58,388 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-11 19:15:58,516 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-11 19:15:58,778 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-11 19:15:59,925 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-11 19:16:01,173 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-11 19:16:01,174 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-11 19:16:26,674 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-11 19:16:26,675 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-11 19:16:27,026 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-11 19:16:27,279 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-11 19:16:27,411 - enrichment.validate_data - INFO - ============================================================
+2025-11-11 19:16:27,411 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-11 19:16:27,411 - enrichment.validate_data - INFO - ============================================================
+2025-11-11 19:16:27,411 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-11 19:16:27,411 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-11 19:16:27,412 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-11 19:16:27,412 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-11 19:16:27,412 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-11 19:16:27,412 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-11 19:16:27,537 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-11 19:16:27,537 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-11 19:16:27,537 - __main__ - INFO - 
+2025-11-11 19:16:27,537 - __main__ - INFO - ================================================================================
+2025-11-11 19:16:27,538 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-11 19:16:27,538 - __main__ - INFO - ================================================================================
+2025-11-11 19:16:27,538 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-11 19:16:27,538 - __main__ - INFO -    • New tracks processed: 18
+2025-11-11 19:16:27,538 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-11 19:16:27,538 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-11 19:16:27,538 - __main__ - INFO -    • Data validation completed
+2025-11-11 19:16:27,538 - __main__ - INFO - 
+2025-11-11 19:16:27,538 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-11 19:16:27,538 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-11 19:16:27,538 - __main__ - INFO - ================================================================================
+2025-11-11 19:16:27,538 - __main__ - INFO - 🔄 Flushing logs to file...
