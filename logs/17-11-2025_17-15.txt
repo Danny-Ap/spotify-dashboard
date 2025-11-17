@@ -1,0 +1,215 @@
+2025-11-17 17:15:18,594 - __main__ - INFO - 📝 Logging initialized - writing to: logs/17-11-2025_17-15.txt
+2025-11-17 17:15:18,594 - __main__ - INFO - ================================================================================
+2025-11-17 17:15:18,594 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-17 17:15:18,594 - __main__ - INFO - ================================================================================
+2025-11-17 17:15:18,595 - __main__ - INFO - Execution Time: 2025-11-17 17:15:18
+2025-11-17 17:15:18,595 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-17 17:15:18,595 - __main__ - INFO - ================================================================================
+2025-11-17 17:15:18,595 - __main__ - INFO - 
+2025-11-17 17:15:18,595 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-17 17:15:18,595 - __main__ - INFO - ------------------------------------------------------------
+2025-11-17 17:15:18,595 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-17 17:15:18,595 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-17 17:15:20,130 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-17 17:15:20,130 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-17 17:15:20,294 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-17 17:15:20,295 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-17 17:15:20,483 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-17 17:15:20,484 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-17 17:15:20,760 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-17 17:15:20,761 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-17 17:15:20,762 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-17 17:15:20,906 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-11 19:24:09.760000
+2025-11-17 17:15:20,907 - data_collection.fetch_recent_tracks - INFO - Found 50 new tracks to insert (out of 50 total)
+2025-11-17 17:15:20,907 - data_collection.fetch_recent_tracks - INFO - Inserting 50 new tracks...
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 50 tracks
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-13 18:41:28 | Sexy And I Know It - MITCH DB | 2.85min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-13 18:45:11 | Time of Our Lives - Pitbull | 3.82min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-13 19:54:51 | Samba de Janeiro - Bellini | 2.81min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:41:08 | This Is Berk - John Powell | 4.17min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:43:09 | Dragon Battle - John Powell | 1.92min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:47:08 | The Downed Dragon - John Powell | 4.28min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:50:38 | Dragon Training - John Powell | 3.18min
+2025-11-17 17:15:21,298 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:51:38 | Wounded - John Powell | 1.43min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:54:08 | The Dragon Book - John Powell | 2.38min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 07:56:09 | Focus, Hiccup! - John Powell | 2.09min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:00:38 | Forbidden Friendship - John Powell | 4.18min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:03:08 | New Tail - John Powell | 2.80min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:31:29 | See You Tomorrow - John Powell | 3.89min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:32:27 | See You Tomorrow - John Powell | 3.89min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:34:56 | Test Drive - From How To Train Your Dragon Music From The Motion Picture - John Powell | 2.61min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:35:56 | Not So Fireproof - John Powell | 1.21min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:36:56 | This Time For Sure - John Powell | 0.73min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:37:28 | Astrid Goes For A Spin - John Powell | 0.72min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:39:26 | Romantic Flight - From How To Train Your Dragon Music From The Motion Picture - John Powell | 1.94min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:41:57 | Dragon's Den - John Powell | 2.49min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:42:56 | The Cove - John Powell | 1.18min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:47:26 | The Kill Ring - John Powell | 4.49min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:52:56 | Ready The Ships - John Powell | 5.24min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 08:59:26 | Battling The Green Death - John Powell | 6.31min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:02:56 | Counter Attack - John Powell | 3.09min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:04:57 | Where's Hiccup? - John Powell | 2.73min
+2025-11-17 17:15:21,299 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:07:56 | Coming Back Around - John Powell | 2.85min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:12:26 | Sticks & Stones - Jónsi | 4.30min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:14:26 | The Vikings Have Their Tea - John Powell | 2.06min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:20:56 | The Hidden World Suite [Bonus Track] - John Powell | 6.67min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:22:56 | Fireworks - Nicholas Hooper | 1.76min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:25:26 | The Shire - Howard Shore | 2.49min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:29:56 | One Last Shot - Klaus Badelt | 4.77min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:31:56 | The Quidditch World Cup - Patrick Doyle | 1.86min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:35:26 | How To Train Your Dragon Epic Theme (Just Free) - Lucas Ricciotti | 3.66min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:38:26 | Furies in Love - John Powell | 3.06min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:41:56 | Journey To The Cave - Nicholas Hooper | 3.14min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:44:26 | Concerning Hobbits - Howard Shore | 2.92min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:48:57 | Barbossa Is Hungry - Klaus Badelt | 4.10min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:50:27 | Merida's Home - From "Brave"/Score - Patrick Doyle | 1.54min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 09:51:59 | Fairytale - Harry Gregson-Williams | 1.44min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:00:26 | Armada Battle - John Powell | 8.67min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:02:56 | Dumbledore's Army - Nicholas Hooper | 2.67min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:06:26 | Rivendell - Howard Shore | 3.43min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:08:56 | The Black Pearl - Klaus Badelt | 2.27min
+2025-11-17 17:15:21,300 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:09:56 | The Dying Gull - Geoff Zanelli | 1.02min
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:11:26 | Ride The Dragon - Harry Gregson-Williams | 1.61min
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:15:56 | Legend Has It / Cliffside Playtime - John Powell | 4.36min
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:18:56 | Harry & Hermione - Nicholas Hooper | 2.88min
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-17 10:23:57 | Old Friends - Extended Version - Howard Shore | 5.02min
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - New tracks found: 50 tracks
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 50 tracks
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-11 19:24:09
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-17 10:23:57 | Old Friends - Extended Version - Howard Shore
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 155.0 minutes (2.6 hours)
+2025-11-17 17:15:21,301 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 50 new tracks for pipeline decision
+2025-11-17 17:15:21,442 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-17 17:15:21,442 - __main__ - INFO - ✅ Step 1 Complete: 50 new tracks found
+2025-11-17 17:15:21,442 - __main__ - INFO - 🎶 Found 50 new tracks. Continuing pipeline...
+2025-11-17 17:15:21,442 - __main__ - INFO - 
+2025-11-17 17:15:21,442 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-17 17:15:21,443 - __main__ - INFO - ------------------------------------------------------------
+2025-11-17 17:15:21,443 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-17 17:15:21,443 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-17 17:15:22,833 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-17 17:15:22,928 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-17 17:15:23,212 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO - ✅ Found 10927 existing songs and 3898 existing artists in master collections
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO - 🔍 Identified 3 new songs and 2 new artists
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO -   1. 'Harry & Hermione' by Nicholas Hooper
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO -   2. 'How To Train Your Dragon Epic Theme (Just Free)' by Lucas Ricciotti
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO -   3. 'Sexy And I Know It' by MITCH DB
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO -   1. Lucas Ricciotti
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO -   2. MITCH DB
+2025-11-17 17:15:24,425 - data_collection.process_new_content - INFO - 🎵 Processing 3 new songs...
+2025-11-17 17:15:24,775 - data_collection.process_new_content - INFO -   ✅ 1/3: 'Harry & Hermione' by Nicholas Hooper
+2025-11-17 17:15:24,776 - data_collection.process_new_content - INFO -   ✅ 2/3: 'How To Train Your Dragon Epic Theme (Just Free)' by Lucas Ricciotti
+2025-11-17 17:15:24,776 - data_collection.process_new_content - INFO -   ✅ 3/3: 'Sexy And I Know It' by MITCH DB
+2025-11-17 17:15:24,993 - data_collection.process_new_content - INFO - ✅ Inserted 3 new songs into songs_master
+2025-11-17 17:15:24,993 - data_collection.process_new_content - INFO - 🎤 Processing 2 new artists...
+2025-11-17 17:15:25,876 - data_collection.process_new_content - INFO -   ✅ 1/2: Lucas Ricciotti
+2025-11-17 17:15:25,877 - data_collection.process_new_content - INFO -   ✅ 2/2: MITCH DB
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - ✅ Inserted 2 new artists into artists_master
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - ============================================================
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - ============================================================
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-11-17 17:15:26,029 - data_collection.process_new_content - INFO - New songs found: 3
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - New artists found: 2
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - Songs inserted: 3
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - Artists inserted: 2
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-11-17 17:15:26,030 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-11-17 17:15:26,170 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-17 17:15:26,171 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-17 17:15:26,171 - __main__ - INFO - 
+2025-11-17 17:15:26,171 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-17 17:15:26,171 - __main__ - INFO - ------------------------------------------------------------
+2025-11-17 17:15:26,171 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-17 17:15:26,172 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-17 17:15:27,577 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-17 17:15:27,577 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-17 17:15:27,729 - enrichment.enrich_with_lyrics - INFO - ✅ Found 3 unprocessed songs
+2025-11-17 17:15:27,729 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 3 songs...
+2025-11-17 17:15:27,729 - enrichment.enrich_with_lyrics - INFO - [1/3] Processing: 'Harry & Hermione' by Nicholas Hooper
+2025-11-17 17:15:28,488 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-17 17:15:28,636 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-17 17:15:28,785 - enrichment.enrich_with_lyrics - INFO - [2/3] Processing: 'How To Train Your Dragon Epic Theme (Just Free)' by Lucas Ricciotti
+2025-11-17 17:15:29,165 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-17 17:15:29,313 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-17 17:15:29,464 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Lucas Ricciotti → English
+2025-11-17 17:15:29,465 - enrichment.enrich_with_lyrics - INFO - [3/3] Processing: 'Sexy And I Know It' by MITCH DB
+2025-11-17 17:15:29,838 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-17 17:15:29,986 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-17 17:15:30,146 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: MITCH DB → English
+2025-11-17 17:15:30,146 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-11-17 17:15:30,448 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - Songs processed: 3/3
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 3
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-11-17 17:15:30,449 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-11-17 17:15:30,595 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-17 17:15:30,595 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-17 17:15:30,595 - __main__ - INFO - 
+2025-11-17 17:15:30,595 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-17 17:15:30,595 - __main__ - INFO - ------------------------------------------------------------
+2025-11-17 17:15:30,595 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-17 17:15:30,595 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-17 17:15:31,952 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-17 17:15:31,952 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-17 17:15:31,952 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-17 17:15:32,243 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-17 17:15:32,243 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-17 17:15:34,306 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-17 17:15:34,634 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-17 17:15:34,778 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-17 17:15:34,921 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-17 17:15:35,227 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-17 17:15:36,522 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-17 17:15:37,939 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-17 17:15:37,940 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-17 17:16:06,502 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-17 17:16:06,502 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-17 17:16:06,913 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-17 17:16:07,198 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO - ============================================================
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO - ============================================================
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-17 17:16:07,348 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-17 17:16:07,348 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-17 17:16:07,489 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-17 17:16:07,489 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-17 17:16:07,489 - __main__ - INFO - 
+2025-11-17 17:16:07,489 - __main__ - INFO - ================================================================================
+2025-11-17 17:16:07,489 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-17 17:16:07,489 - __main__ - INFO - ================================================================================
+2025-11-17 17:16:07,489 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-17 17:16:07,489 - __main__ - INFO -    • New tracks processed: 50
+2025-11-17 17:16:07,489 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-17 17:16:07,489 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-17 17:16:07,489 - __main__ - INFO -    • Data validation completed
+2025-11-17 17:16:07,489 - __main__ - INFO - 
+2025-11-17 17:16:07,489 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-17 17:16:07,490 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-17 17:16:07,490 - __main__ - INFO - ================================================================================
+2025-11-17 17:16:07,490 - __main__ - INFO - 🔄 Flushing logs to file...
