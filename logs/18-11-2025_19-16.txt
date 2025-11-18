@@ -1,0 +1,178 @@
+2025-11-18 19:16:50,587 - __main__ - INFO - 📝 Logging initialized - writing to: logs/18-11-2025_19-16.txt
+2025-11-18 19:16:50,587 - __main__ - INFO - ================================================================================
+2025-11-18 19:16:50,587 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-18 19:16:50,587 - __main__ - INFO - ================================================================================
+2025-11-18 19:16:50,588 - __main__ - INFO - Execution Time: 2025-11-18 19:16:50
+2025-11-18 19:16:50,588 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-18 19:16:50,588 - __main__ - INFO - ================================================================================
+2025-11-18 19:16:50,588 - __main__ - INFO - 
+2025-11-18 19:16:50,588 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-18 19:16:50,588 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 19:16:50,588 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-18 19:16:50,588 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-18 19:16:52,009 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 19:16:52,010 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-18 19:16:52,125 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-18 19:16:52,126 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-18 19:16:52,296 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-18 19:16:52,297 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-18 19:16:52,559 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-18 19:16:52,560 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-18 19:16:52,561 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-18 19:16:52,650 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-18 16:05:24.095000
+2025-11-18 19:16:52,650 - data_collection.fetch_recent_tracks - INFO - Found 16 new tracks to insert (out of 50 total)
+2025-11-18 19:16:52,650 - data_collection.fetch_recent_tracks - INFO - Inserting 16 new tracks...
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 16 tracks
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:15:43 | The Battle - Harry Gregson-Williams | 7.14min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:20:31 | The Battle - Harry Gregson-Williams | 7.14min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:25:56 | Only The Beginning of The Adventure - Harry Gregson-Williams | 5.54min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:30:32 | Can't Take It In - Soundtrack - Imogen Heap | 4.72min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:35:04 | Winter Light - Tim Finn | 4.18min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:36:27 | Where - Lisbeth Scott | 1.91min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:40:26 | Destiny - Harry Gregson-Williams | 3.64min
+2025-11-18 19:16:52,754 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:42:32 | The Friends - Nicholas Hooper | 2.01min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:45:57 | Harry in Winter - Patrick Doyle | 2.91min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:47:08 | Storybook - Geoff Zanelli | 1.38min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:49:31 | The Adventure Begins - Howard Shore | 2.10min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:50:56 | Walk The Plank - Klaus Badelt | 1.98min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:54:56 | The chronicles of Narnia - Harry Gregson-Williams | 4.18min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 17:57:56 | The Ministry of Magic - Nicholas Hooper | 2.78min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 18:03:25 | Once There Were Dragons - John Powell | 5.75min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 18:05:56 | Evelyn Goes It Alone - Geoff Zanelli | 2.56min
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - New tracks found: 16 tracks
+2025-11-18 19:16:52,755 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 16 tracks
+2025-11-18 19:16:52,756 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-18 16:05:24
+2025-11-18 19:16:52,756 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-18 18:05:56 | Evelyn Goes It Alone - Geoff Zanelli
+2025-11-18 19:16:52,756 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 59.9 minutes (1.0 hours)
+2025-11-18 19:16:52,756 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 16 new tracks for pipeline decision
+2025-11-18 19:16:52,842 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-18 19:16:52,843 - __main__ - INFO - ✅ Step 1 Complete: 16 new tracks found
+2025-11-18 19:16:52,843 - __main__ - INFO - 🎶 Found 16 new tracks. Continuing pipeline...
+2025-11-18 19:16:52,843 - __main__ - INFO - 
+2025-11-18 19:16:52,843 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-18 19:16:52,843 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 19:16:52,843 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-18 19:16:52,843 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-18 19:16:53,720 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 19:16:53,780 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-18 19:16:53,953 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-18 19:16:54,718 - data_collection.process_new_content - INFO - ✅ Found 10930 existing songs and 3900 existing artists in master collections
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO - 🔍 Identified 4 new songs and 0 new artists
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO -   1. 'Evelyn Goes It Alone' by Geoff Zanelli
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO -   2. 'The chronicles of Narnia' by Harry Gregson-Williams
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO -   3. 'The Friends' by Nicholas Hooper
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO -   4. 'Destiny' by Harry Gregson-Williams
+2025-11-18 19:16:54,719 - data_collection.process_new_content - INFO - 🎵 Processing 4 new songs...
+2025-11-18 19:16:55,055 - data_collection.process_new_content - INFO -   ✅ 1/4: 'Evelyn Goes It Alone' by Geoff Zanelli
+2025-11-18 19:16:55,056 - data_collection.process_new_content - INFO -   ✅ 2/4: 'The chronicles of Narnia' by Harry Gregson-Williams
+2025-11-18 19:16:55,056 - data_collection.process_new_content - INFO -   ✅ 3/4: 'The Friends' by Nicholas Hooper
+2025-11-18 19:16:55,056 - data_collection.process_new_content - INFO -   ✅ 4/4: 'Destiny' by Harry Gregson-Williams
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - ✅ Inserted 4 new songs into songs_master
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - No new artists to process
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - ============================================================
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - ============================================================
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - New songs found: 4
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - New artists found: 0
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - Songs inserted: 4
+2025-11-18 19:16:55,158 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-11-18 19:16:55,159 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-11-18 19:16:55,159 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-11-18 19:16:55,159 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-11-18 19:16:55,244 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-18 19:16:55,246 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-18 19:16:55,246 - __main__ - INFO - 
+2025-11-18 19:16:55,246 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-18 19:16:55,246 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-18 19:16:55,246 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 19:16:55,247 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-18 19:16:56,254 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 19:16:56,254 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-18 19:16:56,347 - enrichment.enrich_with_lyrics - INFO - ✅ Found 4 unprocessed songs
+2025-11-18 19:16:56,347 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 4 songs...
+2025-11-18 19:16:56,348 - enrichment.enrich_with_lyrics - INFO - [1/4] Processing: 'Evelyn Goes It Alone' by Geoff Zanelli
+2025-11-18 19:16:57,046 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-18 19:16:57,137 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-18 19:16:57,227 - enrichment.enrich_with_lyrics - INFO - [2/4] Processing: 'The chronicles of Narnia' by Harry Gregson-Williams
+2025-11-18 19:16:57,609 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-18 19:16:57,699 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-18 19:16:57,792 - enrichment.enrich_with_lyrics - INFO - [3/4] Processing: 'The Friends' by Nicholas Hooper
+2025-11-18 19:16:58,142 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-18 19:16:58,232 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-18 19:16:58,324 - enrichment.enrich_with_lyrics - INFO - [4/4] Processing: 'Destiny' by Harry Gregson-Williams
+2025-11-18 19:16:58,692 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Norwegian (method: title)
+2025-11-18 19:16:58,783 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-18 19:16:58,783 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - Songs processed: 4/4
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 3
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-11-18 19:16:58,964 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-11-18 19:16:59,052 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-18 19:16:59,052 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-18 19:16:59,052 - __main__ - INFO - 
+2025-11-18 19:16:59,052 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-18 19:16:59,052 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 19:16:59,052 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-18 19:16:59,052 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-18 19:16:59,912 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 19:16:59,913 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-18 19:16:59,913 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-18 19:17:00,091 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-18 19:17:00,091 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-18 19:17:01,462 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-18 19:17:01,649 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-18 19:17:01,736 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-18 19:17:01,825 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-18 19:17:02,009 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-18 19:17:02,804 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-18 19:17:03,710 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-18 19:17:03,710 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-18 19:17:21,272 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-18 19:17:21,273 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-18 19:17:21,616 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-18 19:17:21,791 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-18 19:17:21,884 - enrichment.validate_data - INFO - ============================================================
+2025-11-18 19:17:21,884 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-18 19:17:21,884 - enrichment.validate_data - INFO - ============================================================
+2025-11-18 19:17:21,885 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-18 19:17:21,885 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-18 19:17:21,885 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-18 19:17:21,885 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-18 19:17:21,885 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-18 19:17:21,885 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-18 19:17:21,971 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-18 19:17:21,971 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-18 19:17:21,971 - __main__ - INFO - 
+2025-11-18 19:17:21,971 - __main__ - INFO - ================================================================================
+2025-11-18 19:17:21,971 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-18 19:17:21,971 - __main__ - INFO - ================================================================================
+2025-11-18 19:17:21,972 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-18 19:17:21,972 - __main__ - INFO -    • New tracks processed: 16
+2025-11-18 19:17:21,972 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-18 19:17:21,972 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-18 19:17:21,972 - __main__ - INFO -    • Data validation completed
+2025-11-18 19:17:21,972 - __main__ - INFO - 
+2025-11-18 19:17:21,972 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-18 19:17:21,972 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-18 19:17:21,972 - __main__ - INFO - ================================================================================
+2025-11-18 19:17:21,972 - __main__ - INFO - 🔄 Flushing logs to file...
