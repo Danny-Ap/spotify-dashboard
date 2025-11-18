@@ -1,0 +1,150 @@
+2025-11-18 21:13:09,365 - __main__ - INFO - 📝 Logging initialized - writing to: logs/18-11-2025_21-13.txt
+2025-11-18 21:13:09,365 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:09,365 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-18 21:13:09,365 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:09,365 - __main__ - INFO - Execution Time: 2025-11-18 21:13:09
+2025-11-18 21:13:09,365 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-18 21:13:09,365 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:09,365 - __main__ - INFO - 
+2025-11-18 21:13:09,365 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-18 21:13:09,365 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 21:13:09,365 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-18 21:13:09,365 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-18 21:13:10,616 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 21:13:10,616 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-18 21:13:10,681 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-18 21:13:10,682 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-18 21:13:10,776 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-18 21:13:10,778 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-18 21:13:11,118 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-18 21:13:11,119 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-18 21:13:11,120 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-18 21:13:11,230 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-18 18:05:56.056000
+2025-11-18 21:13:11,230 - data_collection.fetch_recent_tracks - INFO - Found 3 new tracks to insert (out of 50 total)
+2025-11-18 21:13:11,230 - data_collection.fetch_recent_tracks - INFO - Inserting 3 new tracks...
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 3 tracks
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 18:16:56 | The King of the Golden Hall - Howard Shore | 3.82min
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 18:19:26 | The Medallion Calls - Klaus Badelt | 1.88min
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 18:29:34 | The Book of Peace - Harry Gregson-Williams | 1.65min
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - New tracks found: 3 tracks
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 3 tracks
+2025-11-18 21:13:11,476 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-18 18:05:56
+2025-11-18 21:13:11,477 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-18 18:29:34 | The Book of Peace - Harry Gregson-Williams
+2025-11-18 21:13:11,477 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 7.4 minutes (0.1 hours)
+2025-11-18 21:13:11,477 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 3 new tracks for pipeline decision
+2025-11-18 21:13:11,564 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-18 21:13:11,565 - __main__ - INFO - ✅ Step 1 Complete: 3 new tracks found
+2025-11-18 21:13:11,565 - __main__ - INFO - 🎶 Found 3 new tracks. Continuing pipeline...
+2025-11-18 21:13:11,565 - __main__ - INFO - 
+2025-11-18 21:13:11,565 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-18 21:13:11,565 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 21:13:11,566 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-18 21:13:11,566 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-18 21:13:12,445 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 21:13:12,509 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-18 21:13:12,680 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-18 21:13:13,498 - data_collection.process_new_content - INFO - ✅ Found 10934 existing songs and 3900 existing artists in master collections
+2025-11-18 21:13:13,499 - data_collection.process_new_content - INFO - 🔍 Identified 1 new songs and 0 new artists
+2025-11-18 21:13:13,499 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-11-18 21:13:13,499 - data_collection.process_new_content - INFO -   1. 'The Book of Peace' by Harry Gregson-Williams
+2025-11-18 21:13:13,499 - data_collection.process_new_content - INFO - 🎵 Processing 1 new songs...
+2025-11-18 21:13:13,862 - data_collection.process_new_content - INFO -   ✅ 1/1: 'The Book of Peace' by Harry Gregson-Williams
+2025-11-18 21:13:14,024 - data_collection.process_new_content - INFO - ✅ Inserted 1 new songs into songs_master
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - No new artists to process
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - ============================================================
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - ============================================================
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - New songs found: 1
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - New artists found: 0
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - Songs inserted: 1
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-11-18 21:13:14,025 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-11-18 21:13:14,110 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-18 21:13:14,111 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-18 21:13:14,111 - __main__ - INFO - 
+2025-11-18 21:13:14,111 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-18 21:13:14,111 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 21:13:14,111 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 21:13:14,111 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 21:13:14,112 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-18 21:13:14,987 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 21:13:14,987 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-18 21:13:15,087 - enrichment.enrich_with_lyrics - INFO - ✅ Found 1 unprocessed songs
+2025-11-18 21:13:15,087 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 1 songs...
+2025-11-18 21:13:15,087 - enrichment.enrich_with_lyrics - INFO - [1/1] Processing: 'The Book of Peace' by Harry Gregson-Williams
+2025-11-18 21:13:15,742 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-11-18 21:13:15,833 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-18 21:13:15,929 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - Songs processed: 1/1
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-11-18 21:13:16,113 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-11-18 21:13:16,201 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-18 21:13:16,201 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-18 21:13:16,201 - __main__ - INFO - 
+2025-11-18 21:13:16,201 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-18 21:13:16,201 - __main__ - INFO - ------------------------------------------------------------
+2025-11-18 21:13:16,201 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-18 21:13:16,201 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-18 21:13:17,138 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-18 21:13:17,138 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-18 21:13:17,138 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-18 21:13:17,322 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-18 21:13:17,322 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-18 21:13:18,729 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-18 21:13:18,919 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-18 21:13:19,007 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-18 21:13:19,098 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-18 21:13:19,288 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-18 21:13:20,092 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-18 21:13:21,005 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-18 21:13:21,006 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-18 21:13:39,003 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-18 21:13:39,003 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-18 21:13:39,288 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-18 21:13:39,466 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO - ============================================================
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO - ============================================================
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-18 21:13:39,560 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-18 21:13:39,560 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-18 21:13:39,561 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-18 21:13:39,648 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-18 21:13:39,648 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-18 21:13:39,648 - __main__ - INFO - 
+2025-11-18 21:13:39,648 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:39,649 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-18 21:13:39,649 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:39,649 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-18 21:13:39,649 - __main__ - INFO -    • New tracks processed: 3
+2025-11-18 21:13:39,649 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-18 21:13:39,649 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-18 21:13:39,649 - __main__ - INFO -    • Data validation completed
+2025-11-18 21:13:39,649 - __main__ - INFO - 
+2025-11-18 21:13:39,649 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-18 21:13:39,649 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-18 21:13:39,649 - __main__ - INFO - ================================================================================
+2025-11-18 21:13:39,649 - __main__ - INFO - 🔄 Flushing logs to file...
