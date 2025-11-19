@@ -1,0 +1,153 @@
+2025-11-19 01:52:39,917 - __main__ - INFO - 📝 Logging initialized - writing to: logs/19-11-2025_01-52.txt
+2025-11-19 01:52:39,918 - __main__ - INFO - ================================================================================
+2025-11-19 01:52:39,918 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-19 01:52:39,918 - __main__ - INFO - ================================================================================
+2025-11-19 01:52:39,918 - __main__ - INFO - Execution Time: 2025-11-19 01:52:39
+2025-11-19 01:52:39,918 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-19 01:52:39,918 - __main__ - INFO - ================================================================================
+2025-11-19 01:52:39,918 - __main__ - INFO - 
+2025-11-19 01:52:39,918 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-19 01:52:39,918 - __main__ - INFO - ------------------------------------------------------------
+2025-11-19 01:52:39,918 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-19 01:52:39,918 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-19 01:52:41,585 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-19 01:52:41,585 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-19 01:52:41,676 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-19 01:52:41,677 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-19 01:52:41,809 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-19 01:52:41,810 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-19 01:52:42,117 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-19 01:52:42,119 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-19 01:52:42,120 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-19 01:52:42,281 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-18 18:29:34.975000
+2025-11-19 01:52:42,281 - data_collection.fetch_recent_tracks - INFO - Found 1 new tracks to insert (out of 50 total)
+2025-11-19 01:52:42,281 - data_collection.fetch_recent_tracks - INFO - Inserting 1 new tracks...
+2025-11-19 01:52:42,457 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 1 tracks
+2025-11-19 01:52:42,457 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-18 23:12:11 | LET'S GET FKD UP - Alok | 2.02min
+2025-11-19 01:52:42,457 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - New tracks found: 1 tracks
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 1 tracks
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-18 18:29:34
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-18 23:12:11 | LET'S GET FKD UP - Alok
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 2.0 minutes (0.0 hours)
+2025-11-19 01:52:42,458 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 1 new tracks for pipeline decision
+2025-11-19 01:52:42,619 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-19 01:52:42,619 - __main__ - INFO - ✅ Step 1 Complete: 1 new tracks found
+2025-11-19 01:52:42,619 - __main__ - INFO - 🎶 Found 1 new tracks. Continuing pipeline...
+2025-11-19 01:52:42,619 - __main__ - INFO - 
+2025-11-19 01:52:42,619 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-19 01:52:42,620 - __main__ - INFO - ------------------------------------------------------------
+2025-11-19 01:52:42,620 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-19 01:52:42,620 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-19 01:52:44,258 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-19 01:52:44,366 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-19 01:52:44,689 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-19 01:52:46,071 - data_collection.process_new_content - INFO - ✅ Found 10935 existing songs and 3900 existing artists in master collections
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO - 🔍 Identified 1 new songs and 1 new artists
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO -   1. 'LET'S GET FKD UP' by Alok
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO -   1. Alok
+2025-11-19 01:52:46,072 - data_collection.process_new_content - INFO - 🎵 Processing 1 new songs...
+2025-11-19 01:52:46,628 - data_collection.process_new_content - INFO -   ✅ 1/1: 'LET'S GET FKD UP' by Alok
+2025-11-19 01:52:46,799 - data_collection.process_new_content - INFO - ✅ Inserted 1 new songs into songs_master
+2025-11-19 01:52:46,799 - data_collection.process_new_content - INFO - 🎤 Processing 1 new artists...
+2025-11-19 01:52:47,582 - data_collection.process_new_content - INFO -   ✅ 1/1: Alok
+2025-11-19 01:52:47,749 - data_collection.process_new_content - INFO - ✅ Inserted 1 new artists into artists_master
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - ============================================================
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - ============================================================
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - New songs found: 1
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - New artists found: 1
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - Songs inserted: 1
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - Artists inserted: 1
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-11-19 01:52:47,750 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-11-19 01:52:47,911 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-19 01:52:47,912 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-19 01:52:47,912 - __main__ - INFO - 
+2025-11-19 01:52:47,912 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-19 01:52:47,912 - __main__ - INFO - ------------------------------------------------------------
+2025-11-19 01:52:47,912 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-19 01:52:47,912 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-19 01:52:47,912 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-19 01:52:47,913 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-19 01:52:47,913 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-19 01:52:47,913 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-19 01:52:47,913 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-19 01:52:47,913 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-19 01:52:49,439 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-19 01:52:49,439 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-19 01:52:49,605 - enrichment.enrich_with_lyrics - INFO - ✅ Found 1 unprocessed songs
+2025-11-19 01:52:49,605 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 1 songs...
+2025-11-19 01:52:49,605 - enrichment.enrich_with_lyrics - INFO - [1/1] Processing: 'LET'S GET FKD UP' by Alok
+2025-11-19 01:52:50,215 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: German (method: title)
+2025-11-19 01:52:50,379 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-11-19 01:52:50,546 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Alok → German
+2025-11-19 01:52:50,546 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - Songs processed: 1/1
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-11-19 01:52:50,873 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-11-19 01:52:51,034 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-19 01:52:51,034 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-19 01:52:51,034 - __main__ - INFO - 
+2025-11-19 01:52:51,034 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-19 01:52:51,035 - __main__ - INFO - ------------------------------------------------------------
+2025-11-19 01:52:51,035 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-19 01:52:51,035 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-19 01:52:52,566 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-19 01:52:52,567 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-19 01:52:52,567 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-19 01:52:52,893 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-19 01:52:52,893 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-19 01:52:55,194 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-19 01:52:55,530 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-19 01:52:55,690 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-19 01:52:55,853 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-19 01:52:56,186 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-19 01:52:57,647 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-19 01:52:59,248 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-19 01:52:59,249 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-19 01:53:31,666 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-19 01:53:31,666 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-19 01:53:32,075 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-19 01:53:32,399 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-19 01:53:32,567 - enrichment.validate_data - INFO - ============================================================
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO - ============================================================
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-19 01:53:32,568 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-19 01:53:32,568 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-19 01:53:32,728 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-19 01:53:32,728 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-19 01:53:32,728 - __main__ - INFO - 
+2025-11-19 01:53:32,728 - __main__ - INFO - ================================================================================
+2025-11-19 01:53:32,728 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-19 01:53:32,728 - __main__ - INFO - ================================================================================
+2025-11-19 01:53:32,728 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-19 01:53:32,728 - __main__ - INFO -    • New tracks processed: 1
+2025-11-19 01:53:32,728 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-19 01:53:32,728 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-19 01:53:32,728 - __main__ - INFO -    • Data validation completed
+2025-11-19 01:53:32,728 - __main__ - INFO - 
+2025-11-19 01:53:32,729 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-19 01:53:32,729 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-19 01:53:32,729 - __main__ - INFO - ================================================================================
+2025-11-19 01:53:32,729 - __main__ - INFO - 🔄 Flushing logs to file...
