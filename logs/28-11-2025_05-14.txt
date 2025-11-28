@@ -1,0 +1,119 @@
+2025-11-28 05:14:56,229 - __main__ - INFO - 📝 Logging initialized - writing to: logs/28-11-2025_05-14.txt
+2025-11-28 05:14:56,229 - __main__ - INFO - ================================================================================
+2025-11-28 05:14:56,229 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-11-28 05:14:56,229 - __main__ - INFO - ================================================================================
+2025-11-28 05:14:56,229 - __main__ - INFO - Execution Time: 2025-11-28 05:14:56
+2025-11-28 05:14:56,229 - __main__ - INFO - Pipeline Version: 2.0
+2025-11-28 05:14:56,229 - __main__ - INFO - ================================================================================
+2025-11-28 05:14:56,229 - __main__ - INFO - 
+2025-11-28 05:14:56,229 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-11-28 05:14:56,229 - __main__ - INFO - ------------------------------------------------------------
+2025-11-28 05:14:56,229 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-11-28 05:14:56,229 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-11-28 05:14:57,745 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-11-28 05:14:57,746 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-28 05:14:57,885 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-11-28 05:14:57,886 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-11-28 05:14:57,995 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-11-28 05:14:57,996 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-11-28 05:14:58,387 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-11-28 05:14:58,388 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-11-28 05:14:58,389 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-11-28 05:14:58,527 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-11-27 17:11:53.863000
+2025-11-28 05:14:58,527 - data_collection.fetch_recent_tracks - INFO - Found 1 new tracks to insert (out of 50 total)
+2025-11-28 05:14:58,527 - data_collection.fetch_recent_tracks - INFO - Inserting 1 new tracks...
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 1 tracks
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO -   + 2025-11-28 03:49:48 | As Long As He's Safe - John Powell | 6.47min
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-11-28 05:14:58,675 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - New tracks found: 1 tracks
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 1 tracks
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-11-27 17:11:53
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-11-28 03:49:48 | As Long As He's Safe - John Powell
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 6.5 minutes (0.1 hours)
+2025-11-28 05:14:58,676 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 1 new tracks for pipeline decision
+2025-11-28 05:14:58,811 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-11-28 05:14:58,812 - __main__ - INFO - ✅ Step 1 Complete: 1 new tracks found
+2025-11-28 05:14:58,812 - __main__ - INFO - 🎶 Found 1 new tracks. Continuing pipeline...
+2025-11-28 05:14:58,812 - __main__ - INFO - 
+2025-11-28 05:14:58,812 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-11-28 05:14:58,812 - __main__ - INFO - ------------------------------------------------------------
+2025-11-28 05:14:58,812 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-11-28 05:14:58,812 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-11-28 05:15:00,131 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-11-28 05:15:00,214 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-11-28 05:15:00,488 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-11-28 05:15:01,668 - data_collection.process_new_content - INFO - ✅ Found 10938 existing songs and 3901 existing artists in master collections
+2025-11-28 05:15:01,668 - data_collection.process_new_content - INFO - 🔍 Identified 0 new songs and 0 new artists
+2025-11-28 05:15:01,669 - data_collection.process_new_content - INFO - 🎉 No new songs or artists found in the last 50 streaming records!
+2025-11-28 05:15:01,669 - data_collection.process_new_content - INFO - All songs and artists are already in the master collections.
+2025-11-28 05:15:01,805 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-11-28 05:15:01,806 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-11-28 05:15:01,806 - __main__ - INFO - 
+2025-11-28 05:15:01,806 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-11-28 05:15:01,806 - __main__ - INFO - ------------------------------------------------------------
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-11-28 05:15:01,806 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-11-28 05:15:01,807 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-11-28 05:15:01,807 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-11-28 05:15:03,113 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-11-28 05:15:03,113 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-11-28 05:15:03,256 - enrichment.enrich_with_lyrics - INFO - ✅ Found 0 unprocessed songs
+2025-11-28 05:15:03,257 - enrichment.enrich_with_lyrics - INFO - 🎉 No unprocessed songs found! All songs have been processed.
+2025-11-28 05:15:03,392 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-11-28 05:15:03,392 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-11-28 05:15:03,393 - __main__ - INFO - 
+2025-11-28 05:15:03,393 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-11-28 05:15:03,393 - __main__ - INFO - ------------------------------------------------------------
+2025-11-28 05:15:03,393 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-11-28 05:15:03,393 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-11-28 05:15:04,696 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-11-28 05:15:04,696 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-11-28 05:15:04,696 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-11-28 05:15:04,982 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-11-28 05:15:04,982 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-11-28 05:15:06,995 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-11-28 05:15:07,287 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-11-28 05:15:07,435 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-11-28 05:15:07,573 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-11-28 05:15:07,859 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-11-28 05:15:09,124 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-11-28 05:15:10,459 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-11-28 05:15:10,459 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-11-28 05:15:38,165 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-11-28 05:15:38,166 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-11-28 05:15:38,552 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-11-28 05:15:38,827 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-11-28 05:15:38,971 - enrichment.validate_data - INFO - ============================================================
+2025-11-28 05:15:38,971 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-11-28 05:15:38,971 - enrichment.validate_data - INFO - ============================================================
+2025-11-28 05:15:38,971 - enrichment.validate_data - INFO - Total errors found: 3
+2025-11-28 05:15:38,971 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-11-28 05:15:38,971 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-11-28 05:15:38,972 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-11-28 05:15:38,972 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-11-28 05:15:38,972 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-11-28 05:15:39,108 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-11-28 05:15:39,108 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-11-28 05:15:39,108 - __main__ - INFO - 
+2025-11-28 05:15:39,108 - __main__ - INFO - ================================================================================
+2025-11-28 05:15:39,108 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-11-28 05:15:39,108 - __main__ - INFO - ================================================================================
+2025-11-28 05:15:39,108 - __main__ - INFO - 📊 Pipeline Summary:
+2025-11-28 05:15:39,108 - __main__ - INFO -    • New tracks processed: 1
+2025-11-28 05:15:39,108 - __main__ - INFO -    • New songs and artists added to master collections
+2025-11-28 05:15:39,109 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-11-28 05:15:39,109 - __main__ - INFO -    • Data validation completed
+2025-11-28 05:15:39,109 - __main__ - INFO - 
+2025-11-28 05:15:39,109 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-11-28 05:15:39,109 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-11-28 05:15:39,109 - __main__ - INFO - ================================================================================
+2025-11-28 05:15:39,109 - __main__ - INFO - 🔄 Flushing logs to file...
