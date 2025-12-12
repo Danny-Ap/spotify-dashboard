@@ -1,0 +1,188 @@
+2025-12-12 15:12:50,075 - __main__ - INFO - 📝 Logging initialized - writing to: logs/12-12-2025_15-12.txt
+2025-12-12 15:12:50,075 - __main__ - INFO - ================================================================================
+2025-12-12 15:12:50,075 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-12 15:12:50,075 - __main__ - INFO - ================================================================================
+2025-12-12 15:12:50,075 - __main__ - INFO - Execution Time: 2025-12-12 15:12:50
+2025-12-12 15:12:50,075 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-12 15:12:50,075 - __main__ - INFO - ================================================================================
+2025-12-12 15:12:50,075 - __main__ - INFO - 
+2025-12-12 15:12:50,075 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-12 15:12:50,075 - __main__ - INFO - ------------------------------------------------------------
+2025-12-12 15:12:50,075 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-12 15:12:50,075 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-12 15:12:51,707 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-12 15:12:51,707 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-12 15:12:51,824 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-12 15:12:51,825 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-12 15:12:51,972 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-12 15:12:51,974 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-12 15:12:52,366 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-12 15:12:52,367 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-12 15:12:52,368 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-12 15:12:52,522 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-04 17:31:22.755000
+2025-12-12 15:12:52,522 - data_collection.fetch_recent_tracks - INFO - Found 11 new tracks to insert (out of 50 total)
+2025-12-12 15:12:52,522 - data_collection.fetch_recent_tracks - INFO - Inserting 11 new tracks...
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 11 tracks
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:24:27 | Yiboneh Hamikdash - Shlomo Carlebach | 2.62min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:28:29 | Am M'kadshai - Shlomo Carlebach | 4.10min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:31:59 | Haneshama Lach - Shlomo Carlebach | 3.52min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:37:29 | Shalom/Uvenei Yerushalayim - Shlomo Carlebach | 5.31min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:40:59 | Bo'i V'shalom - Shlomo Carlebach | 3.67min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:46:06 | L'cha Dodi - Shlomo Carlebach | 5.03min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:49:29 | Asher Bara - Shlomo Carlebach | 3.39min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 13:56:10 | Ma Ashiv - Shlomo Carlebach | 5.34min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 14:01:39 | Tov L'hodot - Shlomo Carlebach | 5.73min
+2025-12-12 15:12:52,760 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 14:06:09 | Ki Va Moed - Shlomo Carlebach | 5.36min
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-12 14:07:59 | Shalom Aleichem 1 - Shlomo Carlebach | 2.04min
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - New tracks found: 11 tracks
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 11 tracks
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-04 17:31:22
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-12 14:07:59 | Shalom Aleichem 1 - Shlomo Carlebach
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 46.1 minutes (0.8 hours)
+2025-12-12 15:12:52,761 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 11 new tracks for pipeline decision
+2025-12-12 15:12:52,909 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-12 15:12:52,910 - __main__ - INFO - ✅ Step 1 Complete: 11 new tracks found
+2025-12-12 15:12:52,910 - __main__ - INFO - 🎶 Found 11 new tracks. Continuing pipeline...
+2025-12-12 15:12:52,910 - __main__ - INFO - 
+2025-12-12 15:12:52,910 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-12 15:12:52,910 - __main__ - INFO - ------------------------------------------------------------
+2025-12-12 15:12:52,910 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-12 15:12:52,910 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-12 15:12:54,387 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-12 15:12:54,487 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-12 15:12:54,797 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO - ✅ Found 10942 existing songs and 3902 existing artists in master collections
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO - 🔍 Identified 7 new songs and 0 new artists
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   1. 'Shalom Aleichem 1' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   2. 'Ki Va Moed' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   3. 'Tov L'hodot' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   4. 'Ma Ashiv' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   5. 'Asher Bara' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   6. 'L'cha Dodi' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO -   7. 'Yiboneh Hamikdash' by Shlomo Carlebach
+2025-12-12 15:12:56,151 - data_collection.process_new_content - INFO - 🎵 Processing 7 new songs...
+2025-12-12 15:12:56,612 - data_collection.process_new_content - INFO -   ✅ 1/7: 'Shalom Aleichem 1' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 2/7: 'Ki Va Moed' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 3/7: 'Tov L'hodot' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 4/7: 'Ma Ashiv' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 5/7: 'Asher Bara' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 6/7: 'L'cha Dodi' by Shlomo Carlebach
+2025-12-12 15:12:56,613 - data_collection.process_new_content - INFO -   ✅ 7/7: 'Yiboneh Hamikdash' by Shlomo Carlebach
+2025-12-12 15:12:56,841 - data_collection.process_new_content - INFO - ✅ Inserted 7 new songs into songs_master
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - No new artists to process
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - ============================================================
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - ============================================================
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - New songs found: 7
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - New artists found: 0
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - Songs inserted: 7
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-12-12 15:12:56,842 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-12-12 15:12:56,995 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-12 15:12:56,996 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-12 15:12:56,996 - __main__ - INFO - 
+2025-12-12 15:12:56,996 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-12 15:12:56,996 - __main__ - INFO - ------------------------------------------------------------
+2025-12-12 15:12:56,996 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-12 15:12:56,996 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-12 15:12:56,996 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-12 15:12:56,997 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-12 15:12:56,997 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-12 15:12:56,997 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-12 15:12:56,997 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-12 15:12:56,997 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-12 15:12:58,456 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-12 15:12:58,457 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-12 15:12:58,616 - enrichment.enrich_with_lyrics - INFO - ✅ Found 7 unprocessed songs
+2025-12-12 15:12:58,616 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 7 songs...
+2025-12-12 15:12:58,616 - enrichment.enrich_with_lyrics - INFO - [1/7] Processing: 'Shalom Aleichem 1' by Shlomo Carlebach
+2025-12-12 15:12:59,207 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: German (method: title)
+2025-12-12 15:12:59,361 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:12:59,521 - enrichment.enrich_with_lyrics - INFO - [2/7] Processing: 'Ki Va Moed' by Shlomo Carlebach
+2025-12-12 15:12:59,899 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Unknown (method: unknown)
+2025-12-12 15:13:00,055 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:00,055 - enrichment.enrich_with_lyrics - INFO - [3/7] Processing: 'Tov L'hodot' by Shlomo Carlebach
+2025-12-12 15:13:00,407 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Slovak (method: title)
+2025-12-12 15:13:00,561 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:00,561 - enrichment.enrich_with_lyrics - INFO - [4/7] Processing: 'Ma Ashiv' by Shlomo Carlebach
+2025-12-12 15:13:00,912 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Sw (method: title)
+2025-12-12 15:13:01,067 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:01,067 - enrichment.enrich_with_lyrics - INFO - [5/7] Processing: 'Asher Bara' by Shlomo Carlebach
+2025-12-12 15:13:01,428 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-12 15:13:01,584 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:01,585 - enrichment.enrich_with_lyrics - INFO - [6/7] Processing: 'L'cha Dodi' by Shlomo Carlebach
+2025-12-12 15:13:01,950 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Italian (method: title)
+2025-12-12 15:13:02,115 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:02,115 - enrichment.enrich_with_lyrics - INFO - [7/7] Processing: 'Yiboneh Hamikdash' by Shlomo Carlebach
+2025-12-12 15:13:02,472 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Indonesian (method: title)
+2025-12-12 15:13:02,637 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-12 15:13:02,638 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-12-12 15:13:02,949 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - Songs processed: 7/7
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 1
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-12-12 15:13:02,950 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-12-12 15:13:03,101 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-12 15:13:03,102 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-12 15:13:03,102 - __main__ - INFO - 
+2025-12-12 15:13:03,102 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-12 15:13:03,102 - __main__ - INFO - ------------------------------------------------------------
+2025-12-12 15:13:03,102 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-12 15:13:03,102 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-12 15:13:04,543 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-12 15:13:04,544 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-12 15:13:04,544 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-12 15:13:04,846 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-12 15:13:04,846 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-12 15:13:07,081 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-12 15:13:07,398 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-12 15:13:07,552 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-12 15:13:07,703 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-12 15:13:08,012 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-12 15:13:09,363 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-12 15:13:10,836 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-12 15:13:10,836 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-12 15:13:41,285 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-12-12 15:13:41,285 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-12 15:13:41,706 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-12 15:13:42,006 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-12 15:13:42,162 - enrichment.validate_data - INFO - ============================================================
+2025-12-12 15:13:42,162 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-12 15:13:42,162 - enrichment.validate_data - INFO - ============================================================
+2025-12-12 15:13:42,162 - enrichment.validate_data - INFO - Total errors found: 3
+2025-12-12 15:13:42,162 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-12 15:13:42,162 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-12-12 15:13:42,163 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-12 15:13:42,163 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-12 15:13:42,163 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-12 15:13:42,311 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-12 15:13:42,311 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-12 15:13:42,311 - __main__ - INFO - 
+2025-12-12 15:13:42,311 - __main__ - INFO - ================================================================================
+2025-12-12 15:13:42,311 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-12 15:13:42,311 - __main__ - INFO - ================================================================================
+2025-12-12 15:13:42,311 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-12 15:13:42,312 - __main__ - INFO -    • New tracks processed: 11
+2025-12-12 15:13:42,312 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-12 15:13:42,312 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-12 15:13:42,312 - __main__ - INFO -    • Data validation completed
+2025-12-12 15:13:42,312 - __main__ - INFO - 
+2025-12-12 15:13:42,312 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-12 15:13:42,312 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-12 15:13:42,312 - __main__ - INFO - ================================================================================
+2025-12-12 15:13:42,312 - __main__ - INFO - 🔄 Flushing logs to file...
