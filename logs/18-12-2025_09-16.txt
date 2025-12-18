@@ -1,0 +1,127 @@
+2025-12-18 09:16:53,681 - __main__ - INFO - 📝 Logging initialized - writing to: logs/18-12-2025_09-16.txt
+2025-12-18 09:16:53,681 - __main__ - INFO - ================================================================================
+2025-12-18 09:16:53,681 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-18 09:16:53,681 - __main__ - INFO - ================================================================================
+2025-12-18 09:16:53,681 - __main__ - INFO - Execution Time: 2025-12-18 09:16:53
+2025-12-18 09:16:53,681 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-18 09:16:53,681 - __main__ - INFO - ================================================================================
+2025-12-18 09:16:53,681 - __main__ - INFO - 
+2025-12-18 09:16:53,681 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-18 09:16:53,681 - __main__ - INFO - ------------------------------------------------------------
+2025-12-18 09:16:53,681 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-18 09:16:53,681 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-18 09:16:54,948 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-18 09:16:54,948 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-18 09:16:55,088 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-18 09:16:55,089 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-18 09:16:55,192 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-18 09:16:55,193 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-18 09:16:55,407 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-18 09:16:55,408 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-18 09:16:55,409 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-18 09:16:55,505 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-18 06:17:19.405000
+2025-12-18 09:16:55,505 - data_collection.fetch_recent_tracks - INFO - Found 8 new tracks to insert (out of 50 total)
+2025-12-18 09:16:55,505 - data_collection.fetch_recent_tracks - INFO - Inserting 8 new tracks...
+2025-12-18 09:16:55,602 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 8 tracks
+2025-12-18 09:16:55,602 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:21:19 | What I'm Made Of... - Crush 40 | 3.71min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:24:49 | Sonic Heroes - Crush 40 | 3.48min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:29:19 | Never Turn Back - Crush 40 | 4.66min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:33:50 | Reach For The Stars - Opening Theme - Vocals by Jean Paul Makhlouf of Cash Cash - SEGA SOUND TEAM | 4.13min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:37:19 | I Am... All Of Me - Crush 40 | 3.85min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:39:49 | Escape From The City ...for City Escape - Ted Poley | 2.33min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:45:49 | His World - Crush 40 | 5.28min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-18 06:49:50 | Sonic Heroes: Main Theme of Sonic Heroes - Crush 40 | 1.60min
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - New tracks found: 8 tracks
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 8 tracks
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-18 06:17:19
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-18 06:49:50 | Sonic Heroes: Main Theme of Sonic Heroes - Crush 40
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 29.0 minutes (0.5 hours)
+2025-12-18 09:16:55,603 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 8 new tracks for pipeline decision
+2025-12-18 09:16:55,690 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-18 09:16:55,691 - __main__ - INFO - ✅ Step 1 Complete: 8 new tracks found
+2025-12-18 09:16:55,691 - __main__ - INFO - 🎶 Found 8 new tracks. Continuing pipeline...
+2025-12-18 09:16:55,691 - __main__ - INFO - 
+2025-12-18 09:16:55,691 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-18 09:16:55,691 - __main__ - INFO - ------------------------------------------------------------
+2025-12-18 09:16:55,691 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-18 09:16:55,691 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-18 09:16:56,691 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-18 09:16:56,763 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-18 09:16:56,937 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-18 09:16:57,713 - data_collection.process_new_content - INFO - ✅ Found 10951 existing songs and 3903 existing artists in master collections
+2025-12-18 09:16:57,713 - data_collection.process_new_content - INFO - 🔍 Identified 0 new songs and 0 new artists
+2025-12-18 09:16:57,713 - data_collection.process_new_content - INFO - 🎉 No new songs or artists found in the last 50 streaming records!
+2025-12-18 09:16:57,713 - data_collection.process_new_content - INFO - All songs and artists are already in the master collections.
+2025-12-18 09:16:57,802 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-18 09:16:57,804 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-18 09:16:57,804 - __main__ - INFO - 
+2025-12-18 09:16:57,804 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-18 09:16:57,804 - __main__ - INFO - ------------------------------------------------------------
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-18 09:16:57,804 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-18 09:16:58,735 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-18 09:16:58,735 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-18 09:16:58,845 - enrichment.enrich_with_lyrics - INFO - ✅ Found 0 unprocessed songs
+2025-12-18 09:16:58,845 - enrichment.enrich_with_lyrics - INFO - 🎉 No unprocessed songs found! All songs have been processed.
+2025-12-18 09:16:58,932 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-18 09:16:58,932 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-18 09:16:58,932 - __main__ - INFO - 
+2025-12-18 09:16:58,932 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-18 09:16:58,932 - __main__ - INFO - ------------------------------------------------------------
+2025-12-18 09:16:58,932 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-18 09:16:58,932 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-18 09:16:59,833 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-18 09:16:59,833 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-18 09:16:59,833 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-18 09:17:00,066 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-18 09:17:00,066 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-18 09:17:01,358 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-18 09:17:01,546 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-18 09:17:01,633 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-18 09:17:01,722 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-18 09:17:01,910 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-18 09:17:02,720 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-18 09:17:03,594 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-18 09:17:03,595 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-18 09:17:21,232 - enrichment.validate_data - WARNING - missing_master_records - Songs in StreamingHistory not found in songs_master: {'missing_songs_count': 1, 'sample_size': 100}
+2025-12-18 09:17:21,233 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-18 09:17:21,543 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-18 09:17:21,723 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO - ============================================================
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO - ============================================================
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO - Total errors found: 4
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-18 09:17:21,821 - enrichment.validate_data - WARNING - 📋 Found 4 validation issues
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO -   missing_master_records: 1 issues
+2025-12-18 09:17:21,821 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-18 09:17:21,908 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-18 09:17:21,909 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-18 09:17:21,909 - __main__ - INFO - 
+2025-12-18 09:17:21,909 - __main__ - INFO - ================================================================================
+2025-12-18 09:17:21,909 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-18 09:17:21,909 - __main__ - INFO - ================================================================================
+2025-12-18 09:17:21,909 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-18 09:17:21,909 - __main__ - INFO -    • New tracks processed: 8
+2025-12-18 09:17:21,909 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-18 09:17:21,909 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-18 09:17:21,909 - __main__ - INFO -    • Data validation completed
+2025-12-18 09:17:21,909 - __main__ - INFO - 
+2025-12-18 09:17:21,909 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-18 09:17:21,909 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-18 09:17:21,909 - __main__ - INFO - ================================================================================
+2025-12-18 09:17:21,909 - __main__ - INFO - 🔄 Flushing logs to file...
