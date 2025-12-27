@@ -1,0 +1,22 @@
+2025-12-27 21:12:24,801 - __main__ - INFO - 📝 Logging initialized - writing to: logs/27-12-2025_21-12.txt
+2025-12-27 21:12:24,802 - __main__ - INFO - ================================================================================
+2025-12-27 21:12:24,802 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-27 21:12:24,802 - __main__ - INFO - ================================================================================
+2025-12-27 21:12:24,802 - __main__ - INFO - Execution Time: 2025-12-27 21:12:24
+2025-12-27 21:12:24,802 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-27 21:12:24,802 - __main__ - INFO - ================================================================================
+2025-12-27 21:12:24,802 - __main__ - INFO - 
+2025-12-27 21:12:24,802 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-27 21:12:24,802 - __main__ - INFO - ------------------------------------------------------------
+2025-12-27 21:12:24,802 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-27 21:12:24,802 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-27 21:12:55,595 - data_collection.fetch_recent_tracks - ERROR - Failed to connect to MongoDB: SSL handshake failed: ac-i1izkut-shard-00-01.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-i1izkut-shard-00-00.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms),SSL handshake failed: ac-i1izkut-shard-00-02.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms), Timeout: 30s, Topology Description: <TopologyDescription id: 69503da8019720c1429193ba, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-i1izkut-shard-00-00.btwmsez.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-i1izkut-shard-00-00.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-i1izkut-shard-00-01.btwmsez.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-i1izkut-shard-00-01.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>, <ServerDescription ('ac-i1izkut-shard-00-02.btwmsez.mongodb.net', 27017) server_type: Unknown, rtt: None, error=AutoReconnect('SSL handshake failed: ac-i1izkut-shard-00-02.btwmsez.mongodb.net:27017: [SSL: TLSV1_ALERT_INTERNAL_ERROR] tlsv1 alert internal error (_ssl.c:1016) (configured timeouts: socketTimeoutMS: 20000.0ms, connectTimeoutMS: 20000.0ms)')>]>
+2025-12-27 21:12:55,596 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-27 21:12:55,596 - __main__ - INFO - ✅ Step 1 Complete: 0 new tracks found
+2025-12-27 21:12:55,596 - __main__ - INFO - 
+2025-12-27 21:12:55,596 - __main__ - INFO - 🛑 PIPELINE STOPPING: No new tracks found
+2025-12-27 21:12:55,596 - __main__ - INFO - All recent tracks are already in the database.
+2025-12-27 21:12:55,596 - __main__ - INFO - ================================================================================
+2025-12-27 21:12:55,596 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-27 21:12:55,596 - __main__ - INFO - ================================================================================
+2025-12-27 21:12:55,596 - __main__ - INFO - 🔄 Flushing logs to file...
