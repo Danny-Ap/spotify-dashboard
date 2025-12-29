@@ -1,0 +1,150 @@
+2025-12-29 19:17:42,349 - __main__ - INFO - 📝 Logging initialized - writing to: logs/29-12-2025_19-17.txt
+2025-12-29 19:17:42,350 - __main__ - INFO - ================================================================================
+2025-12-29 19:17:42,350 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-29 19:17:42,350 - __main__ - INFO - ================================================================================
+2025-12-29 19:17:42,350 - __main__ - INFO - Execution Time: 2025-12-29 19:17:42
+2025-12-29 19:17:42,350 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-29 19:17:42,350 - __main__ - INFO - ================================================================================
+2025-12-29 19:17:42,350 - __main__ - INFO - 
+2025-12-29 19:17:42,350 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-29 19:17:42,350 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 19:17:42,350 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-29 19:17:42,350 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-29 19:17:43,915 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 19:17:43,915 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-29 19:17:44,007 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-29 19:17:44,007 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-29 19:17:44,185 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-29 19:17:44,186 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-29 19:17:44,557 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-29 19:17:44,558 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-29 19:17:44,559 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-29 19:17:44,721 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-29 15:29:16.871000
+2025-12-29 19:17:44,721 - data_collection.fetch_recent_tracks - INFO - Found 1 new tracks to insert (out of 50 total)
+2025-12-29 19:17:44,721 - data_collection.fetch_recent_tracks - INFO - Inserting 1 new tracks...
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 1 tracks
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 16:58:52 | The Sea Does Not Like to Be Restrained - Bear McCreary | 5.56min
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - New tracks found: 1 tracks
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 1 tracks
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-29 15:29:16
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-29 16:58:52 | The Sea Does Not Like to Be Restrained - Bear McCreary
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 5.6 minutes (0.1 hours)
+2025-12-29 19:17:44,922 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 1 new tracks for pipeline decision
+2025-12-29 19:17:45,074 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-29 19:17:45,075 - __main__ - INFO - ✅ Step 1 Complete: 1 new tracks found
+2025-12-29 19:17:45,075 - __main__ - INFO - 🎶 Found 1 new tracks. Continuing pipeline...
+2025-12-29 19:17:45,075 - __main__ - INFO - 
+2025-12-29 19:17:45,075 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-29 19:17:45,075 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 19:17:45,075 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-29 19:17:45,075 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-29 19:17:46,513 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 19:17:46,612 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-29 19:17:46,909 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-29 19:17:48,220 - data_collection.process_new_content - INFO - ✅ Found 10968 existing songs and 3903 existing artists in master collections
+2025-12-29 19:17:48,221 - data_collection.process_new_content - INFO - 🔍 Identified 1 new songs and 0 new artists
+2025-12-29 19:17:48,221 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-12-29 19:17:48,221 - data_collection.process_new_content - INFO -   1. 'The Sea Does Not Like to Be Restrained' by Bear McCreary
+2025-12-29 19:17:48,221 - data_collection.process_new_content - INFO - 🎵 Processing 1 new songs...
+2025-12-29 19:17:48,546 - data_collection.process_new_content - INFO -   ✅ 1/1: 'The Sea Does Not Like to Be Restrained' by Bear McCreary
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - ✅ Inserted 1 new songs into songs_master
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - No new artists to process
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - ============================================================
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - ============================================================
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-12-29 19:17:48,726 - data_collection.process_new_content - INFO - New songs found: 1
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - New artists found: 0
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - Songs inserted: 1
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-12-29 19:17:48,727 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-12-29 19:17:48,875 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-29 19:17:48,876 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-29 19:17:48,876 - __main__ - INFO - 
+2025-12-29 19:17:48,876 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-29 19:17:48,876 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 19:17:48,876 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-29 19:17:50,286 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 19:17:50,286 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-29 19:17:50,439 - enrichment.enrich_with_lyrics - INFO - ✅ Found 1 unprocessed songs
+2025-12-29 19:17:50,439 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 1 songs...
+2025-12-29 19:17:50,440 - enrichment.enrich_with_lyrics - INFO - [1/1] Processing: 'The Sea Does Not Like to Be Restrained' by Bear McCreary
+2025-12-29 19:17:50,440 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 19:17:50,440 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 19:17:50,440 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 19:17:50,591 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 19:17:50,591 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-12-29 19:17:50,892 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - Songs processed: 1/1
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 1
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 0
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-12-29 19:17:50,893 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-12-29 19:17:51,041 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-29 19:17:51,041 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-29 19:17:51,041 - __main__ - INFO - 
+2025-12-29 19:17:51,041 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-29 19:17:51,041 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 19:17:51,041 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-29 19:17:51,041 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-29 19:17:52,473 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 19:17:52,473 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-29 19:17:52,473 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-29 19:17:52,784 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-29 19:17:52,784 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-29 19:17:55,026 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-29 19:17:55,344 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-29 19:17:55,503 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-29 19:17:55,658 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-29 19:17:55,977 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-29 19:17:57,359 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-29 19:17:58,850 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-29 19:17:58,851 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-29 19:18:29,747 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-12-29 19:18:29,747 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-29 19:18:30,210 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-29 19:18:30,524 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-29 19:18:30,683 - enrichment.validate_data - INFO - ============================================================
+2025-12-29 19:18:30,683 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-29 19:18:30,683 - enrichment.validate_data - INFO - ============================================================
+2025-12-29 19:18:30,683 - enrichment.validate_data - INFO - Total errors found: 3
+2025-12-29 19:18:30,683 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-29 19:18:30,684 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-12-29 19:18:30,684 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-29 19:18:30,684 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-29 19:18:30,684 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-29 19:18:30,836 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-29 19:18:30,836 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-29 19:18:30,836 - __main__ - INFO - 
+2025-12-29 19:18:30,836 - __main__ - INFO - ================================================================================
+2025-12-29 19:18:30,836 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-29 19:18:30,836 - __main__ - INFO - ================================================================================
+2025-12-29 19:18:30,836 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-29 19:18:30,836 - __main__ - INFO -    • New tracks processed: 1
+2025-12-29 19:18:30,836 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-29 19:18:30,836 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-29 19:18:30,836 - __main__ - INFO -    • Data validation completed
+2025-12-29 19:18:30,837 - __main__ - INFO - 
+2025-12-29 19:18:30,837 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-29 19:18:30,837 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-29 19:18:30,837 - __main__ - INFO - ================================================================================
+2025-12-29 19:18:30,837 - __main__ - INFO - 🔄 Flushing logs to file...
