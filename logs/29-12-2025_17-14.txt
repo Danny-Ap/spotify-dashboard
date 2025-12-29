@@ -1,0 +1,247 @@
+2025-12-29 17:14:00,725 - __main__ - INFO - 📝 Logging initialized - writing to: logs/29-12-2025_17-14.txt
+2025-12-29 17:14:00,725 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:00,725 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-29 17:14:00,725 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:00,725 - __main__ - INFO - Execution Time: 2025-12-29 17:14:00
+2025-12-29 17:14:00,725 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-29 17:14:00,725 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:00,725 - __main__ - INFO - 
+2025-12-29 17:14:00,725 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-29 17:14:00,726 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 17:14:00,726 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-29 17:14:00,726 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-29 17:14:02,053 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 17:14:02,053 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-29 17:14:02,230 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-29 17:14:02,231 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-29 17:14:02,469 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-29 17:14:02,470 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-29 17:14:02,751 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-29 17:14:02,752 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-29 17:14:02,753 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-29 17:14:02,845 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-29 11:58:56.044000
+2025-12-29 17:14:02,845 - data_collection.fetch_recent_tracks - INFO - Found 14 new tracks to insert (out of 50 total)
+2025-12-29 17:14:02,845 - data_collection.fetch_recent_tracks - INFO - Inserting 14 new tracks...
+2025-12-29 17:14:03,000 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 14 tracks
+2025-12-29 17:14:03,000 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 14:40:37 | The Minotaur - Bear McCreary | 4.89min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 14:45:33 | The Minotaur - Bear McCreary | 4.89min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 14:52:03 | Camp Half-Blood - Bear McCreary | 6.74min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 14:55:03 | Aunty Em - Bear McCreary | 2.75min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 14:58:04 | The Mother of Monsters - Bear McCreary | 2.96min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:00:33 | Chimera - Bear McCreary | 2.88min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:03:34 | The Tunnel of Love - Bear McCreary | 3.05min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:07:03 | A Zebra in Vegas - Bear McCreary | 3.18min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:11:04 | Spirit of the Sea - Bear McCreary | 3.91min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:13:09 | The Fields of Asphodel - Bear McCreary | 2.35min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:16:03 | Lord of the Dead - Bear McCreary | 2.97min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:21:35 | Poseidon - Bear McCreary | 5.23min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:25:03 | Olympus - Bear McCreary | 3.88min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-29 15:29:16 | The Lightning Thief - Bear McCreary | 3.63min
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - New tracks found: 14 tracks
+2025-12-29 17:14:03,001 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 14 tracks
+2025-12-29 17:14:03,002 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-29 11:58:56
+2025-12-29 17:14:03,002 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-29 15:29:16 | The Lightning Thief - Bear McCreary
+2025-12-29 17:14:03,002 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 53.3 minutes (0.9 hours)
+2025-12-29 17:14:03,002 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 14 new tracks for pipeline decision
+2025-12-29 17:14:03,089 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-29 17:14:03,090 - __main__ - INFO - ✅ Step 1 Complete: 14 new tracks found
+2025-12-29 17:14:03,090 - __main__ - INFO - 🎶 Found 14 new tracks. Continuing pipeline...
+2025-12-29 17:14:03,090 - __main__ - INFO - 
+2025-12-29 17:14:03,090 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-29 17:14:03,090 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 17:14:03,090 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-29 17:14:03,090 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-29 17:14:04,082 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 17:14:04,143 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-29 17:14:04,317 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-29 17:14:05,160 - data_collection.process_new_content - INFO - ✅ Found 10955 existing songs and 3903 existing artists in master collections
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO - 🔍 Identified 13 new songs and 0 new artists
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   1. 'The Lightning Thief' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   2. 'Olympus' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   3. 'Poseidon' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   4. 'Lord of the Dead' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   5. 'The Fields of Asphodel' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   6. 'Spirit of the Sea' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   7. 'A Zebra in Vegas' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   8. 'The Tunnel of Love' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   9. 'Chimera' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   10. 'The Mother of Monsters' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   11. 'Aunty Em' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   12. 'Camp Half-Blood' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO -   13. 'The Minotaur' by Bear McCreary
+2025-12-29 17:14:05,161 - data_collection.process_new_content - INFO - 🎵 Processing 13 new songs...
+2025-12-29 17:14:05,497 - data_collection.process_new_content - INFO -   ✅ 1/13: 'The Lightning Thief' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 2/13: 'Olympus' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 3/13: 'Poseidon' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 4/13: 'Lord of the Dead' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 5/13: 'The Fields of Asphodel' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 6/13: 'Spirit of the Sea' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 7/13: 'A Zebra in Vegas' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 8/13: 'The Tunnel of Love' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 9/13: 'Chimera' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 10/13: 'The Mother of Monsters' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 11/13: 'Aunty Em' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 12/13: 'Camp Half-Blood' by Bear McCreary
+2025-12-29 17:14:05,498 - data_collection.process_new_content - INFO -   ✅ 13/13: 'The Minotaur' by Bear McCreary
+2025-12-29 17:14:05,694 - data_collection.process_new_content - INFO - ✅ Inserted 13 new songs into songs_master
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - No new artists to process
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - ============================================================
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - ============================================================
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - New songs found: 13
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - New artists found: 0
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - Songs inserted: 13
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - Artists inserted: 0
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-12-29 17:14:05,695 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-12-29 17:14:05,783 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-29 17:14:05,784 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-29 17:14:05,784 - __main__ - INFO - 
+2025-12-29 17:14:05,784 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-29 17:14:05,784 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 17:14:05,784 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 17:14:05,785 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-29 17:14:06,726 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 17:14:06,726 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-29 17:14:06,821 - enrichment.enrich_with_lyrics - INFO - ✅ Found 13 unprocessed songs
+2025-12-29 17:14:06,822 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 13 songs...
+2025-12-29 17:14:06,822 - enrichment.enrich_with_lyrics - INFO - [1/13] Processing: 'The Lightning Thief' by Bear McCreary
+2025-12-29 17:14:06,822 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:06,822 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:06,822 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:06,912 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:06,912 - enrichment.enrich_with_lyrics - INFO - [2/13] Processing: 'Olympus' by Bear McCreary
+2025-12-29 17:14:06,912 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:06,912 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:06,912 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,002 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,002 - enrichment.enrich_with_lyrics - INFO - [3/13] Processing: 'Poseidon' by Bear McCreary
+2025-12-29 17:14:07,002 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,002 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,002 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,092 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,092 - enrichment.enrich_with_lyrics - INFO - [4/13] Processing: 'Lord of the Dead' by Bear McCreary
+2025-12-29 17:14:07,092 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,092 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,092 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,182 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,182 - enrichment.enrich_with_lyrics - INFO - [5/13] Processing: 'The Fields of Asphodel' by Bear McCreary
+2025-12-29 17:14:07,182 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,182 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,182 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,272 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,272 - enrichment.enrich_with_lyrics - INFO - [6/13] Processing: 'Spirit of the Sea' by Bear McCreary
+2025-12-29 17:14:07,272 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,273 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,273 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,362 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,362 - enrichment.enrich_with_lyrics - INFO - [7/13] Processing: 'A Zebra in Vegas' by Bear McCreary
+2025-12-29 17:14:07,363 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,363 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,363 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,452 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,452 - enrichment.enrich_with_lyrics - INFO - [8/13] Processing: 'The Tunnel of Love' by Bear McCreary
+2025-12-29 17:14:07,452 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,452 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,452 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,541 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,541 - enrichment.enrich_with_lyrics - INFO - [9/13] Processing: 'Chimera' by Bear McCreary
+2025-12-29 17:14:07,541 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,542 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,542 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,631 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,631 - enrichment.enrich_with_lyrics - INFO - [10/13] Processing: 'The Mother of Monsters' by Bear McCreary
+2025-12-29 17:14:07,631 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,631 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,631 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,720 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,720 - enrichment.enrich_with_lyrics - INFO - [11/13] Processing: 'Aunty Em' by Bear McCreary
+2025-12-29 17:14:07,720 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,720 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,720 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,809 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,809 - enrichment.enrich_with_lyrics - INFO - [12/13] Processing: 'Camp Half-Blood' by Bear McCreary
+2025-12-29 17:14:07,809 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,809 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,810 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,899 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,899 - enrichment.enrich_with_lyrics - INFO - [13/13] Processing: 'The Minotaur' by Bear McCreary
+2025-12-29 17:14:07,900 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2025-12-29 17:14:07,900 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2025-12-29 17:14:07,900 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2025-12-29 17:14:07,988 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-29 17:14:07,989 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - Songs processed: 13/13
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 13
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 0
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-12-29 17:14:08,172 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-12-29 17:14:08,259 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-29 17:14:08,259 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-29 17:14:08,259 - __main__ - INFO - 
+2025-12-29 17:14:08,259 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-29 17:14:08,259 - __main__ - INFO - ------------------------------------------------------------
+2025-12-29 17:14:08,259 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-29 17:14:08,259 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-29 17:14:09,263 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-29 17:14:09,263 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-29 17:14:09,263 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-29 17:14:09,446 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-29 17:14:09,446 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-29 17:14:10,758 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-29 17:14:10,945 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-29 17:14:11,032 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-29 17:14:11,120 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-29 17:14:11,303 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-29 17:14:12,088 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-29 17:14:13,015 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-29 17:14:13,016 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-29 17:14:30,720 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-12-29 17:14:30,720 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-29 17:14:30,993 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-29 17:14:31,168 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-29 17:14:31,261 - enrichment.validate_data - INFO - ============================================================
+2025-12-29 17:14:31,261 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-29 17:14:31,261 - enrichment.validate_data - INFO - ============================================================
+2025-12-29 17:14:31,261 - enrichment.validate_data - INFO - Total errors found: 3
+2025-12-29 17:14:31,261 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-29 17:14:31,262 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-12-29 17:14:31,262 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-29 17:14:31,262 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-29 17:14:31,262 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-29 17:14:31,348 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-29 17:14:31,348 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-29 17:14:31,348 - __main__ - INFO - 
+2025-12-29 17:14:31,348 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:31,348 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-29 17:14:31,348 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:31,348 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-29 17:14:31,348 - __main__ - INFO -    • New tracks processed: 14
+2025-12-29 17:14:31,348 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-29 17:14:31,348 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-29 17:14:31,348 - __main__ - INFO -    • Data validation completed
+2025-12-29 17:14:31,349 - __main__ - INFO - 
+2025-12-29 17:14:31,349 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-29 17:14:31,349 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-29 17:14:31,349 - __main__ - INFO - ================================================================================
+2025-12-29 17:14:31,349 - __main__ - INFO - 🔄 Flushing logs to file...
