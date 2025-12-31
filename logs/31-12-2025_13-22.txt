@@ -1,0 +1,262 @@
+2025-12-31 13:22:22,984 - __main__ - INFO - 📝 Logging initialized - writing to: logs/31-12-2025_13-22.txt
+2025-12-31 13:22:22,984 - __main__ - INFO - ================================================================================
+2025-12-31 13:22:22,984 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-31 13:22:22,984 - __main__ - INFO - ================================================================================
+2025-12-31 13:22:22,984 - __main__ - INFO - Execution Time: 2025-12-31 13:22:22
+2025-12-31 13:22:22,984 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-31 13:22:22,984 - __main__ - INFO - ================================================================================
+2025-12-31 13:22:22,984 - __main__ - INFO - 
+2025-12-31 13:22:22,984 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-31 13:22:22,984 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 13:22:22,984 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-31 13:22:22,984 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-31 13:22:24,522 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 13:22:24,522 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-31 13:22:24,715 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-31 13:22:24,716 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-31 13:22:24,835 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-31 13:22:24,835 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-31 13:22:25,368 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-31 13:22:25,369 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-31 13:22:25,370 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-31 13:22:25,507 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-31 10:10:34.883000
+2025-12-31 13:22:25,507 - data_collection.fetch_recent_tracks - INFO - Found 25 new tracks to insert (out of 50 total)
+2025-12-31 13:22:25,507 - data_collection.fetch_recent_tracks - INFO - Inserting 25 new tracks...
+2025-12-31 13:22:25,794 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 25 tracks
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:14:34 | All I Want for Christmas Is You - Mariah Carey | 4.03min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:17:35 | Sleigh Ride - Ella Fitzgerald | 2.93min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:22:38 | Last Christmas - Wham! | 4.38min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:26:05 | The Christmas Waltz - Remastered 1999 - Frank Sinatra | 3.03min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:29:35 | Cuddle Up, Cozy Down Christmas - Dolly Parton | 3.65min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:34:28 | Merry Christmas Everyone - Shakin' Stevens | 3.67min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:37:31 | You're Nobody till Somebody Loves You - Michael Bublé | 3.12min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:39:58 | Baby, It's Cold Outside - Dean Martin | 2.40min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:42:58 | Do You Hear What I Hear? - Remastered 2006 - Bing Crosby | 2.76min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:45:28 | Silent Night - 1999 Remaster - Frank Sinatra | 2.44min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:47:58 | It's Beginning to Look a Lot Like Christmas (with Mitchell Ayres & His Orchestra) - Perry Como | 2.60min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:48:58 | Deck The Hall - Nat King Cole | 1.15min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:52:59 | That's All - Michael Bublé | 4.00min
+2025-12-31 13:22:25,795 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:55:59 | I've Got My Love To Keep Me Warm - Dean Martin | 2.72min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:59:42 | Santa Claus Is Coming To Town - Frank Sinatra | 2.25min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:02:29 | Rockin' Around the Christmas Tree - Rerecorded Version - Brenda Lee | 2.10min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:07:30 | Christmas (Baby Please Come Home) - Mariah Carey | 2.59min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:13:36 | Twelve Days Of Christmas - Bing Crosby | 3.40min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:15:59 | White Christmas - Remastered 1999 - Frank Sinatra | 2.59min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:18:59 | Let It Snow! Let It Snow! Let It Snow! - Ella Fitzgerald | 2.71min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:22:00 | I'll Be Home For Christmas - Bing Crosby | 2.92min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:23:59 | I Wish You A Merry Christmas - Remastered 2006 - Bing Crosby | 1.92min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:28:29 | Silent Night - Josh Groban | 4.20min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:32:29 | Feels Like Christmas - Brett Eldredge | 4.24min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 11:37:28 | Let It Snow! Let It Snow! Let It Snow! (with The B. Swanson Quartet) - Frank Sinatra | 2.59min
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - New tracks found: 25 tracks
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 25 tracks
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-31 10:10:34
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-31 11:37:28 | Let It Snow! Let It Snow! Let It Snow! (with The B. Swanson Quartet) - Frank Sinatra
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 74.4 minutes (1.2 hours)
+2025-12-31 13:22:25,796 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 25 new tracks for pipeline decision
+2025-12-31 13:22:25,933 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-31 13:22:25,934 - __main__ - INFO - ✅ Step 1 Complete: 25 new tracks found
+2025-12-31 13:22:25,934 - __main__ - INFO - 🎶 Found 25 new tracks. Continuing pipeline...
+2025-12-31 13:22:25,934 - __main__ - INFO - 
+2025-12-31 13:22:25,934 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-31 13:22:25,934 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 13:22:25,934 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-31 13:22:25,934 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-31 13:22:27,233 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 13:22:27,315 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-31 13:22:27,582 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO - ✅ Found 10982 existing songs and 3905 existing artists in master collections
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO - 🔍 Identified 18 new songs and 1 new artists
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   1. 'Feels Like Christmas' by Brett Eldredge
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   2. 'Silent Night' by Josh Groban
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   3. 'I Wish You A Merry Christmas - Remastered 2006' by Bing Crosby
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   4. 'I'll Be Home For Christmas' by Bing Crosby
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   5. 'Let It Snow! Let It Snow! Let It Snow!' by Ella Fitzgerald
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   6. 'White Christmas - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   7. 'Twelve Days Of Christmas' by Bing Crosby
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   8. 'Christmas (Baby Please Come Home)' by Mariah Carey
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   9. 'Santa Claus Is Coming To Town' by Frank Sinatra
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   10. 'I've Got My Love To Keep Me Warm' by Dean Martin
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   11. 'That's All' by Michael Bublé
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   12. 'Silent Night - 1999 Remaster' by Frank Sinatra
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   13. 'You're Nobody till Somebody Loves You' by Michael Bublé
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   14. 'Merry Christmas Everyone' by Shakin' Stevens
+2025-12-31 13:22:28,769 - data_collection.process_new_content - INFO -   15. 'Cuddle Up, Cozy Down Christmas' by Dolly Parton
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO -   16. 'The Christmas Waltz - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO -   17. 'Last Christmas' by Wham!
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO -   18. 'Sleigh Ride' by Ella Fitzgerald
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO -   1. Ella Fitzgerald
+2025-12-31 13:22:28,770 - data_collection.process_new_content - INFO - 🎵 Processing 18 new songs...
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 1/18: 'Feels Like Christmas' by Brett Eldredge
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 2/18: 'Silent Night' by Josh Groban
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 3/18: 'I Wish You A Merry Christmas - Remastered 2006' by Bing Crosby
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 4/18: 'I'll Be Home For Christmas' by Bing Crosby
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 5/18: 'Let It Snow! Let It Snow! Let It Snow!' by Ella Fitzgerald
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 6/18: 'White Christmas - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 7/18: 'Twelve Days Of Christmas' by Bing Crosby
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 8/18: 'Christmas (Baby Please Come Home)' by Mariah Carey
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 9/18: 'Santa Claus Is Coming To Town' by Frank Sinatra
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 10/18: 'I've Got My Love To Keep Me Warm' by Dean Martin
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 11/18: 'That's All' by Michael Bublé
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 12/18: 'Silent Night - 1999 Remaster' by Frank Sinatra
+2025-12-31 13:22:29,341 - data_collection.process_new_content - INFO -   ✅ 13/18: 'You're Nobody till Somebody Loves You' by Michael Bublé
+2025-12-31 13:22:29,342 - data_collection.process_new_content - INFO -   ✅ 14/18: 'Merry Christmas Everyone' by Shakin' Stevens
+2025-12-31 13:22:29,342 - data_collection.process_new_content - INFO -   ✅ 15/18: 'Cuddle Up, Cozy Down Christmas' by Dolly Parton
+2025-12-31 13:22:29,342 - data_collection.process_new_content - INFO -   ✅ 16/18: 'The Christmas Waltz - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:29,342 - data_collection.process_new_content - INFO -   ✅ 17/18: 'Last Christmas' by Wham!
+2025-12-31 13:22:29,342 - data_collection.process_new_content - INFO -   ✅ 18/18: 'Sleigh Ride' by Ella Fitzgerald
+2025-12-31 13:22:29,490 - data_collection.process_new_content - INFO - ✅ Inserted 18 new songs into songs_master
+2025-12-31 13:22:29,491 - data_collection.process_new_content - INFO - 🎤 Processing 1 new artists...
+2025-12-31 13:22:30,224 - data_collection.process_new_content - INFO -   ✅ 1/1: Ella Fitzgerald
+2025-12-31 13:22:30,362 - data_collection.process_new_content - INFO - ✅ Inserted 1 new artists into artists_master
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - ============================================================
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - ============================================================
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - New songs found: 18
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - New artists found: 1
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - Songs inserted: 18
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - Artists inserted: 1
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-12-31 13:22:30,363 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-12-31 13:22:30,496 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-31 13:22:30,497 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-31 13:22:30,497 - __main__ - INFO - 
+2025-12-31 13:22:30,497 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-31 13:22:30,497 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-31 13:22:30,497 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 13:22:30,498 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-31 13:22:31,823 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 13:22:31,823 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-31 13:22:31,966 - enrichment.enrich_with_lyrics - INFO - ✅ Found 18 unprocessed songs
+2025-12-31 13:22:31,966 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 18 songs...
+2025-12-31 13:22:31,966 - enrichment.enrich_with_lyrics - INFO - [1/18] Processing: 'Feels Like Christmas' by Brett Eldredge
+2025-12-31 13:22:32,630 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Af (method: title)
+2025-12-31 13:22:32,771 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:32,911 - enrichment.enrich_with_lyrics - INFO - [2/18] Processing: 'Silent Night' by Josh Groban
+2025-12-31 13:22:33,297 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:33,437 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:33,576 - enrichment.enrich_with_lyrics - INFO - [3/18] Processing: 'I Wish You A Merry Christmas - Remastered 2006' by Bing Crosby
+2025-12-31 13:22:33,953 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:34,093 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:34,242 - enrichment.enrich_with_lyrics - INFO - [4/18] Processing: 'I'll Be Home For Christmas' by Bing Crosby
+2025-12-31 13:22:34,634 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:34,775 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:34,775 - enrichment.enrich_with_lyrics - INFO - [5/18] Processing: 'Let It Snow! Let It Snow! Let It Snow!' by Ella Fitzgerald
+2025-12-31 13:22:35,149 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:35,295 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:35,437 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Ella Fitzgerald → English
+2025-12-31 13:22:35,437 - enrichment.enrich_with_lyrics - INFO - [6/18] Processing: 'White Christmas - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:35,816 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:35,955 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:36,094 - enrichment.enrich_with_lyrics - INFO - [7/18] Processing: 'Twelve Days Of Christmas' by Bing Crosby
+2025-12-31 13:22:36,473 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:36,614 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:36,615 - enrichment.enrich_with_lyrics - INFO - [8/18] Processing: 'Christmas (Baby Please Come Home)' by Mariah Carey
+2025-12-31 13:22:36,998 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:37,151 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:37,292 - enrichment.enrich_with_lyrics - INFO - [9/18] Processing: 'Santa Claus Is Coming To Town' by Frank Sinatra
+2025-12-31 13:22:37,674 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:37,813 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:37,813 - enrichment.enrich_with_lyrics - INFO - [10/18] Processing: 'I've Got My Love To Keep Me Warm' by Dean Martin
+2025-12-31 13:22:38,207 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:38,347 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:38,486 - enrichment.enrich_with_lyrics - INFO - [11/18] Processing: 'That's All' by Michael Bublé
+2025-12-31 13:22:38,869 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:39,008 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:39,150 - enrichment.enrich_with_lyrics - INFO - [12/18] Processing: 'Silent Night - 1999 Remaster' by Frank Sinatra
+2025-12-31 13:22:39,537 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: German (method: title)
+2025-12-31 13:22:39,676 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:39,676 - enrichment.enrich_with_lyrics - INFO - [13/18] Processing: 'You're Nobody till Somebody Loves You' by Michael Bublé
+2025-12-31 13:22:40,055 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:40,195 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:40,195 - enrichment.enrich_with_lyrics - INFO - [14/18] Processing: 'Merry Christmas Everyone' by Shakin' Stevens
+2025-12-31 13:22:40,577 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:40,718 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:40,859 - enrichment.enrich_with_lyrics - INFO - [15/18] Processing: 'Cuddle Up, Cozy Down Christmas' by Dolly Parton
+2025-12-31 13:22:41,234 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:41,374 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:41,513 - enrichment.enrich_with_lyrics - INFO - [16/18] Processing: 'The Christmas Waltz - Remastered 1999' by Frank Sinatra
+2025-12-31 13:22:41,892 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 13:22:42,032 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:42,032 - enrichment.enrich_with_lyrics - INFO - [17/18] Processing: 'Last Christmas' by Wham!
+2025-12-31 13:22:42,417 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Estonian (method: title)
+2025-12-31 13:22:42,557 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:42,699 - enrichment.enrich_with_lyrics - INFO - [18/18] Processing: 'Sleigh Ride' by Ella Fitzgerald
+2025-12-31 13:22:43,079 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: German (method: title)
+2025-12-31 13:22:43,221 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 13:22:43,221 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - Songs processed: 18/18
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 11
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-12-31 13:22:43,500 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-12-31 13:22:43,637 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-31 13:22:43,637 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-31 13:22:43,637 - __main__ - INFO - 
+2025-12-31 13:22:43,637 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-31 13:22:43,638 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 13:22:43,638 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-31 13:22:43,638 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-31 13:22:44,957 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 13:22:44,957 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-31 13:22:44,957 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-31 13:22:45,237 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-31 13:22:45,237 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-31 13:22:47,252 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-31 13:22:47,545 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-31 13:22:47,682 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-31 13:22:47,822 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-31 13:22:48,107 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-31 13:22:49,365 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-31 13:22:50,807 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-31 13:22:50,808 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-31 13:23:18,706 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-12-31 13:23:18,706 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-31 13:23:19,131 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-31 13:23:19,408 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-31 13:23:19,552 - enrichment.validate_data - INFO - ============================================================
+2025-12-31 13:23:19,552 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-31 13:23:19,552 - enrichment.validate_data - INFO - ============================================================
+2025-12-31 13:23:19,552 - enrichment.validate_data - INFO - Total errors found: 3
+2025-12-31 13:23:19,553 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-31 13:23:19,553 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-12-31 13:23:19,553 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-31 13:23:19,553 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-31 13:23:19,553 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-31 13:23:19,690 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-31 13:23:19,690 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-31 13:23:19,690 - __main__ - INFO - 
+2025-12-31 13:23:19,690 - __main__ - INFO - ================================================================================
+2025-12-31 13:23:19,690 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-31 13:23:19,690 - __main__ - INFO - ================================================================================
+2025-12-31 13:23:19,690 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-31 13:23:19,690 - __main__ - INFO -    • New tracks processed: 25
+2025-12-31 13:23:19,690 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-31 13:23:19,690 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-31 13:23:19,690 - __main__ - INFO -    • Data validation completed
+2025-12-31 13:23:19,691 - __main__ - INFO - 
+2025-12-31 13:23:19,691 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-31 13:23:19,691 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-31 13:23:19,691 - __main__ - INFO - ================================================================================
+2025-12-31 13:23:19,691 - __main__ - INFO - 🔄 Flushing logs to file...
