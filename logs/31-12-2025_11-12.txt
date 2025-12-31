@@ -1,0 +1,239 @@
+2025-12-31 11:12:25,001 - __main__ - INFO - 📝 Logging initialized - writing to: logs/31-12-2025_11-12.txt
+2025-12-31 11:12:25,001 - __main__ - INFO - ================================================================================
+2025-12-31 11:12:25,001 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2025-12-31 11:12:25,001 - __main__ - INFO - ================================================================================
+2025-12-31 11:12:25,001 - __main__ - INFO - Execution Time: 2025-12-31 11:12:25
+2025-12-31 11:12:25,001 - __main__ - INFO - Pipeline Version: 2.0
+2025-12-31 11:12:25,001 - __main__ - INFO - ================================================================================
+2025-12-31 11:12:25,001 - __main__ - INFO - 
+2025-12-31 11:12:25,001 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2025-12-31 11:12:25,001 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 11:12:25,001 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2025-12-31 11:12:25,001 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2025-12-31 11:12:26,329 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 11:12:26,329 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-31 11:12:26,505 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2025-12-31 11:12:26,506 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2025-12-31 11:12:26,669 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2025-12-31 11:12:26,669 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2025-12-31 11:12:27,016 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2025-12-31 11:12:27,017 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2025-12-31 11:12:27,018 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2025-12-31 11:12:27,120 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2025-12-31 08:15:48.562000
+2025-12-31 11:12:27,120 - data_collection.fetch_recent_tracks - INFO - Found 34 new tracks to insert (out of 50 total)
+2025-12-31 11:12:27,120 - data_collection.fetch_recent_tracks - INFO - Inserting 34 new tracks...
+2025-12-31 11:12:27,342 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 34 tracks
+2025-12-31 11:12:27,342 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:19:49 | Blue Christmas - Michael Bublé | 3.73min
+2025-12-31 11:12:27,342 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:22:49 | Cold December Night - Michael Bublé | 3.35min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:27:18 | I'll Be Home for Christmas - Michael Bublé | 4.46min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:31:48 | Ave Maria - Michael Bublé | 4.05min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:35:48 | Mis Deseos / Feliz Navidad (with Thalia) - Michael Bublé | 4.41min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:47:12 | The Christmas Song (Chestnuts Roasting on an Open Fire) - Michael Bublé | 4.33min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:49:40 | Winter Wonderland - Michael Bublé | 2.51min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:52:40 | Frosty the Snowman (feat. The Puppini Sisters) - Michael Bublé | 2.70min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 08:55:40 | Silver Bells (feat. Naturally 7) - Michael Bublé | 3.15min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:02:12 | Maybe This Christmas - Michael Bublé | 3.48min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:04:42 | Let It Snow! - 10th Anniversary - Michael Bublé | 2.66min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:07:12 | Winter Wonderland (feat. Rod Stewart) - Michael Bublé | 2.40min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:10:42 | The Christmas Sweater - Michael Bublé | 3.73min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:14:12 | The More You Give (The More You'll Have) - Michael Bublé | 3.18min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:17:12 | White Christmas - Michael Bublé | 3.38min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:17:42 | Michael's Christmas Greeting - Michael Bublé | 0.14min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:17:42 | Michael's Christmas Greeting - Michael Bublé | 0.14min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:19:44 | Rockin' Around The Christmas Tree - Brenda Lee | 2.10min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:23:12 | White Christmas - 1947 Version - Bing Crosby | 3.06min
+2025-12-31 11:12:27,343 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:25:12 | Jingle Bell Rock - Bobby Helms | 2.18min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:28:42 | Such a Night - Michael Bublé | 3.29min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:33:12 | Thank God It's Christmas - Non-Album Single - Queen | 4.36min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:37:34 | Underneath the Tree - Kelly Clarkson | 3.83min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:40:41 | Let It Snow, Let It Snow, Let It Snow - Live - Michael Bublé | 2.40min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:43:35 | Baby, It's Cold Outside (feat. Meghan Trainor) - Brett Eldredge | 2.89min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:46:35 | Feliz Navidad - José Feliciano | 3.04min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:49:34 | It's Beginning To Look Like Christmas - Bing Crosby | 2.77min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:51:39 | Jingle Bells - Remastered 1999 - Frank Sinatra | 2.01min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:54:20 | White Christmas - Dean Martin | 2.50min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 09:57:48 | Grown-Up Christmas List - Michael Bublé | 3.67min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:02:20 | Believe - Josh Groban | 4.31min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:04:34 | It's the Most Wonderful Time of the Year - Andy Williams | 2.52min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:07:12 | Winter Wonderland - Remastered 2006 - Bing Crosby | 2.40min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO -   + 2025-12-31 10:10:34 | Have Yourself A Merry Little Christmas - Remastered 1999 - Frank Sinatra | 3.44min
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - New tracks found: 34 tracks
+2025-12-31 11:12:27,344 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 34 tracks
+2025-12-31 11:12:27,345 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2025-12-31 08:15:48
+2025-12-31 11:12:27,345 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2025-12-31 10:10:34 | Have Yourself A Merry Little Christmas - Remastered 1999 - Frank Sinatra
+2025-12-31 11:12:27,345 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 102.6 minutes (1.7 hours)
+2025-12-31 11:12:27,345 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 34 new tracks for pipeline decision
+2025-12-31 11:12:27,446 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2025-12-31 11:12:27,447 - __main__ - INFO - ✅ Step 1 Complete: 34 new tracks found
+2025-12-31 11:12:27,447 - __main__ - INFO - 🎶 Found 34 new tracks. Continuing pipeline...
+2025-12-31 11:12:27,447 - __main__ - INFO - 
+2025-12-31 11:12:27,447 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2025-12-31 11:12:27,447 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 11:12:27,447 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2025-12-31 11:12:27,447 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2025-12-31 11:12:28,506 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 11:12:28,631 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2025-12-31 11:12:28,834 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO - ✅ Found 10971 existing songs and 3903 existing artists in master collections
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO - 🔍 Identified 11 new songs and 2 new artists
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   1. 'Believe' by Josh Groban
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   2. 'Grown-Up Christmas List' by Michael Bublé
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   3. 'Jingle Bells - Remastered 1999' by Frank Sinatra
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   4. 'It's Beginning To Look Like Christmas' by Bing Crosby
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   5. 'Baby, It's Cold Outside (feat. Meghan Trainor)' by Brett Eldredge
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   6. 'Let It Snow, Let It Snow, Let It Snow - Live' by Michael Bublé
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   7. 'Such a Night' by Michael Bublé
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   8. 'Michael's Christmas Greeting' by Michael Bublé
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   9. 'The More You Give (The More You'll Have)' by Michael Bublé
+2025-12-31 11:12:29,719 - data_collection.process_new_content - INFO -   10. 'The Christmas Sweater' by Michael Bublé
+2025-12-31 11:12:29,720 - data_collection.process_new_content - INFO -   11. 'Maybe This Christmas' by Michael Bublé
+2025-12-31 11:12:29,720 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2025-12-31 11:12:29,720 - data_collection.process_new_content - INFO -   1. Josh Groban
+2025-12-31 11:12:29,720 - data_collection.process_new_content - INFO -   2. Brett Eldredge
+2025-12-31 11:12:29,720 - data_collection.process_new_content - INFO - 🎵 Processing 11 new songs...
+2025-12-31 11:12:30,172 - data_collection.process_new_content - INFO -   ✅ 1/11: 'Believe' by Josh Groban
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 2/11: 'Grown-Up Christmas List' by Michael Bublé
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 3/11: 'Jingle Bells - Remastered 1999' by Frank Sinatra
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 4/11: 'It's Beginning To Look Like Christmas' by Bing Crosby
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 5/11: 'Baby, It's Cold Outside (feat. Meghan Trainor)' by Brett Eldredge
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 6/11: 'Let It Snow, Let It Snow, Let It Snow - Live' by Michael Bublé
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 7/11: 'Such a Night' by Michael Bublé
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 8/11: 'Michael's Christmas Greeting' by Michael Bublé
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 9/11: 'The More You Give (The More You'll Have)' by Michael Bublé
+2025-12-31 11:12:30,173 - data_collection.process_new_content - INFO -   ✅ 10/11: 'The Christmas Sweater' by Michael Bublé
+2025-12-31 11:12:30,174 - data_collection.process_new_content - INFO -   ✅ 11/11: 'Maybe This Christmas' by Michael Bublé
+2025-12-31 11:12:30,286 - data_collection.process_new_content - INFO - ✅ Inserted 11 new songs into songs_master
+2025-12-31 11:12:30,286 - data_collection.process_new_content - INFO - 🎤 Processing 2 new artists...
+2025-12-31 11:12:31,284 - data_collection.process_new_content - INFO -   ✅ 1/2: Josh Groban
+2025-12-31 11:12:31,285 - data_collection.process_new_content - INFO -   ✅ 2/2: Brett Eldredge
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - ✅ Inserted 2 new artists into artists_master
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - ============================================================
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - ============================================================
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - New songs found: 11
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - New artists found: 2
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - Songs inserted: 11
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - Artists inserted: 2
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2025-12-31 11:12:31,392 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2025-12-31 11:12:31,493 - data_collection.process_new_content - INFO - MongoDB connection closed
+2025-12-31 11:12:31,494 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2025-12-31 11:12:31,494 - __main__ - INFO - 
+2025-12-31 11:12:31,494 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2025-12-31 11:12:31,494 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 11:12:31,494 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2025-12-31 11:12:32,517 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 11:12:32,518 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2025-12-31 11:12:32,627 - enrichment.enrich_with_lyrics - INFO - ✅ Found 11 unprocessed songs
+2025-12-31 11:12:32,627 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 11 songs...
+2025-12-31 11:12:32,627 - enrichment.enrich_with_lyrics - INFO - [1/11] Processing: 'Believe' by Josh Groban
+2025-12-31 11:12:33,299 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Dutch (method: title)
+2025-12-31 11:12:33,406 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:33,516 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Josh Groban → Dutch
+2025-12-31 11:12:33,516 - enrichment.enrich_with_lyrics - INFO - [2/11] Processing: 'Grown-Up Christmas List' by Michael Bublé
+2025-12-31 11:12:33,863 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:33,970 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:34,076 - enrichment.enrich_with_lyrics - INFO - [3/11] Processing: 'Jingle Bells - Remastered 1999' by Frank Sinatra
+2025-12-31 11:12:34,466 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Dutch (method: artist_name)
+2025-12-31 11:12:34,581 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:34,687 - enrichment.enrich_with_lyrics - INFO - [4/11] Processing: 'It's Beginning To Look Like Christmas' by Bing Crosby
+2025-12-31 11:12:35,046 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:35,153 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:35,259 - enrichment.enrich_with_lyrics - INFO - [5/11] Processing: 'Baby, It's Cold Outside (feat. Meghan Trainor)' by Brett Eldredge
+2025-12-31 11:12:35,624 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:35,730 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:35,838 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Brett Eldredge → English
+2025-12-31 11:12:35,838 - enrichment.enrich_with_lyrics - INFO - [6/11] Processing: 'Let It Snow, Let It Snow, Let It Snow - Live' by Michael Bublé
+2025-12-31 11:12:36,186 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:36,291 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:36,291 - enrichment.enrich_with_lyrics - INFO - [7/11] Processing: 'Such a Night' by Michael Bublé
+2025-12-31 11:12:36,639 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:36,746 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:36,746 - enrichment.enrich_with_lyrics - INFO - [8/11] Processing: 'Michael's Christmas Greeting' by Michael Bublé
+2025-12-31 11:12:37,092 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:37,198 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:37,198 - enrichment.enrich_with_lyrics - INFO - [9/11] Processing: 'The More You Give (The More You'll Have)' by Michael Bublé
+2025-12-31 11:12:37,549 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:37,654 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:37,654 - enrichment.enrich_with_lyrics - INFO - [10/11] Processing: 'The Christmas Sweater' by Michael Bublé
+2025-12-31 11:12:38,006 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:38,112 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:38,112 - enrichment.enrich_with_lyrics - INFO - [11/11] Processing: 'Maybe This Christmas' by Michael Bublé
+2025-12-31 11:12:38,461 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2025-12-31 11:12:38,567 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2025-12-31 11:12:38,568 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2025-12-31 11:12:38,779 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2025-12-31 11:12:38,779 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 11:12:38,779 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2025-12-31 11:12:38,779 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - Songs processed: 11/11
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 0
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 5
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2025-12-31 11:12:38,780 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2025-12-31 11:12:38,883 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2025-12-31 11:12:38,883 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2025-12-31 11:12:38,883 - __main__ - INFO - 
+2025-12-31 11:12:38,883 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2025-12-31 11:12:38,883 - __main__ - INFO - ------------------------------------------------------------
+2025-12-31 11:12:38,883 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2025-12-31 11:12:38,883 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2025-12-31 11:12:39,888 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2025-12-31 11:12:39,888 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2025-12-31 11:12:39,888 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2025-12-31 11:12:40,101 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2025-12-31 11:12:40,102 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2025-12-31 11:12:41,643 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2025-12-31 11:12:41,871 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2025-12-31 11:12:41,975 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2025-12-31 11:12:42,080 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2025-12-31 11:12:42,298 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2025-12-31 11:12:43,236 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2025-12-31 11:12:44,275 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2025-12-31 11:12:44,276 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2025-12-31 11:13:05,473 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2025-12-31 11:13:05,474 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2025-12-31 11:13:05,859 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2025-12-31 11:13:06,067 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO - ============================================================
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO - ============================================================
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO - Total errors found: 3
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2025-12-31 11:13:06,179 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2025-12-31 11:13:06,179 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2025-12-31 11:13:06,282 - enrichment.validate_data - INFO - MongoDB connection closed
+2025-12-31 11:13:06,282 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2025-12-31 11:13:06,282 - __main__ - INFO - 
+2025-12-31 11:13:06,282 - __main__ - INFO - ================================================================================
+2025-12-31 11:13:06,282 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2025-12-31 11:13:06,282 - __main__ - INFO - ================================================================================
+2025-12-31 11:13:06,283 - __main__ - INFO - 📊 Pipeline Summary:
+2025-12-31 11:13:06,283 - __main__ - INFO -    • New tracks processed: 34
+2025-12-31 11:13:06,283 - __main__ - INFO -    • New songs and artists added to master collections
+2025-12-31 11:13:06,283 - __main__ - INFO -    • Lyrics fetched and languages detected
+2025-12-31 11:13:06,283 - __main__ - INFO -    • Data validation completed
+2025-12-31 11:13:06,283 - __main__ - INFO - 
+2025-12-31 11:13:06,283 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2025-12-31 11:13:06,283 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2025-12-31 11:13:06,283 - __main__ - INFO - ================================================================================
+2025-12-31 11:13:06,283 - __main__ - INFO - 🔄 Flushing logs to file...
