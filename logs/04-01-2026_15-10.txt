@@ -1,0 +1,135 @@
+2026-01-04 15:10:20,425 - __main__ - INFO - 📝 Logging initialized - writing to: logs/04-01-2026_15-10.txt
+2026-01-04 15:10:20,425 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:20,425 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2026-01-04 15:10:20,425 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:20,425 - __main__ - INFO - Execution Time: 2026-01-04 15:10:20
+2026-01-04 15:10:20,425 - __main__ - INFO - Pipeline Version: 2.0
+2026-01-04 15:10:20,425 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:20,425 - __main__ - INFO - 
+2026-01-04 15:10:20,425 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2026-01-04 15:10:20,426 - __main__ - INFO - ------------------------------------------------------------
+2026-01-04 15:10:20,426 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2026-01-04 15:10:20,426 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2026-01-04 15:10:21,988 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2026-01-04 15:10:21,988 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-04 15:10:22,177 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2026-01-04 15:10:22,178 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2026-01-04 15:10:22,421 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2026-01-04 15:10:22,422 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-04 15:10:22,740 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2026-01-04 15:10:22,741 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2026-01-04 15:10:22,741 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2026-01-04 15:10:22,866 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2026-01-01 16:49:06.629000
+2026-01-04 15:10:22,866 - data_collection.fetch_recent_tracks - INFO - Found 17 new tracks to insert (out of 50 total)
+2026-01-04 15:10:22,866 - data_collection.fetch_recent_tracks - INFO - Inserting 17 new tracks...
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 17 tracks
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:23:51 | Percy Jackson and the Olympians - Bear McCreary | 5.20min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:27:53 | Perseus - Bear McCreary | 4.37min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:32:51 | The Minotaur - Bear McCreary | 4.89min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:42:55 | Camp Half-Blood - Bear McCreary | 6.74min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:45:51 | Aunty Em - Bear McCreary | 2.75min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:48:51 | The Mother of Monsters - Bear McCreary | 2.96min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:51:51 | Chimera - Bear McCreary | 2.88min
+2026-01-04 15:10:23,112 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:54:52 | The Tunnel of Love - Bear McCreary | 3.05min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 12:57:51 | A Zebra in Vegas - Bear McCreary | 3.18min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:04:34 | Spirit of the Sea - Bear McCreary | 3.91min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:07:04 | The Fields of Asphodel - Bear McCreary | 2.35min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:10:04 | Lord of the Dead - Bear McCreary | 2.97min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:15:19 | Poseidon - Bear McCreary | 5.23min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:19:12 | Olympus - Bear McCreary | 3.88min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:22:34 | The Lightning Thief - Bear McCreary | 3.63min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 13:37:55 | The Sea Does Not Like to Be Restrained - Bear McCreary | 5.56min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-04 14:08:53 | The Ruins of Dale - Howard Shore | 3.66min
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - New tracks found: 17 tracks
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 17 tracks
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2026-01-01 16:49:06
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2026-01-04 14:08:53 | The Ruins of Dale - Howard Shore
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 67.2 minutes (1.1 hours)
+2026-01-04 15:10:23,113 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 17 new tracks for pipeline decision
+2026-01-04 15:10:23,235 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2026-01-04 15:10:23,236 - __main__ - INFO - ✅ Step 1 Complete: 17 new tracks found
+2026-01-04 15:10:23,236 - __main__ - INFO - 🎶 Found 17 new tracks. Continuing pipeline...
+2026-01-04 15:10:23,236 - __main__ - INFO - 
+2026-01-04 15:10:23,236 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2026-01-04 15:10:23,236 - __main__ - INFO - ------------------------------------------------------------
+2026-01-04 15:10:23,236 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2026-01-04 15:10:23,236 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2026-01-04 15:10:24,396 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2026-01-04 15:10:24,495 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2026-01-04 15:10:24,716 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2026-01-04 15:10:25,733 - data_collection.process_new_content - INFO - ✅ Found 11002 existing songs and 3906 existing artists in master collections
+2026-01-04 15:10:25,733 - data_collection.process_new_content - INFO - 🔍 Identified 0 new songs and 0 new artists
+2026-01-04 15:10:25,733 - data_collection.process_new_content - INFO - 🎉 No new songs or artists found in the last 50 streaming records!
+2026-01-04 15:10:25,733 - data_collection.process_new_content - INFO - All songs and artists are already in the master collections.
+2026-01-04 15:10:25,843 - data_collection.process_new_content - INFO - MongoDB connection closed
+2026-01-04 15:10:25,845 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2026-01-04 15:10:25,845 - __main__ - INFO - 
+2026-01-04 15:10:25,845 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2026-01-04 15:10:25,845 - __main__ - INFO - ------------------------------------------------------------
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-04 15:10:25,845 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2026-01-04 15:10:27,004 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2026-01-04 15:10:27,004 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2026-01-04 15:10:27,123 - enrichment.enrich_with_lyrics - INFO - ✅ Found 0 unprocessed songs
+2026-01-04 15:10:27,123 - enrichment.enrich_with_lyrics - INFO - 🎉 No unprocessed songs found! All songs have been processed.
+2026-01-04 15:10:27,236 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2026-01-04 15:10:27,236 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2026-01-04 15:10:27,236 - __main__ - INFO - 
+2026-01-04 15:10:27,237 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2026-01-04 15:10:27,237 - __main__ - INFO - ------------------------------------------------------------
+2026-01-04 15:10:27,237 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2026-01-04 15:10:27,237 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2026-01-04 15:10:28,324 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2026-01-04 15:10:28,324 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2026-01-04 15:10:28,324 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2026-01-04 15:10:28,573 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2026-01-04 15:10:28,573 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2026-01-04 15:10:30,409 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2026-01-04 15:10:30,644 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2026-01-04 15:10:30,754 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2026-01-04 15:10:30,866 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2026-01-04 15:10:31,154 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2026-01-04 15:10:32,155 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2026-01-04 15:10:33,261 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2026-01-04 15:10:33,262 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2026-01-04 15:10:55,843 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2026-01-04 15:10:55,843 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2026-01-04 15:10:56,261 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2026-01-04 15:10:56,486 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2026-01-04 15:10:56,622 - enrichment.validate_data - INFO - ============================================================
+2026-01-04 15:10:56,622 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2026-01-04 15:10:56,622 - enrichment.validate_data - INFO - ============================================================
+2026-01-04 15:10:56,622 - enrichment.validate_data - INFO - Total errors found: 3
+2026-01-04 15:10:56,622 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2026-01-04 15:10:56,622 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2026-01-04 15:10:56,623 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2026-01-04 15:10:56,623 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2026-01-04 15:10:56,623 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2026-01-04 15:10:56,733 - enrichment.validate_data - INFO - MongoDB connection closed
+2026-01-04 15:10:56,733 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2026-01-04 15:10:56,733 - __main__ - INFO - 
+2026-01-04 15:10:56,733 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:56,733 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2026-01-04 15:10:56,733 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:56,733 - __main__ - INFO - 📊 Pipeline Summary:
+2026-01-04 15:10:56,733 - __main__ - INFO -    • New tracks processed: 17
+2026-01-04 15:10:56,733 - __main__ - INFO -    • New songs and artists added to master collections
+2026-01-04 15:10:56,733 - __main__ - INFO -    • Lyrics fetched and languages detected
+2026-01-04 15:10:56,733 - __main__ - INFO -    • Data validation completed
+2026-01-04 15:10:56,733 - __main__ - INFO - 
+2026-01-04 15:10:56,733 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2026-01-04 15:10:56,733 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2026-01-04 15:10:56,733 - __main__ - INFO - ================================================================================
+2026-01-04 15:10:56,733 - __main__ - INFO - 🔄 Flushing logs to file...
