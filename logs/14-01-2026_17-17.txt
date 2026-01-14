@@ -1,0 +1,42 @@
+2026-01-14 17:17:48,919 - __main__ - INFO - 📝 Logging initialized - writing to: logs/14-01-2026_17-17.txt
+2026-01-14 17:17:48,919 - __main__ - INFO - ================================================================================
+2026-01-14 17:17:48,919 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2026-01-14 17:17:48,919 - __main__ - INFO - ================================================================================
+2026-01-14 17:17:48,919 - __main__ - INFO - Execution Time: 2026-01-14 17:17:48
+2026-01-14 17:17:48,919 - __main__ - INFO - Pipeline Version: 2.0
+2026-01-14 17:17:48,919 - __main__ - INFO - ================================================================================
+2026-01-14 17:17:48,919 - __main__ - INFO - 
+2026-01-14 17:17:48,919 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2026-01-14 17:17:48,919 - __main__ - INFO - ------------------------------------------------------------
+2026-01-14 17:17:48,919 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2026-01-14 17:17:48,919 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2026-01-14 17:17:50,520 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2026-01-14 17:17:50,520 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-14 17:17:50,655 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2026-01-14 17:17:50,656 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2026-01-14 17:17:50,812 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2026-01-14 17:17:50,813 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-14 17:17:51,181 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2026-01-14 17:17:51,182 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2026-01-14 17:17:51,183 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2026-01-12 15:48:35.908000
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - Found 0 new tracks to insert (out of 50 total)
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - No new tracks to insert
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - New tracks found: 0 tracks
+2026-01-14 17:17:51,315 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 0 tracks
+2026-01-14 17:17:51,316 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2026-01-12 15:48:35
+2026-01-14 17:17:51,316 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 0 new tracks for pipeline decision
+2026-01-14 17:17:51,446 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2026-01-14 17:17:51,446 - __main__ - INFO - ✅ Step 1 Complete: 0 new tracks found
+2026-01-14 17:17:51,446 - __main__ - INFO - 
+2026-01-14 17:17:51,446 - __main__ - INFO - 🛑 PIPELINE STOPPING: No new tracks found
+2026-01-14 17:17:51,446 - __main__ - INFO - All recent tracks are already in the database.
+2026-01-14 17:17:51,446 - __main__ - INFO - ================================================================================
+2026-01-14 17:17:51,446 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2026-01-14 17:17:51,446 - __main__ - INFO - ================================================================================
+2026-01-14 17:17:51,447 - __main__ - INFO - 🔄 Flushing logs to file...
