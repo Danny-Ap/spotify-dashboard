@@ -1,0 +1,200 @@
+2026-01-15 11:13:49,884 - __main__ - INFO - 📝 Logging initialized - writing to: logs/15-01-2026_11-13.txt
+2026-01-15 11:13:49,884 - __main__ - INFO - ================================================================================
+2026-01-15 11:13:49,884 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2026-01-15 11:13:49,884 - __main__ - INFO - ================================================================================
+2026-01-15 11:13:49,885 - __main__ - INFO - Execution Time: 2026-01-15 11:13:49
+2026-01-15 11:13:49,885 - __main__ - INFO - Pipeline Version: 2.0
+2026-01-15 11:13:49,885 - __main__ - INFO - ================================================================================
+2026-01-15 11:13:49,885 - __main__ - INFO - 
+2026-01-15 11:13:49,885 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2026-01-15 11:13:49,885 - __main__ - INFO - ------------------------------------------------------------
+2026-01-15 11:13:49,885 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2026-01-15 11:13:49,885 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2026-01-15 11:13:51,484 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2026-01-15 11:13:51,484 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-15 11:13:51,618 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2026-01-15 11:13:51,619 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2026-01-15 11:13:51,820 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2026-01-15 11:13:51,821 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-15 11:13:52,051 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2026-01-15 11:13:52,052 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2026-01-15 11:13:52,053 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2026-01-15 11:13:52,201 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2026-01-15 08:15:07.448000
+2026-01-15 11:13:52,202 - data_collection.fetch_recent_tracks - INFO - Found 29 new tracks to insert (out of 50 total)
+2026-01-15 11:13:52,202 - data_collection.fetch_recent_tracks - INFO - Inserting 29 new tracks...
+2026-01-15 11:13:52,485 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 29 tracks
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:18:37 | Dragon Training - John Powell | 3.18min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:20:07 | Wounded - John Powell | 1.43min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:22:08 | The Dragon Book - John Powell | 2.38min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:25:04 | Focus, Hiccup! - John Powell | 2.09min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:29:04 | Forbidden Friendship - John Powell | 4.18min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:32:04 | New Tail - John Powell | 2.80min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:37:53 | See You Tomorrow - John Powell | 3.89min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:40:23 | Test Drive - From How To Train Your Dragon Music From The Motion Picture - John Powell | 2.61min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:41:24 | Not So Fireproof - John Powell | 1.21min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:42:25 | This Time For Sure - John Powell | 0.73min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:42:53 | Astrid Goes For A Spin - John Powell | 0.72min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:51:32 | Romantic Flight - From How To Train Your Dragon Music From The Motion Picture - John Powell | 1.94min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:54:02 | Dragon's Den - John Powell | 2.49min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:55:03 | The Cove - John Powell | 1.18min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 08:59:53 | The Kill Ring - John Powell | 4.49min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:05:02 | Ready The Ships - John Powell | 5.24min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:11:02 | Battling The Green Death - John Powell | 6.31min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:21:14 | Counter Attack - John Powell | 3.09min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:23:44 | Where's Hiccup? - John Powell | 2.73min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:26:44 | Coming Back Around - John Powell | 2.85min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:31:14 | Sticks & Stones - Jónsi | 4.30min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:33:14 | The Vikings Have Their Tea - John Powell | 2.06min
+2026-01-15 11:13:52,486 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:37:14 | Sherwood Forest - Marc Streitenfeld | 2.33min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:42:14 | Feast of Starlight - Howard Shore | 2.80min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:44:44 | The Witcher: Toss A Coin To Your Witcher - Sonya Belousova | 2.80min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:46:44 | Dumbledore's Farewell - Nicholas Hooper | 2.37min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:48:14 | When I Sail - Clinton Shorter | 1.44min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 09:50:44 | Home - Ramin Djawadi | 2.51min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-15 10:10:38 | Main Title (From Game of Thrones: Season 3) - Ramin Djawadi | 1.74min
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - New tracks found: 29 tracks
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 29 tracks
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2026-01-15 08:15:07
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2026-01-15 10:10:38 | Main Title (From Game of Thrones: Season 3) - Ramin Djawadi
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 77.9 minutes (1.3 hours)
+2026-01-15 11:13:52,487 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 29 new tracks for pipeline decision
+2026-01-15 11:13:52,622 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2026-01-15 11:13:52,623 - __main__ - INFO - ✅ Step 1 Complete: 29 new tracks found
+2026-01-15 11:13:52,623 - __main__ - INFO - 🎶 Found 29 new tracks. Continuing pipeline...
+2026-01-15 11:13:52,623 - __main__ - INFO - 
+2026-01-15 11:13:52,623 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2026-01-15 11:13:52,623 - __main__ - INFO - ------------------------------------------------------------
+2026-01-15 11:13:52,623 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2026-01-15 11:13:52,623 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2026-01-15 11:13:53,927 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2026-01-15 11:13:54,027 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2026-01-15 11:13:54,292 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO - ✅ Found 11006 existing songs and 3906 existing artists in master collections
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO - 🔍 Identified 4 new songs and 1 new artists
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO -   1. 'Home' by Ramin Djawadi
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO -   2. 'When I Sail' by Clinton Shorter
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO -   3. 'The Witcher: Toss A Coin To Your Witcher' by Sonya Belousova
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO -   4. 'Feast of Starlight' by Howard Shore
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO -   1. Clinton Shorter
+2026-01-15 11:13:55,432 - data_collection.process_new_content - INFO - 🎵 Processing 4 new songs...
+2026-01-15 11:13:55,768 - data_collection.process_new_content - INFO -   ✅ 1/4: 'Home' by Ramin Djawadi
+2026-01-15 11:13:55,768 - data_collection.process_new_content - INFO -   ✅ 2/4: 'When I Sail' by Clinton Shorter
+2026-01-15 11:13:55,768 - data_collection.process_new_content - INFO -   ✅ 3/4: 'The Witcher: Toss A Coin To Your Witcher' by Sonya Belousova
+2026-01-15 11:13:55,768 - data_collection.process_new_content - INFO -   ✅ 4/4: 'Feast of Starlight' by Howard Shore
+2026-01-15 11:13:55,916 - data_collection.process_new_content - INFO - ✅ Inserted 4 new songs into songs_master
+2026-01-15 11:13:55,916 - data_collection.process_new_content - INFO - 🎤 Processing 1 new artists...
+2026-01-15 11:13:56,565 - data_collection.process_new_content - INFO -   ✅ 1/1: Clinton Shorter
+2026-01-15 11:13:56,703 - data_collection.process_new_content - INFO - ✅ Inserted 1 new artists into artists_master
+2026-01-15 11:13:56,703 - data_collection.process_new_content - INFO - ============================================================
+2026-01-15 11:13:56,703 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2026-01-15 11:13:56,703 - data_collection.process_new_content - INFO - ============================================================
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - New songs found: 4
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - New artists found: 1
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - Songs inserted: 4
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - Artists inserted: 1
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2026-01-15 11:13:56,704 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2026-01-15 11:13:56,835 - data_collection.process_new_content - INFO - MongoDB connection closed
+2026-01-15 11:13:56,836 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2026-01-15 11:13:56,836 - __main__ - INFO - 
+2026-01-15 11:13:56,836 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2026-01-15 11:13:56,836 - __main__ - INFO - ------------------------------------------------------------
+2026-01-15 11:13:56,836 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-15 11:13:56,836 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-15 11:13:56,837 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2026-01-15 11:13:58,149 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2026-01-15 11:13:58,150 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2026-01-15 11:13:58,287 - enrichment.enrich_with_lyrics - INFO - ✅ Found 4 unprocessed songs
+2026-01-15 11:13:58,288 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 4 songs...
+2026-01-15 11:13:58,288 - enrichment.enrich_with_lyrics - INFO - [1/4] Processing: 'Home' by Ramin Djawadi
+2026-01-15 11:13:58,288 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2026-01-15 11:13:58,288 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2026-01-15 11:13:58,288 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2026-01-15 11:13:58,423 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-15 11:13:58,423 - enrichment.enrich_with_lyrics - INFO - [2/4] Processing: 'When I Sail' by Clinton Shorter
+2026-01-15 11:13:59,117 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2026-01-15 11:13:59,253 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-15 11:13:59,390 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: Clinton Shorter → English
+2026-01-15 11:13:59,390 - enrichment.enrich_with_lyrics - INFO - [3/4] Processing: 'The Witcher: Toss A Coin To Your Witcher' by Sonya Belousova
+2026-01-15 11:13:59,808 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2026-01-15 11:13:59,942 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-15 11:14:00,079 - enrichment.enrich_with_lyrics - INFO - [4/4] Processing: 'Feast of Starlight' by Howard Shore
+2026-01-15 11:14:00,080 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2026-01-15 11:14:00,080 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2026-01-15 11:14:00,080 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2026-01-15 11:14:00,214 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-15 11:14:00,214 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - Songs processed: 4/4
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 2
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 2
+2026-01-15 11:14:00,483 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2026-01-15 11:14:00,484 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2026-01-15 11:14:00,615 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2026-01-15 11:14:00,615 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2026-01-15 11:14:00,615 - __main__ - INFO - 
+2026-01-15 11:14:00,615 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2026-01-15 11:14:00,616 - __main__ - INFO - ------------------------------------------------------------
+2026-01-15 11:14:00,616 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2026-01-15 11:14:00,616 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2026-01-15 11:14:01,899 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2026-01-15 11:14:01,900 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2026-01-15 11:14:01,900 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2026-01-15 11:14:02,170 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2026-01-15 11:14:02,170 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2026-01-15 11:14:04,099 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2026-01-15 11:14:04,400 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2026-01-15 11:14:04,533 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2026-01-15 11:14:04,671 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2026-01-15 11:14:04,956 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2026-01-15 11:14:06,202 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2026-01-15 11:14:07,500 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2026-01-15 11:14:07,501 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2026-01-15 11:14:34,253 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2026-01-15 11:14:34,253 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2026-01-15 11:14:34,618 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2026-01-15 11:14:34,883 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO - ============================================================
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO - ============================================================
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO - Total errors found: 3
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2026-01-15 11:14:35,023 - enrichment.validate_data - WARNING - 📋 Found 3 validation issues
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO -   missing_language: 1 issues
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2026-01-15 11:14:35,023 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2026-01-15 11:14:35,155 - enrichment.validate_data - INFO - MongoDB connection closed
+2026-01-15 11:14:35,155 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2026-01-15 11:14:35,155 - __main__ - INFO - 
+2026-01-15 11:14:35,155 - __main__ - INFO - ================================================================================
+2026-01-15 11:14:35,155 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2026-01-15 11:14:35,155 - __main__ - INFO - ================================================================================
+2026-01-15 11:14:35,155 - __main__ - INFO - 📊 Pipeline Summary:
+2026-01-15 11:14:35,155 - __main__ - INFO -    • New tracks processed: 29
+2026-01-15 11:14:35,155 - __main__ - INFO -    • New songs and artists added to master collections
+2026-01-15 11:14:35,155 - __main__ - INFO -    • Lyrics fetched and languages detected
+2026-01-15 11:14:35,155 - __main__ - INFO -    • Data validation completed
+2026-01-15 11:14:35,155 - __main__ - INFO - 
+2026-01-15 11:14:35,155 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2026-01-15 11:14:35,155 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2026-01-15 11:14:35,155 - __main__ - INFO - ================================================================================
+2026-01-15 11:14:35,155 - __main__ - INFO - 🔄 Flushing logs to file...
