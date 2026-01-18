@@ -1,0 +1,183 @@
+2026-01-18 15:10:48,070 - __main__ - INFO - 📝 Logging initialized - writing to: logs/18-01-2026_15-10.txt
+2026-01-18 15:10:48,070 - __main__ - INFO - ================================================================================
+2026-01-18 15:10:48,070 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2026-01-18 15:10:48,070 - __main__ - INFO - ================================================================================
+2026-01-18 15:10:48,070 - __main__ - INFO - Execution Time: 2026-01-18 15:10:48
+2026-01-18 15:10:48,071 - __main__ - INFO - Pipeline Version: 2.0
+2026-01-18 15:10:48,071 - __main__ - INFO - ================================================================================
+2026-01-18 15:10:48,071 - __main__ - INFO - 
+2026-01-18 15:10:48,071 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2026-01-18 15:10:48,071 - __main__ - INFO - ------------------------------------------------------------
+2026-01-18 15:10:48,071 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2026-01-18 15:10:48,071 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2026-01-18 15:10:49,224 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2026-01-18 15:10:49,224 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-18 15:10:49,355 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2026-01-18 15:10:49,356 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2026-01-18 15:10:49,530 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2026-01-18 15:10:49,531 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-18 15:10:49,779 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2026-01-18 15:10:49,779 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2026-01-18 15:10:49,780 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2026-01-18 15:10:49,898 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2026-01-18 08:51:03.899000
+2026-01-18 15:10:49,898 - data_collection.fetch_recent_tracks - INFO - Found 16 new tracks to insert (out of 50 total)
+2026-01-18 15:10:49,898 - data_collection.fetch_recent_tracks - INFO - Inserting 16 new tracks...
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 16 tracks
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:29:59 | Into Eternity - From "Thor: The Dark World"/Score - Brian Tyler | 3.69min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:31:44 | Ride The Dragon - Harry Gregson-Williams | 1.61min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:35:28 | The Black Gate Opens (feat. Sir James Galway) - Howard Shore | 4.03min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:36:59 | Opening Titles - David Arnold | 1.12min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:38:58 | The Kingsroad - Ramin Djawadi | 2.10min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:41:28 | Fog Bound - Klaus Badelt | 2.27min
+2026-01-18 15:10:50,083 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:42:59 | Merida's Home - From "Brave"/Score - Patrick Doyle | 1.54min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:45:29 | Concerning Hobbits - Howard Shore | 2.92min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:50:29 | Knighting Peter - Harry Gregson-Williams | 3.81min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:54:59 | One Last Shot - Klaus Badelt | 4.77min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 12:58:29 | Star Trek Main Theme - Michael Giacchino | 3.43min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 13:01:28 | Many Meetings - Howard Shore | 3.09min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 13:06:59 | The Sea Does Not Like to Be Restrained - Bear McCreary | 5.56min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 13:11:01 | Flight Home (The Guardian Theme) - David Hirschfelder | 3.86min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 13:13:59 | Flying with Mother - John Powell | 2.81min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-18 13:38:23 | We're Dark Fey - Geoff Zanelli | 3.89min
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - New tracks found: 16 tracks
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 16 tracks
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2026-01-18 08:51:03
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2026-01-18 13:38:23 | We're Dark Fey - Geoff Zanelli
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 50.5 minutes (0.8 hours)
+2026-01-18 15:10:50,084 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 16 new tracks for pipeline decision
+2026-01-18 15:10:50,183 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2026-01-18 15:10:50,184 - __main__ - INFO - ✅ Step 1 Complete: 16 new tracks found
+2026-01-18 15:10:50,184 - __main__ - INFO - 🎶 Found 16 new tracks. Continuing pipeline...
+2026-01-18 15:10:50,184 - __main__ - INFO - 
+2026-01-18 15:10:50,184 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2026-01-18 15:10:50,184 - __main__ - INFO - ------------------------------------------------------------
+2026-01-18 15:10:50,184 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2026-01-18 15:10:50,184 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2026-01-18 15:10:51,202 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2026-01-18 15:10:51,275 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2026-01-18 15:10:51,476 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2026-01-18 15:10:52,420 - data_collection.process_new_content - INFO - ✅ Found 11017 existing songs and 3907 existing artists in master collections
+2026-01-18 15:10:52,420 - data_collection.process_new_content - INFO - 🔍 Identified 3 new songs and 2 new artists
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO -   1. 'We're Dark Fey' by Geoff Zanelli
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO -   2. 'Flight Home (The Guardian Theme)' by David Hirschfelder
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO -   3. 'Opening Titles' by David Arnold
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO - 🎤 NEW ARTISTS FOUND:
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO -   1. David Hirschfelder
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO -   2. David Arnold
+2026-01-18 15:10:52,421 - data_collection.process_new_content - INFO - 🎵 Processing 3 new songs...
+2026-01-18 15:10:52,739 - data_collection.process_new_content - INFO -   ✅ 1/3: 'We're Dark Fey' by Geoff Zanelli
+2026-01-18 15:10:52,739 - data_collection.process_new_content - INFO -   ✅ 2/3: 'Flight Home (The Guardian Theme)' by David Hirschfelder
+2026-01-18 15:10:52,739 - data_collection.process_new_content - INFO -   ✅ 3/3: 'Opening Titles' by David Arnold
+2026-01-18 15:10:52,935 - data_collection.process_new_content - INFO - ✅ Inserted 3 new songs into songs_master
+2026-01-18 15:10:52,935 - data_collection.process_new_content - INFO - 🎤 Processing 2 new artists...
+2026-01-18 15:10:53,582 - data_collection.process_new_content - INFO -   ✅ 1/2: David Hirschfelder
+2026-01-18 15:10:53,582 - data_collection.process_new_content - INFO -   ✅ 2/2: David Arnold
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - ✅ Inserted 2 new artists into artists_master
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - ============================================================
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - ============================================================
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - New songs found: 3
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - New artists found: 2
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - Songs inserted: 3
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - Artists inserted: 2
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2026-01-18 15:10:53,689 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2026-01-18 15:10:53,790 - data_collection.process_new_content - INFO - MongoDB connection closed
+2026-01-18 15:10:53,791 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2026-01-18 15:10:53,791 - __main__ - INFO - 
+2026-01-18 15:10:53,791 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2026-01-18 15:10:53,791 - __main__ - INFO - ------------------------------------------------------------
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2026-01-18 15:10:53,791 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-18 15:10:53,792 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2026-01-18 15:10:54,829 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2026-01-18 15:10:54,830 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2026-01-18 15:10:54,939 - enrichment.enrich_with_lyrics - INFO - ✅ Found 3 unprocessed songs
+2026-01-18 15:10:54,939 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 3 songs...
+2026-01-18 15:10:54,939 - enrichment.enrich_with_lyrics - INFO - [1/3] Processing: 'We're Dark Fey' by Geoff Zanelli
+2026-01-18 15:10:55,557 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Af (method: title)
+2026-01-18 15:10:55,660 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-18 15:10:55,763 - enrichment.enrich_with_lyrics - INFO - [2/3] Processing: 'Flight Home (The Guardian Theme)' by David Hirschfelder
+2026-01-18 15:10:56,118 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: English (method: title)
+2026-01-18 15:10:56,222 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-18 15:10:56,330 - enrichment.enrich_with_lyrics - INFO -   🎭 Updated new artist language: David Hirschfelder → English
+2026-01-18 15:10:56,330 - enrichment.enrich_with_lyrics - INFO - [3/3] Processing: 'Opening Titles' by David Arnold
+2026-01-18 15:10:56,330 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2026-01-18 15:10:56,330 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2026-01-18 15:10:56,330 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2026-01-18 15:10:56,435 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-18 15:10:56,435 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - Songs processed: 3/3
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 1
+2026-01-18 15:10:56,638 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 2
+2026-01-18 15:10:56,639 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2026-01-18 15:10:56,639 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2026-01-18 15:10:56,738 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2026-01-18 15:10:56,738 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2026-01-18 15:10:56,738 - __main__ - INFO - 
+2026-01-18 15:10:56,738 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2026-01-18 15:10:56,738 - __main__ - INFO - ------------------------------------------------------------
+2026-01-18 15:10:56,738 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2026-01-18 15:10:56,738 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2026-01-18 15:10:57,719 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2026-01-18 15:10:57,719 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2026-01-18 15:10:57,719 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2026-01-18 15:10:57,927 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2026-01-18 15:10:57,927 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2026-01-18 15:10:59,500 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2026-01-18 15:10:59,715 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2026-01-18 15:10:59,816 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2026-01-18 15:10:59,918 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'artists_master', 'count': 1}
+2026-01-18 15:10:59,918 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2026-01-18 15:11:00,131 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2026-01-18 15:11:01,047 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2026-01-18 15:11:02,061 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2026-01-18 15:11:02,061 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2026-01-18 15:11:22,728 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2026-01-18 15:11:22,728 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2026-01-18 15:11:23,104 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2026-01-18 15:11:23,309 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2026-01-18 15:11:23,420 - enrichment.validate_data - INFO - ============================================================
+2026-01-18 15:11:23,420 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO - ============================================================
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO - Total errors found: 4
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2026-01-18 15:11:23,421 - enrichment.validate_data - WARNING - 📋 Found 4 validation issues
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO -   missing_language: 2 issues
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2026-01-18 15:11:23,421 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2026-01-18 15:11:23,521 - enrichment.validate_data - INFO - MongoDB connection closed
+2026-01-18 15:11:23,521 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2026-01-18 15:11:23,521 - __main__ - INFO - 
+2026-01-18 15:11:23,521 - __main__ - INFO - ================================================================================
+2026-01-18 15:11:23,521 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2026-01-18 15:11:23,521 - __main__ - INFO - ================================================================================
+2026-01-18 15:11:23,521 - __main__ - INFO - 📊 Pipeline Summary:
+2026-01-18 15:11:23,521 - __main__ - INFO -    • New tracks processed: 16
+2026-01-18 15:11:23,521 - __main__ - INFO -    • New songs and artists added to master collections
+2026-01-18 15:11:23,522 - __main__ - INFO -    • Lyrics fetched and languages detected
+2026-01-18 15:11:23,522 - __main__ - INFO -    • Data validation completed
+2026-01-18 15:11:23,522 - __main__ - INFO - 
+2026-01-18 15:11:23,522 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2026-01-18 15:11:23,522 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2026-01-18 15:11:23,522 - __main__ - INFO - ================================================================================
+2026-01-18 15:11:23,522 - __main__ - INFO - 🔄 Flushing logs to file...
