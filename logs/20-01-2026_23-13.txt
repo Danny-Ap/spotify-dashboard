@@ -1,0 +1,200 @@
+2026-01-20 23:13:30,405 - __main__ - INFO - 📝 Logging initialized - writing to: logs/20-01-2026_23-13.txt
+2026-01-20 23:13:30,406 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:30,406 - __main__ - INFO - 🎵 STARTING SPOTIFY ANALYTICS PIPELINE
+2026-01-20 23:13:30,406 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:30,406 - __main__ - INFO - Execution Time: 2026-01-20 23:13:30
+2026-01-20 23:13:30,406 - __main__ - INFO - Pipeline Version: 2.0
+2026-01-20 23:13:30,406 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:30,406 - __main__ - INFO - 
+2026-01-20 23:13:30,406 - __main__ - INFO - 📥 STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API
+2026-01-20 23:13:30,406 - __main__ - INFO - ------------------------------------------------------------
+2026-01-20 23:13:30,406 - data_collection.fetch_recent_tracks - INFO - 🎵 Starting Spotify Recent Tracks Fetcher
+2026-01-20 23:13:30,406 - data_collection.fetch_recent_tracks - INFO - Connecting to MongoDB Atlas...
+2026-01-20 23:13:31,591 - data_collection.fetch_recent_tracks - INFO - ✅ Connected to MongoDB Atlas
+2026-01-20 23:13:31,591 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-20 23:13:31,716 - data_collection.fetch_recent_tracks - WARNING - Access token expired, attempting to refresh...
+2026-01-20 23:13:31,717 - data_collection.fetch_recent_tracks - INFO - Refreshing Spotify access token...
+2026-01-20 23:13:31,884 - data_collection.fetch_recent_tracks - INFO - ✅ Access token refreshed successfully
+2026-01-20 23:13:31,885 - data_collection.fetch_recent_tracks - INFO - Fetching 50 recently played tracks...
+2026-01-20 23:13:32,272 - data_collection.fetch_recent_tracks - INFO - ✅ Retrieved 50 recently played tracks
+2026-01-20 23:13:32,273 - data_collection.fetch_recent_tracks - INFO - Processing 50 tracks...
+2026-01-20 23:13:32,274 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully converted 50 tracks to streaming format
+2026-01-20 23:13:32,360 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in database: 2026-01-18 13:38:23.861000
+2026-01-20 23:13:32,360 - data_collection.fetch_recent_tracks - INFO - Found 43 new tracks to insert (out of 50 total)
+2026-01-20 23:13:32,360 - data_collection.fetch_recent_tracks - INFO - Inserting 43 new tracks...
+2026-01-20 23:13:32,547 - data_collection.fetch_recent_tracks - INFO - ✅ Successfully inserted 43 tracks
+2026-01-20 23:13:32,547 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:43:26 | Arabian Nights - Bruce Adler | 1.32min
+2026-01-20 23:13:32,547 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:44:24 | Legend of the Lamp - Alan Menken | 1.42min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:46:55 | One Jump Ahead - Brad Kane | 2.37min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:49:02 | Street Urchins - Alan Menken | 1.88min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:49:56 | One Jump Ahead (Reprise) - Brad Kane | 1.02min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:52:32 | Friend Like Me - Robin Williams | 2.44min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 09:59:02 | To Be Free - Alan Menken | 1.65min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:02:03 | Prince Ali - Robin Williams | 2.86min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:04:32 | A Whole New World - Lea Salonga | 2.68min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:07:02 | Jafar's Hour - Alan Menken | 2.72min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:08:32 | Prince Ali (Reprise) - Jonathan Freeman | 1.13min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:10:02 | The Ends Of The Earth - Alan Menken | 1.59min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:12:02 | The Kiss - Alan Menken | 1.85min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:14:34 | On A Dark Night - Alan Menken | 2.93min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:15:39 | Jasmine Runs Away - Alan Menken | 0.78min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:18:02 | Marketplace - Alan Menken | 2.62min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:23:05 | The Cave of Wonders - Alan Menken | 4.96min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:25:02 | Aladdin's Word - Alan Menken | 1.86min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:28:34 | The Battle - Alan Menken | 3.66min
+2026-01-20 23:13:32,548 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:33:03 | Happy End in Agrabah - Alan Menken | 4.25min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:37:02 | A Whole New World (Aladdin's Theme) - Peabo Bryson | 4.17min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:39:33 | The Beast Lets Belle Go - Alan Menken | 2.37min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:41:32 | Ella and Kit - Patrick Doyle | 2.20min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:45:02 | Go the Distance - Roger Bart | 3.24min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:48:02 | I'll Make a Man Out of You - Donny Osmond | 3.36min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 10:57:13 | The Prince Of Egypt (When You Believe) - Mariah Carey | 5.03min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 11:04:04 | Deliver Us - Ofra Haza | 7.25min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 11:06:23 | The Reprimand - Hans Zimmer | 4.09min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 11:06:53 | Following Tzipporah - Hans Zimmer | 1.01min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 11:09:33 | All I Ever Wanted (With Queen's Reprise) - Amick Byram | 2.86min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 11:15:03 | Goodbye Brother - Ofra Haza | 5.53min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:24:50 | Through Heaven's Eyes - Brian Stokes Mitchell | 3.70min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:27:04 | Through Heaven's Eyes - Brian Stokes Mitchell | 3.70min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:33:26 | The Burning Bush - Hans Zimmer | 7.28min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:36:36 | Playing With The Big Boys - Steve Martin | 2.87min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:46:27 | Cry - Ofra Haza | 3.84min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:46:56 | Rally - Hans Zimmer | 0.71min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:49:26 | The Plagues - Ralph Fiennes | 2.67min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:55:26 | When You Believe - Michelle Pfeiffer | 4.92min
+2026-01-20 23:13:32,549 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 12:59:04 | Death Of The First Born - Hans Zimmer | 1.13min
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 13:01:39 | Red Sea - Hans Zimmer | 5.19min
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 13:10:27 | River Lullaby - Amy Grant | 3.95min
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO -   + 2026-01-20 15:00:37 | The Great Secret - Patrick Doyle | 3.02min
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - FETCH RECENT TRACKS SUMMARY
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - ============================================================
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Fetched from Spotify API: 50 tracks
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Converted successfully: 50 tracks
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - New tracks found: 43 tracks
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Successfully inserted: 43 tracks
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Latest timestamp in DB: 2026-01-18 13:38:23
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Newest track added: 2026-01-20 15:00:37 | The Great Secret - Patrick Doyle
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - Total listening time (new tracks): 130.1 minutes (2.2 hours)
+2026-01-20 23:13:32,550 - data_collection.fetch_recent_tracks - INFO - 🎉 Returning 43 new tracks for pipeline decision
+2026-01-20 23:13:32,636 - data_collection.fetch_recent_tracks - INFO - MongoDB connection closed
+2026-01-20 23:13:32,637 - __main__ - INFO - ✅ Step 1 Complete: 43 new tracks found
+2026-01-20 23:13:32,637 - __main__ - INFO - 🎶 Found 43 new tracks. Continuing pipeline...
+2026-01-20 23:13:32,637 - __main__ - INFO - 
+2026-01-20 23:13:32,637 - __main__ - INFO - 🔍 STEP 2: PROCESSING NEW SONGS AND ARTISTS
+2026-01-20 23:13:32,637 - __main__ - INFO - ------------------------------------------------------------
+2026-01-20 23:13:32,637 - data_collection.process_new_content - INFO - 🔍 Starting New Content Processor
+2026-01-20 23:13:32,637 - data_collection.process_new_content - INFO - Connecting to MongoDB Atlas...
+2026-01-20 23:13:33,591 - data_collection.process_new_content - INFO - ✅ Connected to MongoDB Atlas
+2026-01-20 23:13:33,659 - data_collection.process_new_content - INFO - ✅ Successfully obtained Spotify API token
+2026-01-20 23:13:33,833 - data_collection.process_new_content - INFO - ✅ Retrieved 50 recent streaming records
+2026-01-20 23:13:34,591 - data_collection.process_new_content - INFO - ✅ Found 11020 existing songs and 3909 existing artists in master collections
+2026-01-20 23:13:34,591 - data_collection.process_new_content - INFO - 🔍 Identified 2 new songs and 0 new artists
+2026-01-20 23:13:34,591 - data_collection.process_new_content - INFO - 🎵 NEW SONGS FOUND:
+2026-01-20 23:13:34,591 - data_collection.process_new_content - INFO -   1. 'Ella and Kit' by Patrick Doyle
+2026-01-20 23:13:34,591 - data_collection.process_new_content - INFO -   2. 'The Beast Lets Belle Go' by Alan Menken
+2026-01-20 23:13:34,592 - data_collection.process_new_content - INFO - 🎵 Processing 2 new songs...
+2026-01-20 23:13:34,894 - data_collection.process_new_content - INFO -   ✅ 1/2: 'Ella and Kit' by Patrick Doyle
+2026-01-20 23:13:34,895 - data_collection.process_new_content - INFO -   ✅ 2/2: 'The Beast Lets Belle Go' by Alan Menken
+2026-01-20 23:13:34,994 - data_collection.process_new_content - INFO - ✅ Inserted 2 new songs into songs_master
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - No new artists to process
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - ============================================================
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - NEW CONTENT PROCESSING SUMMARY
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - ============================================================
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - Streaming records checked: 50
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - New songs found: 2
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - New artists found: 0
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - Songs inserted: 2
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - Artists inserted: 0
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - 🔜 Next Steps:
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - 1. Run lyrics enrichment to get lyrics for new songs
+2026-01-20 23:13:34,995 - data_collection.process_new_content - INFO - 2. Run language detection to classify languages
+2026-01-20 23:13:35,086 - data_collection.process_new_content - INFO - MongoDB connection closed
+2026-01-20 23:13:35,087 - __main__ - INFO - ✅ Step 2 Complete: New songs and artists processed
+2026-01-20 23:13:35,087 - __main__ - INFO - 
+2026-01-20 23:13:35,087 - __main__ - INFO - 📝 STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION
+2026-01-20 23:13:35,087 - __main__ - INFO - ------------------------------------------------------------
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - LYRICS FETCHER & LANGUAGE DETECTION SCRIPT - OPTIMIZED
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - Target Collections: Spotify.songs_master
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - Processing: Songs with has_lyrics: null
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - Optimization: Removed heavy artist conflict resolution
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-20 23:13:35,088 - enrichment.enrich_with_lyrics - INFO - Connecting to MongoDB Atlas...
+2026-01-20 23:13:36,014 - enrichment.enrich_with_lyrics - INFO - ✅ Connected to MongoDB Atlas
+2026-01-20 23:13:36,014 - enrichment.enrich_with_lyrics - INFO - ✅ Successfully connected to Genius API
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO - ✅ Found 2 unprocessed songs
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO - 🔍 Processing 2 songs...
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO - [1/2] Processing: 'Ella and Kit' by Patrick Doyle
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2026-01-20 23:13:36,106 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2026-01-20 23:13:36,195 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-20 23:13:36,195 - enrichment.enrich_with_lyrics - INFO - [2/2] Processing: 'The Beast Lets Belle Go' by Alan Menken
+2026-01-20 23:13:36,195 - enrichment.enrich_with_lyrics - INFO -   🎬 Classified as soundtrack
+2026-01-20 23:13:36,195 - enrichment.enrich_with_lyrics - INFO -   🎬 Skipping lyrics fetch for soundtrack
+2026-01-20 23:13:36,195 - enrichment.enrich_with_lyrics - INFO -   🌍 Language detected: Soundtrack (method: soundtrack)
+2026-01-20 23:13:36,285 - enrichment.enrich_with_lyrics - INFO -   ✅ Updated in database
+2026-01-20 23:13:36,285 - enrichment.enrich_with_lyrics - INFO - 🎬 Fixing soundtrack language issues...
+2026-01-20 23:13:36,475 - enrichment.enrich_with_lyrics - INFO -   ✅ No soundtrack language issues found
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - PROCESSING COMPLETE!
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - ================================================================================
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - Songs processed: 2/2
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - Lyrics found: 0
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - Soundtracks identified: 2
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - New artist languages updated: 0
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - Language detection completed for all processed songs
+2026-01-20 23:13:36,476 - enrichment.enrich_with_lyrics - INFO - ⚡ Artist conflict resolution skipped for performance
+2026-01-20 23:13:36,563 - enrichment.enrich_with_lyrics - INFO - ✅ MongoDB connection closed
+2026-01-20 23:13:36,563 - __main__ - INFO - ✅ Step 3 Complete: Lyrics and language detection finished
+2026-01-20 23:13:36,563 - __main__ - INFO - 
+2026-01-20 23:13:36,563 - __main__ - INFO - 🔍 STEP 4: VALIDATING DATA INTEGRITY
+2026-01-20 23:13:36,563 - __main__ - INFO - ------------------------------------------------------------
+2026-01-20 23:13:36,563 - enrichment.validate_data - INFO - ✅ Starting Data Validation & Consistency Check
+2026-01-20 23:13:36,563 - enrichment.validate_data - INFO - Connecting to MongoDB Atlas...
+2026-01-20 23:13:37,478 - enrichment.validate_data - INFO - ✅ Connected to MongoDB Atlas
+2026-01-20 23:13:37,478 - enrichment.validate_data - INFO - 🔍 Starting comprehensive data validation...
+
+2026-01-20 23:13:37,478 - enrichment.validate_data - INFO - 🎬 Validating soundtrack consistency...
+2026-01-20 23:13:37,658 - enrichment.validate_data - INFO - ✅ Fixed 0 songs and 0 artists with soundtrack issues
+2026-01-20 23:13:37,658 - enrichment.validate_data - INFO - 📋 Validating required fields...
+2026-01-20 23:13:38,948 - enrichment.validate_data - INFO - 🔢 Validating boolean fields...
+2026-01-20 23:13:39,143 - enrichment.validate_data - INFO - 🌍 Validating language fields...
+2026-01-20 23:13:39,229 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'songs_master', 'count': 2}
+2026-01-20 23:13:39,317 - enrichment.validate_data - WARNING - missing_language - Language field is null: {'collection': 'artists_master', 'count': 1}
+2026-01-20 23:13:39,317 - enrichment.validate_data - INFO - 🔍 Validating detection methods...
+2026-01-20 23:13:39,501 - enrichment.validate_data - INFO - 🔤 Validating character detection consistency...
+2026-01-20 23:13:40,288 - enrichment.validate_data - WARNING - character_detection_inconsistency - Hebrew characters found but language is not Hebrew: {'song_name': '07-נוב', 'artist_name': 'Beyoncé', 'current_language': '', 'expected_language': 'Hebrew'}
+2026-01-20 23:13:41,197 - enrichment.validate_data - WARNING - Found 1 character detection inconsistencies
+2026-01-20 23:13:41,197 - enrichment.validate_data - INFO - 🔗 Validating cross-collection relationships...
+2026-01-20 23:13:58,766 - enrichment.validate_data - INFO - ✅ Cross-collection relationships look good (sample check)
+2026-01-20 23:13:58,766 - enrichment.validate_data - INFO - 👥 Validating for duplicates...
+2026-01-20 23:13:59,110 - enrichment.validate_data - INFO - 🎵 Validating Spotify data...
+2026-01-20 23:13:59,286 - enrichment.validate_data - WARNING - missing_spotify_data - Missing artist_uri in artists: {'collection': 'artists_master', 'count': 22}
+2026-01-20 23:13:59,380 - enrichment.validate_data - INFO - ============================================================
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO - DATA VALIDATION SUMMARY
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO - ============================================================
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO - Total errors found: 4
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO - Automatic fixes applied: 0
+2026-01-20 23:13:59,381 - enrichment.validate_data - WARNING - 📋 Found 4 validation issues
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO -   missing_language: 2 issues
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO -   character_detection_inconsistency: 1 issues
+2026-01-20 23:13:59,381 - enrichment.validate_data - INFO -   missing_spotify_data: 1 issues
+2026-01-20 23:13:59,467 - enrichment.validate_data - INFO - MongoDB connection closed
+2026-01-20 23:13:59,467 - __main__ - INFO - ✅ Step 4 Complete: Data validation finished
+2026-01-20 23:13:59,467 - __main__ - INFO - 
+2026-01-20 23:13:59,467 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:59,467 - __main__ - INFO - 🎉 PIPELINE COMPLETED SUCCESSFULLY
+2026-01-20 23:13:59,467 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:59,467 - __main__ - INFO - 📊 Pipeline Summary:
+2026-01-20 23:13:59,468 - __main__ - INFO -    • New tracks processed: 43
+2026-01-20 23:13:59,468 - __main__ - INFO -    • New songs and artists added to master collections
+2026-01-20 23:13:59,468 - __main__ - INFO -    • Lyrics fetched and languages detected
+2026-01-20 23:13:59,468 - __main__ - INFO -    • Data validation completed
+2026-01-20 23:13:59,468 - __main__ - INFO - 
+2026-01-20 23:13:59,468 - __main__ - INFO - 🔄 Next run will check for new tracks in 2 hours
+2026-01-20 23:13:59,468 - __main__ - INFO - 📊 Dashboard will automatically reflect new data
+2026-01-20 23:13:59,468 - __main__ - INFO - ================================================================================
+2026-01-20 23:13:59,468 - __main__ - INFO - 🔄 Flushing logs to file...
