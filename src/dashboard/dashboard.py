@@ -494,14 +494,18 @@ def get_listening_heatmap_data(filters=None):
     try:
         collection = db_conn.get_collection(STREAMING_COLLECTION)
 
+        # Extract hour from ts field (ISO format: YYYY-MM-DDTHH:MM:SSZ)
+        # The hour is at position 11-13 in the string
         pipeline = [
             {"$match": {
-                "ts_utc": {"$exists": True, "$ne": None},
+                "ts": {"$exists": True, "$ne": None},
                 DAY_OF_WEEK: {"$exists": True, "$ne": None}
             }},
             {"$project": {
                 "day_of_week": f"${DAY_OF_WEEK}",
-                "hour": {"$hour": "$ts_utc"},
+                "hour": {
+                    "$toInt": {"$substr": ["$ts", 11, 2]}
+                },
                 "h_played": f"${DURATION_HOURS}"
             }},
             {"$group": {
@@ -571,9 +575,17 @@ def get_language_evolution_data():
         # Get streaming data and join with songs_master for language
         streaming_collection = db_conn.get_collection(STREAMING_COLLECTION)
 
+        # Month name to number mapping for sorting
+        month_to_num = {
+            "January": 1, "February": 2, "March": 3, "April": 4,
+            "May": 5, "June": 6, "July": 7, "August": 8,
+            "September": 9, "October": 10, "November": 11, "December": 12
+        }
+
         pipeline = [
             {"$match": {
-                "ts_utc": {"$exists": True, "$ne": None},
+                YEAR: {"$exists": True, "$ne": None},
+                MONTH: {"$exists": True, "$ne": None},
                 "spotify_track_uri": {"$exists": True, "$ne": None}
             }},
             {"$lookup": {
@@ -584,34 +596,37 @@ def get_language_evolution_data():
             }},
             {"$unwind": "$song_info"},
             {"$match": {"song_info.language": {"$in": top_languages}}},
-            {"$project": {
-                "language": "$song_info.language",
-                "year": {"$year": "$ts_utc"},
-                "month": {"$month": "$ts_utc"},
-                "h_played": f"${DURATION_HOURS}"
-            }},
             {"$group": {
                 "_id": {
-                    "language": "$language",
-                    "year": "$year",
-                    "month": "$month"
+                    "language": "$song_info.language",
+                    "year": f"${YEAR}",
+                    "month": f"${MONTH}"
                 },
-                "total_hours": {"$sum": "$h_played"}
+                "total_hours": {"$sum": f"${DURATION_HOURS}"}
             }},
             {"$project": {
                 "_id": 0,
                 "language": "$_id.language",
                 "year": "$_id.year",
-                "month": "$_id.month",
+                "month_name": "$_id.month",
                 "hours": "$total_hours"
-            }},
-            {"$sort": {"year": 1, "month": 1}}
+            }}
         ]
 
         results = list(streaming_collection.aggregate(pipeline, allowDiskUse=True))
         df = pd.DataFrame(results)
 
         if not df.empty:
+            # Convert month names to numbers for proper date creation
+            month_to_num = {
+                "January": 1, "February": 2, "March": 3, "April": 4,
+                "May": 5, "June": 6, "July": 7, "August": 8,
+                "September": 9, "October": 10, "November": 11, "December": 12
+            }
+            df['month'] = df['month_name'].map(month_to_num)
+            df = df.dropna(subset=['month', 'year'])  # Remove rows with invalid months
+            df['month'] = df['month'].astype(int)
+            df['year'] = df['year'].astype(int)
             df['date'] = pd.to_datetime(df[['year', 'month']].assign(day=1))
             df = df.sort_values('date')
 
