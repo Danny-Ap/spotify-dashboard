@@ -17,6 +17,7 @@ from src.utils.database import MongoDBConnection
 from src.utils.spotify_api import SpotifyClient
 from src.utils.config import (
     STREAMING_COLLECTION,
+    SONGS_MASTER_COLLECTION,
     STREAMING_FIELDS,
 )
 
@@ -242,6 +243,23 @@ class RecentTracksFetcher:
 
             # Sort tracks by timestamp (oldest first) for insertion
             sorted_tracks = sorted(tracks, key=lambda x: x['ts_utc'])
+
+            # Look up languages from songs_master for denormalization
+            songs_collection = self.db.get_collection(SONGS_MASTER_COLLECTION)
+            track_uris = [t.get('spotify_track_uri') for t in sorted_tracks if t.get('spotify_track_uri')]
+
+            # Build language map for these tracks
+            language_cursor = songs_collection.find(
+                {"spotify_track_uri": {"$in": track_uris}},
+                {"spotify_track_uri": 1, "language": 1, "_id": 0}
+            )
+            language_map = {doc["spotify_track_uri"]: doc.get("language") for doc in language_cursor}
+
+            # Add language to each track
+            for track in sorted_tracks:
+                uri = track.get('spotify_track_uri')
+                if uri and uri in language_map:
+                    track['language'] = language_map[uri]
 
             logger.info(f"Inserting {len(sorted_tracks)} new tracks...")
             result = collection.insert_many(sorted_tracks)

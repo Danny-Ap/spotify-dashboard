@@ -549,46 +549,34 @@ def get_language_evolution_data():
         return pd.DataFrame(), status
 
     try:
-        # Get top languages from songs_master
-        songs_collection = db_conn.get_collection(SONGS_MASTER_COLLECTION)
+        streaming_collection = db_conn.get_collection(STREAMING_COLLECTION)
 
+        # Get top 5 languages directly from StreamingHistory (uses denormalized language field)
         top_languages_pipeline = [
             {"$match": {"language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
             {"$group": {
                 "_id": "$language",
-                "song_count": {"$sum": 1}
+                "total_hours": {"$sum": f"${DURATION_HOURS}"}
             }},
-            {"$sort": {"song_count": -1}},
-            {"$limit": 5},
-            {"$project": {"_id": 0, "language": "$_id"}}
+            {"$sort": {"total_hours": -1}},
+            {"$limit": 5}
         ]
 
-        top_languages_result = list(songs_collection.aggregate(top_languages_pipeline, allowDiskUse=True))
-        top_languages = [lang["language"] for lang in top_languages_result]
+        top_languages_result = list(streaming_collection.aggregate(top_languages_pipeline, allowDiskUse=True))
+        top_languages = [lang["_id"] for lang in top_languages_result]
 
         if not top_languages:
             return pd.DataFrame(), status
 
-        # Get streaming data and join with songs_master for language
-        streaming_collection = db_conn.get_collection(STREAMING_COLLECTION)
-
-        # Use ts field (MongoDB Date) to extract year and month
+        # Get language evolution by month (fast - no $lookup needed!)
         pipeline = [
             {"$match": {
                 "ts": {"$exists": True, "$ne": None},
-                "spotify_track_uri": {"$exists": True, "$ne": None}
+                "language": {"$in": top_languages}
             }},
-            {"$lookup": {
-                "from": SONGS_MASTER_COLLECTION,
-                "localField": "spotify_track_uri",
-                "foreignField": "spotify_track_uri",
-                "as": "song_info"
-            }},
-            {"$unwind": "$song_info"},
-            {"$match": {"song_info.language": {"$in": top_languages}}},
             {"$group": {
                 "_id": {
-                    "language": "$song_info.language",
+                    "language": "$language",
                     "year": {"$year": "$ts"},
                     "month": {"$month": "$ts"}
                 },
@@ -663,20 +651,12 @@ def get_distribution_data(data_type="countries", filters=None):
             ]
 
         elif data_type == "languages_hours":
-            # Join streaming with songs_master for language
+            # Use denormalized language field directly from StreamingHistory (fast!)
             collection = db_conn.get_collection(STREAMING_COLLECTION)
             pipeline = [
-                {"$match": {"spotify_track_uri": {"$exists": True, "$ne": None}}},
-                {"$lookup": {
-                    "from": SONGS_MASTER_COLLECTION,
-                    "localField": "spotify_track_uri",
-                    "foreignField": "spotify_track_uri",
-                    "as": "song_info"
-                }},
-                {"$unwind": "$song_info"},
-                {"$match": {"song_info.language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
+                {"$match": {"language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
                 {"$group": {
-                    "_id": "$song_info.language",
+                    "_id": "$language",
                     "total_hours": {"$sum": f"${DURATION_HOURS}"}
                 }},
                 {"$project": {
