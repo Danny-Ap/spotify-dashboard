@@ -2,18 +2,8 @@
 """
 Spotify Analytics Pipeline Orchestrator
 
-Runs the complete data collection and enrichment pipeline with conditional logic.
-
-Pipeline Flow:
-1. Fetch recent tracks from Spotify API
-2. If new tracks found (>0), continue to process new content
-3. Enrich with lyrics and language detection
-4. Validate data integrity
-
-Collections Used:
-- StreamingHistory: Main streaming data
-- songs_master: Unique songs collection
-- artists_master: Unique artists collection
+Runs the complete data collection and enrichment pipeline.
+Produces a concise summary log with key statistics.
 """
 
 import sys
@@ -21,134 +11,108 @@ import logging
 from datetime import datetime
 from pathlib import Path
 
-# Import pipeline modules using package structure
+# Suppress verbose logging from all modules
+logging.getLogger().setLevel(logging.WARNING)
+for name in ['src.data_collection', 'src.enrichment', 'src.utils', 'urllib3', 'requests']:
+    logging.getLogger(name).setLevel(logging.WARNING)
+
+# Import pipeline modules
 from src.data_collection import fetch_recent_tracks, process_new_content
 from src.enrichment import enrich_with_lyrics, validate_data
 
 
-def setup_logging():
-    """Setup logging to file with timestamp."""
+def run_pipeline():
+    """Run the pipeline and return statistics."""
+    stats = {
+        "start_time": datetime.now(),
+        "new_tracks": 0,
+        "new_songs": 0,
+        "new_artists": 0,
+        "lyrics_fetched": 0,
+        "validation_issues": 0,
+        "status": "success",
+        "error": None
+    }
+
+    try:
+        # Step 1: Fetch recent tracks
+        stats["new_tracks"] = fetch_recent_tracks()
+
+        if stats["new_tracks"] == 0:
+            stats["status"] = "no_new_tracks"
+            return stats
+
+        # Step 2: Process new content (returns tuple of songs, artists inserted)
+        # Note: process_new_content doesn't return values, so we can't capture exact counts
+        process_new_content()
+
+        # Step 3: Enrich with lyrics
+        enrich_with_lyrics()
+
+        # Step 4: Validate data
+        validate_data()
+
+    except Exception as e:
+        stats["status"] = "failed"
+        stats["error"] = str(e)
+
+    stats["end_time"] = datetime.now()
+    stats["duration"] = (stats["end_time"] - stats["start_time"]).total_seconds()
+
+    return stats
+
+
+def write_log(stats):
+    """Write a concise summary log."""
     log_dir = Path("logs")
     log_dir.mkdir(exist_ok=True)
 
-    timestamp = datetime.now().strftime("%d-%m-%Y_%H-%M")
+    timestamp = stats["start_time"].strftime("%d-%m-%Y_%H-%M")
     log_file = log_dir / f"{timestamp}.txt"
 
-    # Remove any existing handlers
-    for handler in logging.root.handlers[:]:
-        logging.root.removeHandler(handler)
+    lines = [
+        f"Spotify Pipeline - {stats['start_time'].strftime('%Y-%m-%d %H:%M:%S')}",
+        f"{'=' * 50}",
+    ]
 
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler(log_file, encoding='utf-8'),
-            logging.StreamHandler(sys.stdout)
-        ],
-        force=True
-    )
+    if stats["status"] == "no_new_tracks":
+        lines.extend([
+            f"Status: No new tracks",
+            f"All recent tracks already in database.",
+        ])
+    elif stats["status"] == "success":
+        lines.extend([
+            f"Status: Success",
+            f"New tracks fetched: {stats['new_tracks']}",
+            f"Duration: {stats['duration']:.1f}s",
+        ])
+    else:
+        lines.extend([
+            f"Status: FAILED",
+            f"Error: {stats['error']}",
+        ])
 
-    logger = logging.getLogger(__name__)
-    logger.info(f"Logging initialized - writing to: {log_file}")
+    lines.append(f"{'=' * 50}")
 
-    return logger
+    log_content = "\n".join(lines)
+
+    # Write to file
+    with open(log_file, 'w', encoding='utf-8') as f:
+        f.write(log_content)
+
+    # Also print to stdout for GitHub Actions
+    print(log_content)
+
+    return log_file
 
 
 def main():
-    """Run the complete Spotify analytics pipeline."""
-    logger = setup_logging()
+    """Main entry point."""
+    stats = run_pipeline()
+    log_file = write_log(stats)
 
-    logger.info("=" * 80)
-    logger.info("STARTING SPOTIFY ANALYTICS PIPELINE")
-    logger.info("=" * 80)
-    logger.info(f"Execution Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    logger.info(f"Pipeline Version: 3.0")
-    logger.info("=" * 80)
-
-    try:
-        # ===== STEP 1: FETCH RECENT TRACKS =====
-        logger.info("")
-        logger.info("STEP 1: FETCHING RECENT TRACKS FROM SPOTIFY API")
-        logger.info("-" * 60)
-
-        new_tracks_count = fetch_recent_tracks()
-
-        logger.info(f"Step 1 Complete: {new_tracks_count} new tracks found")
-
-        # Check if we should continue pipeline
-        if new_tracks_count == 0:
-            logger.info("")
-            logger.info("PIPELINE STOPPING: No new tracks found")
-            logger.info("All recent tracks are already in the database.")
-            logger.info("=" * 80)
-            logger.info("PIPELINE COMPLETED SUCCESSFULLY")
-            logger.info("=" * 80)
-
-            for handler in logging.getLogger().handlers:
-                handler.flush()
-
-            return
-
-        logger.info(f"Found {new_tracks_count} new tracks. Continuing pipeline...")
-
-        # ===== STEP 2: PROCESS NEW CONTENT =====
-        logger.info("")
-        logger.info("STEP 2: PROCESSING NEW SONGS AND ARTISTS")
-        logger.info("-" * 60)
-
-        process_new_content()
-        logger.info("Step 2 Complete: New songs and artists processed")
-
-        # ===== STEP 3: ENRICH WITH LYRICS =====
-        logger.info("")
-        logger.info("STEP 3: ENRICHING WITH LYRICS AND LANGUAGE DETECTION")
-        logger.info("-" * 60)
-
-        enrich_with_lyrics()
-        logger.info("Step 3 Complete: Lyrics and language detection finished")
-
-        # ===== STEP 4: VALIDATE DATA =====
-        logger.info("")
-        logger.info("STEP 4: VALIDATING DATA INTEGRITY")
-        logger.info("-" * 60)
-
-        validate_data()
-        logger.info("Step 4 Complete: Data validation finished")
-
-        # ===== PIPELINE SUMMARY =====
-        logger.info("")
-        logger.info("=" * 80)
-        logger.info("PIPELINE COMPLETED SUCCESSFULLY")
-        logger.info("=" * 80)
-        logger.info(f"Pipeline Summary:")
-        logger.info(f"   - New tracks processed: {new_tracks_count}")
-        logger.info(f"   - New songs and artists added to master collections")
-        logger.info(f"   - Lyrics fetched and languages detected")
-        logger.info(f"   - Data validation completed")
-        logger.info("")
-        logger.info("Next run will check for new tracks in 2 hours")
-        logger.info("Dashboard will automatically reflect new data")
-        logger.info("=" * 80)
-
-    except Exception as e:
-        logger.error("")
-        logger.error("=" * 80)
-        logger.error("PIPELINE FAILED")
-        logger.error("=" * 80)
-        logger.error(f"Error: {str(e)}")
-        logger.error("Stack trace:", exc_info=True)
-        logger.error("=" * 80)
-
-        raise
-
-    finally:
-        logger.info("Flushing logs to file...")
-        for handler in logging.getLogger().handlers:
-            handler.flush()
-
-        for handler in logging.getLogger().handlers:
-            if isinstance(handler, logging.FileHandler):
-                handler.close()
+    if stats["status"] == "failed":
+        sys.exit(1)
 
 
 if __name__ == "__main__":
