@@ -53,6 +53,7 @@ STREAMING_FIELDS = {
     "year": "Year",
     "month": "Month",
     "day": "Day",
+    "day_of_week": "Day",  # Alias for dashboard compatibility
 
     # Duration fields
     "ms_played": "ms_played",
