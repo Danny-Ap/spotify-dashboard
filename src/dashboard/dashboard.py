@@ -197,9 +197,21 @@ def get_filter_options():
         max_date = date_result[0]["max_date"] if date_result else None
 
         if min_date and isinstance(min_date, str):
-            min_date = datetime.strptime(min_date, "%Y-%m-%d").date()
+            # Try multiple date formats
+            for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
+                try:
+                    min_date = datetime.strptime(min_date, fmt).date()
+                    break
+                except ValueError:
+                    continue
         if max_date and isinstance(max_date, str):
-            max_date = datetime.strptime(max_date, "%Y-%m-%d").date()
+            # Try multiple date formats
+            for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
+                try:
+                    max_date = datetime.strptime(max_date, fmt).date()
+                    break
+                except ValueError:
+                    continue
 
         return {
             "songs": sorted([s for s in songs if s]),
@@ -230,7 +242,8 @@ def apply_filters(base_pipeline, filters):
         match_conditions[YEAR] = {"$in": filters["years"]}
     if "date_range" in filters and filters["date_range"]:
         start_date, end_date = filters["date_range"]
-        match_conditions[DATE] = {"$gte": start_date.strftime("%Y-%m-%d"), "$lte": end_date.strftime("%Y-%m-%d")}
+        # Use DD/MM/YYYY format to match stored data format
+        match_conditions[DATE] = {"$gte": start_date.strftime("%d/%m/%Y"), "$lte": end_date.strftime("%d/%m/%Y")}
 
     if match_conditions:
         base_pipeline.insert(0, {"$match": match_conditions})
@@ -951,7 +964,16 @@ def get_listening_streaks_data():
         for date_str, hours in dates_with_hours:
             try:
                 if isinstance(date_str, str):
-                    parsed_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+                    # Try multiple date formats
+                    parsed_date = None
+                    for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
+                        try:
+                            parsed_date = datetime.strptime(date_str, fmt).date()
+                            break
+                        except ValueError:
+                            continue
+                    if parsed_date is None:
+                        continue
                 else:
                     parsed_date = date_str
                 parsed_dates.append((parsed_date, hours))
@@ -1039,7 +1061,7 @@ def get_discovery_metrics():
         # Get current month boundaries
         now = datetime.now()
         first_of_month = now.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
-        first_of_month_str = first_of_month.strftime("%Y-%m-%d")
+        first_of_month_str = first_of_month.strftime("%d/%m/%Y")  # Match stored date format
 
         # New songs this month: songs whose first play was this month
         new_songs_pipeline = [
@@ -1109,8 +1131,21 @@ def get_discovery_metrics():
 
             for i in range(1, len(dates)):
                 try:
-                    prev = datetime.strptime(dates[i-1], "%Y-%m-%d") if isinstance(dates[i-1], str) else dates[i-1]
-                    curr = datetime.strptime(dates[i], "%Y-%m-%d") if isinstance(dates[i], str) else dates[i]
+                    # Parse dates with multiple formats
+                    def parse_date(d):
+                        if isinstance(d, str):
+                            for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
+                                try:
+                                    return datetime.strptime(d, fmt)
+                                except ValueError:
+                                    continue
+                            return None
+                        return d
+
+                    prev = parse_date(dates[i-1])
+                    curr = parse_date(dates[i])
+                    if prev is None or curr is None:
+                        continue
                     if (curr - prev).days > 30:
                         has_long_gap = True
                     if isinstance(curr, datetime):
@@ -1159,7 +1194,7 @@ def get_recently_discovered_songs(limit=10):
 
         now = datetime.now()
         first_of_month = now.replace(day=1)
-        first_of_month_str = first_of_month.strftime("%Y-%m-%d")
+        first_of_month_str = first_of_month.strftime("%d/%m/%Y")  # Match stored date format
 
         pipeline = [
             {"$match": {
@@ -1676,7 +1711,7 @@ def main():
             st.title("Filters")
 
             # Reset filters button
-            if st.button("Reset Filters", type="primary", use_container_width=True):
+            if st.button("Reset Filters", type="primary", width="stretch"):
                 st.rerun()
 
             st.markdown("---")
@@ -1848,7 +1883,7 @@ def main():
     if not top_df.empty:
         value_col = "count" if selected_data_type == "play_count" else "hours"
         top_chart = create_horizontal_bar_chart(top_df, top_data_type, value_col)
-        st.altair_chart(top_chart, use_container_width=True)
+        st.altair_chart(top_chart, width="stretch")
     else:
         st.info(f"No {top_data_type.lower()} data available with current filters")
 
@@ -1870,7 +1905,7 @@ def main():
 
     if not time_df.empty:
         time_chart = create_time_chart(time_df, time_type)
-        st.altair_chart(time_chart, use_container_width=True)
+        st.altair_chart(time_chart, width="stretch")
     else:
         st.info(f"No {time_type.lower()} data available with current filters")
 
@@ -1899,7 +1934,7 @@ def main():
 
         if not dist_df.empty:
             dist_chart = create_pie_chart(dist_df, dist_type)
-            st.altair_chart(dist_chart, use_container_width=True)
+            st.altair_chart(dist_chart, width="stretch")
         else:
             st.info(f"No {dist_type.lower()} data available")
 
@@ -1910,7 +1945,7 @@ def main():
 
         if not heatmap_df.empty:
             heatmap_chart = create_heatmap_chart(heatmap_df)
-            st.altair_chart(heatmap_chart, use_container_width=True)
+            st.altair_chart(heatmap_chart, width="stretch")
         else:
             st.info("No heatmap data available")
 
@@ -1936,7 +1971,7 @@ def main():
 
             with col_chart:
                 release_years_chart = create_release_years_chart(release_years_df)
-                st.altair_chart(release_years_chart, use_container_width=True)
+                st.altair_chart(release_years_chart, width="stretch")
 
             with col_dropdown:
                 available_years = sorted(release_years_df['year'].tolist(), reverse=True)
@@ -1963,7 +1998,7 @@ def main():
                                 "release_date": st.column_config.TextColumn("Release Date", width="small")
                             },
                             hide_index=True,
-                            use_container_width=True,
+                            width="stretch",
                             height=300
                         )
                     else:
@@ -1983,7 +2018,7 @@ def main():
                     "Songs by Popularity Score",
                     "songs"
                 )
-                st.altair_chart(song_pop_chart, use_container_width=True)
+                st.altair_chart(song_pop_chart, width="stretch")
 
             with col_dropdown:
                 available_popularities = sorted(song_pop_df['popularity'].tolist(), reverse=True)
@@ -2011,7 +2046,7 @@ def main():
                                 "popularity": st.column_config.NumberColumn("Popularity", width="small")
                             },
                             hide_index=True,
-                            use_container_width=True,
+                            width="stretch",
                             height=300
                         )
                     else:
@@ -2031,7 +2066,7 @@ def main():
                     "Artists by Popularity Score",
                     "artists"
                 )
-                st.altair_chart(artist_pop_chart, use_container_width=True)
+                st.altair_chart(artist_pop_chart, width="stretch")
 
             with col_dropdown:
                 available_popularities = sorted(artist_pop_df['popularity'].tolist(), reverse=True)
@@ -2058,7 +2093,7 @@ def main():
                                 "followers": st.column_config.NumberColumn("Followers", width="medium")
                             },
                             hide_index=True,
-                            use_container_width=True,
+                            width="stretch",
                             height=300
                         )
                     else:
@@ -2075,7 +2110,7 @@ def main():
 
     if not lang_evolution_df.empty:
         lang_evolution_chart = create_language_evolution_chart(lang_evolution_df)
-        st.altair_chart(lang_evolution_chart, use_container_width=True)
+        st.altair_chart(lang_evolution_chart, width="stretch")
     else:
         st.info("No language evolution data available")
 
@@ -2171,7 +2206,7 @@ def main():
                             "play_count": st.column_config.NumberColumn("Plays", width="small")
                         },
                         hide_index=True,
-                        use_container_width=True,
+                        width="stretch",
                         height=300
                     )
                 else:
@@ -2189,7 +2224,7 @@ def main():
                             "play_date": st.column_config.TextColumn("Played On", width="small")
                         },
                         hide_index=True,
-                        use_container_width=True,
+                        width="stretch",
                         height=300
                     )
                 else:
@@ -2248,7 +2283,7 @@ def main():
             ])
             if not comparison_df.empty and comparison_df['value'].sum() > 0:
                 comparison_chart = create_pie_chart(comparison_df, "Hours by Type")
-                st.altair_chart(comparison_chart, use_container_width=True)
+                st.altair_chart(comparison_chart, width="stretch")
 
         with col_composers:
             st.markdown("**Top Soundtrack Composers/Artists**")
@@ -2262,7 +2297,7 @@ def main():
                         "unique_songs": st.column_config.NumberColumn("Songs", width="small")
                     },
                     hide_index=True,
-                    use_container_width=True,
+                    width="stretch",
                     height=300
                 )
             else:
