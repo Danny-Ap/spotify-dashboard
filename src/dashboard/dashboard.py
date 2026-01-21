@@ -1,3 +1,9 @@
+import sys
+from pathlib import Path
+
+# Add project root to Python path for Streamlit Cloud compatibility
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+
 import streamlit as st
 import pandas as pd
 import altair as alt
