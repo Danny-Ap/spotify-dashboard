@@ -175,43 +175,33 @@ def get_filter_options():
         collection = db_conn.get_collection(STREAMING_COLLECTION)
 
         # Use new field names
-        songs = list(collection.distinct(TRACK_NAME, {TRACK_NAME: {"$ne": None, "$ne": ""}}))
-        artists = list(collection.distinct(ARTIST_NAME, {ARTIST_NAME: {"$ne": None, "$ne": ""}}))
-        albums = list(collection.distinct(ALBUM_NAME, {ALBUM_NAME: {"$ne": None, "$ne": ""}}))
+        songs = list(collection.distinct(TRACK_NAME, {TRACK_NAME: {"$nin": [None, ""]}}))
+        artists = list(collection.distinct(ARTIST_NAME, {ARTIST_NAME: {"$nin": [None, ""]}}))
+        albums = list(collection.distinct(ALBUM_NAME, {ALBUM_NAME: {"$nin": [None, ""]}}))
         years = list(collection.distinct(YEAR, {YEAR: {"$ne": None}}))
 
         # Get languages from songs_master (more accurate)
         songs_collection = db_conn.get_collection(SONGS_MASTER_COLLECTION)
-        languages = list(songs_collection.distinct("language", {"language": {"$ne": None, "$ne": "Unknown"}}))
+        languages = list(songs_collection.distinct("language", {"language": {"$nin": [None, "", "Unknown"]}}))
 
+        # Use ts field (MongoDB Date object) for accurate min/max date calculation
         date_pipeline = [
-            {"$match": {DATE: {"$exists": True, "$ne": None}}},
+            {"$match": {"ts": {"$exists": True, "$ne": None}}},
             {"$group": {
                 "_id": None,
-                "min_date": {"$min": f"${DATE}"},
-                "max_date": {"$max": f"${DATE}"}
+                "min_date": {"$min": "$ts"},
+                "max_date": {"$max": "$ts"}
             }}
         ]
         date_result = list(collection.aggregate(date_pipeline))
         min_date = date_result[0]["min_date"] if date_result else None
         max_date = date_result[0]["max_date"] if date_result else None
 
-        if min_date and isinstance(min_date, str):
-            # Try multiple date formats
-            for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
-                try:
-                    min_date = datetime.strptime(min_date, fmt).date()
-                    break
-                except ValueError:
-                    continue
-        if max_date and isinstance(max_date, str):
-            # Try multiple date formats
-            for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
-                try:
-                    max_date = datetime.strptime(max_date, fmt).date()
-                    break
-                except ValueError:
-                    continue
+        # Convert MongoDB Date objects to Python date
+        if min_date and isinstance(min_date, datetime):
+            min_date = min_date.date()
+        if max_date and isinstance(max_date, datetime):
+            max_date = max_date.date()
 
         return {
             "songs": sorted([s for s in songs if s]),
@@ -242,8 +232,10 @@ def apply_filters(base_pipeline, filters):
         match_conditions[YEAR] = {"$in": filters["years"]}
     if "date_range" in filters and filters["date_range"]:
         start_date, end_date = filters["date_range"]
-        # Use DD/MM/YYYY format to match stored data format
-        match_conditions[DATE] = {"$gte": start_date.strftime("%d/%m/%Y"), "$lte": end_date.strftime("%d/%m/%Y")}
+        # Use ts field (MongoDB Date object) for accurate date filtering
+        start_datetime = datetime.combine(start_date, datetime.min.time())
+        end_datetime = datetime.combine(end_date, datetime.max.time())
+        match_conditions["ts"] = {"$gte": start_datetime, "$lte": end_datetime}
 
     if match_conditions:
         base_pipeline.insert(0, {"$match": match_conditions})
@@ -264,7 +256,7 @@ def get_last_song_played(filters=None):
 
         pipeline = [
             {"$match": {
-                TRACK_NAME: {"$exists": True, "$ne": None, "$ne": ""},
+                TRACK_NAME: {"$exists": True, "$nin": [None, ""]},
                 "ts_utc": {"$exists": True, "$ne": None}
             }},
             {"$sort": {"ts_utc": -1}},
@@ -386,9 +378,26 @@ def get_top_data(data_type="songs", limit=20, filters=None):
                 {"$sort": {"count": -1}},
                 {"$limit": limit}
             ]
+        elif data_type == "songs":
+            # For songs, include artist name for display
+            pipeline = [
+                {"$match": {TRACK_NAME: {"$exists": True, "$ne": None}}},
+                {"$group": {
+                    "_id": f"${TRACK_NAME}",
+                    "total_hours": {"$sum": f"${DURATION_HOURS}"},
+                    "artist_name": {"$first": f"${ARTIST_NAME}"}
+                }},
+                {"$project": {
+                    "_id": 0,
+                    "name": "$_id",
+                    "hours": "$total_hours",
+                    "artist_name": "$artist_name"
+                }},
+                {"$sort": {"hours": -1}},
+                {"$limit": limit}
+            ]
         else:
             field_map = {
-                "songs": TRACK_NAME,
                 "artists": ARTIST_NAME,
                 "albums": ALBUM_NAME
             }
@@ -553,7 +562,7 @@ def get_language_evolution_data():
 
         # Get top 5 languages directly from StreamingHistory (uses denormalized language field)
         top_languages_pipeline = [
-            {"$match": {"language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
+            {"$match": {"language": {"$exists": True, "$nin": [None, "", "Unknown"]}}},
             {"$group": {
                 "_id": "$language",
                 "total_hours": {"$sum": f"${DURATION_HOURS}"}
@@ -617,7 +626,7 @@ def get_distribution_data(data_type="countries", filters=None):
         if data_type == "countries":
             collection = db_conn.get_collection(STREAMING_COLLECTION)
             pipeline = [
-                {"$match": {"conn_country": {"$exists": True, "$ne": None, "$ne": ""}}},
+                {"$match": {"conn_country": {"$exists": True, "$nin": [None, ""]}}},
                 {"$group": {
                     "_id": "$conn_country",
                     "total_hours": {"$sum": f"${DURATION_HOURS}"}
@@ -637,7 +646,7 @@ def get_distribution_data(data_type="countries", filters=None):
             # Get from songs_master (more accurate)
             collection = db_conn.get_collection(SONGS_MASTER_COLLECTION)
             pipeline = [
-                {"$match": {"language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
+                {"$match": {"language": {"$exists": True, "$nin": [None, "", "Unknown"]}}},
                 {"$group": {
                     "_id": "$language",
                     "song_count": {"$sum": 1}
@@ -654,7 +663,7 @@ def get_distribution_data(data_type="countries", filters=None):
             # Use denormalized language field directly from StreamingHistory (fast!)
             collection = db_conn.get_collection(STREAMING_COLLECTION)
             pipeline = [
-                {"$match": {"language": {"$exists": True, "$ne": None, "$ne": "Unknown"}}},
+                {"$match": {"language": {"$exists": True, "$nin": [None, "", "Unknown"]}}},
                 {"$group": {
                     "_id": "$language",
                     "total_hours": {"$sum": f"${DURATION_HOURS}"}
@@ -1349,7 +1358,7 @@ def get_top_soundtrack_artists(limit=10):
         return pd.DataFrame(), f"Error getting top soundtrack artists: {str(e)}"
 
 
-def create_horizontal_bar_chart(df, title, value_col="hours", height=600):
+def create_horizontal_bar_chart(df, title, value_col="hours", height=600, data_type="songs"):
     """Create a horizontal bar chart."""
     if df.empty:
         return alt.Chart(pd.DataFrame()).mark_text(
@@ -1365,6 +1374,15 @@ def create_horizontal_bar_chart(df, title, value_col="hours", height=600):
         format_str = ",.2f"
         value_title = "Hours"
 
+    # Build tooltip based on data type
+    tooltip_list = [alt.Tooltip('name:N', title='Song' if data_type == 'songs' else title)]
+
+    # Add artist name for songs and play_count views
+    if data_type in ['songs', 'play_count'] and 'artist_name' in df.columns:
+        tooltip_list.append(alt.Tooltip('artist_name:N', title='Artist'))
+
+    tooltip_list.append(alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str))
+
     chart = alt.Chart(df).mark_bar(
         color='#1DB954',
         opacity=0.8
@@ -1376,10 +1394,7 @@ def create_horizontal_bar_chart(df, title, value_col="hours", height=600):
                 sort=alt.SortField(field=value_col, order='descending'),
                 title=None,
                 axis=alt.Axis(labelLimit=300)),
-        tooltip=[
-            alt.Tooltip('name:N', title=title),
-            alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str)
-        ]
+        tooltip=tooltip_list
     ).properties(
         width=500,
         height=height,
@@ -1690,8 +1705,6 @@ def main():
             if st.button("Reset Filters", type="primary", width="stretch"):
                 st.rerun()
 
-            st.markdown("---")
-
             # Date range filter
             if min_date and max_date:
                 st.markdown('<div class="filter-section">', unsafe_allow_html=True)
@@ -1858,7 +1871,7 @@ def main():
 
     if not top_df.empty:
         value_col = "count" if selected_data_type == "play_count" else "hours"
-        top_chart = create_horizontal_bar_chart(top_df, top_data_type, value_col)
+        top_chart = create_horizontal_bar_chart(top_df, top_data_type, value_col, data_type=selected_data_type)
         st.altair_chart(top_chart, width="stretch")
     else:
         st.info(f"No {top_data_type.lower()} data available with current filters")
