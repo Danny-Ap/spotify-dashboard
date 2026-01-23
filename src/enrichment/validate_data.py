@@ -159,6 +159,29 @@ class DataValidator:
 
         logger.info(f"  Fixed {len(missing_status)} songs with missing enrichment_status")
 
+    def fix_null_required_fields(self):
+        """Remove records with null required fields that cannot be fixed."""
+        logger.info("Fixing records with null required fields...")
+
+        # Remove artists with null artist_name (these are unusable)
+        artists_collection = self.db.get_collection(ARTISTS_MASTER_COLLECTION)
+        result = artists_collection.delete_many({"artist_name": None})
+        if result.deleted_count > 0:
+            logger.info(f"  Removed {result.deleted_count} artists with null artist_name")
+            self.fixes_applied += result.deleted_count
+
+        # Remove songs with null song_name or artist_name (these are unusable)
+        songs_collection = self.db.get_collection(SONGS_MASTER_COLLECTION)
+        result = songs_collection.delete_many({
+            "$or": [
+                {"song_name": None},
+                {"artist_name": None}
+            ]
+        })
+        if result.deleted_count > 0:
+            logger.info(f"  Removed {result.deleted_count} songs with null song_name or artist_name")
+            self.fixes_applied += result.deleted_count
+
     def validate_required_fields(self):
         """Validate that required fields are not null/empty."""
         logger.info("Validating required fields...")
@@ -195,6 +218,42 @@ class DataValidator:
                         "field": field,
                         "count": empty_count
                     })
+
+    def fix_boolean_fields(self):
+        """Fix is_soundtrack fields that are strings instead of booleans."""
+        logger.info("Fixing is_soundtrack string values...")
+
+        collections_to_check = [SONGS_MASTER_COLLECTION, ARTISTS_MASTER_COLLECTION]
+
+        for collection_name in collections_to_check:
+            collection = self.db.get_collection(collection_name)
+
+            # Fix "True" strings -> true boolean
+            result_true = collection.update_many(
+                {"is_soundtrack": "True"},
+                {"$set": {"is_soundtrack": True}}
+            )
+            if result_true.modified_count > 0:
+                logger.info(f"  Fixed {result_true.modified_count} 'True' strings -> true in {collection_name}")
+                self.fixes_applied += result_true.modified_count
+
+            # Fix "False" strings -> false boolean
+            result_false = collection.update_many(
+                {"is_soundtrack": "False"},
+                {"$set": {"is_soundtrack": False}}
+            )
+            if result_false.modified_count > 0:
+                logger.info(f"  Fixed {result_false.modified_count} 'False' strings -> false in {collection_name}")
+                self.fixes_applied += result_false.modified_count
+
+            # Fix empty strings -> false boolean
+            result_empty = collection.update_many(
+                {"is_soundtrack": ""},
+                {"$set": {"is_soundtrack": False}}
+            )
+            if result_empty.modified_count > 0:
+                logger.info(f"  Fixed {result_empty.modified_count} empty strings -> false in {collection_name}")
+                self.fixes_applied += result_empty.modified_count
 
     def validate_boolean_fields(self):
         """Validate that is_soundtrack fields are proper booleans."""
@@ -355,6 +414,89 @@ class DataValidator:
         if missing_songs == 0 and missing_artists == 0:
             logger.info("  Cross-collection relationships look good (sample check)")
 
+    def fix_duplicates(self):
+        """Fix duplicate records by keeping only one (the most complete/recent)."""
+        logger.info("Fixing duplicate records...")
+
+        # Fix duplicate songs (case variations)
+        songs_collection = self.db.get_collection(SONGS_MASTER_COLLECTION)
+
+        pipeline = [
+            {"$group": {
+                "_id": {
+                    "song_name_lower": {"$toLower": "$song_name"},
+                    "artist_name_lower": {"$toLower": "$artist_name"}
+                },
+                "count": {"$sum": 1},
+                "docs": {"$push": {
+                    "_id": "$_id",
+                    "song_name": "$song_name",
+                    "has_lyrics": "$has_lyrics",
+                    "enrichment_status": "$enrichment_status"
+                }}
+            }},
+            {"$match": {"count": {"$gt": 1}}}
+        ]
+
+        duplicate_songs = list(songs_collection.aggregate(pipeline))
+        songs_removed = 0
+
+        for dup in duplicate_songs:
+            docs = dup["docs"]
+            # Sort to keep the best record: prefer has_lyrics=True, then enrichment_status='processed'
+            docs.sort(key=lambda x: (
+                x.get("has_lyrics") is True,
+                x.get("enrichment_status") == "processed"
+            ), reverse=True)
+
+            # Keep the first (best) one, delete the rest
+            ids_to_delete = [doc["_id"] for doc in docs[1:]]
+            if ids_to_delete:
+                result = songs_collection.delete_many({"_id": {"$in": ids_to_delete}})
+                songs_removed += result.deleted_count
+
+        if songs_removed > 0:
+            logger.info(f"  Removed {songs_removed} duplicate songs (kept most complete version)")
+            self.fixes_applied += songs_removed
+
+        # Fix duplicate artists (case variations)
+        artists_collection = self.db.get_collection(ARTISTS_MASTER_COLLECTION)
+
+        pipeline = [
+            {"$group": {
+                "_id": {"artist_name_lower": {"$toLower": "$artist_name"}},
+                "count": {"$sum": 1},
+                "docs": {"$push": {
+                    "_id": "$_id",
+                    "artist_name": "$artist_name",
+                    "artist_uri": "$artist_uri",
+                    "genres": "$genres"
+                }}
+            }},
+            {"$match": {"count": {"$gt": 1}}}
+        ]
+
+        duplicate_artists = list(artists_collection.aggregate(pipeline))
+        artists_removed = 0
+
+        for dup in duplicate_artists:
+            docs = dup["docs"]
+            # Sort to keep the best record: prefer one with artist_uri and genres
+            docs.sort(key=lambda x: (
+                bool(x.get("artist_uri")),
+                bool(x.get("genres"))
+            ), reverse=True)
+
+            # Keep the first (best) one, delete the rest
+            ids_to_delete = [doc["_id"] for doc in docs[1:]]
+            if ids_to_delete:
+                result = artists_collection.delete_many({"_id": {"$in": ids_to_delete}})
+                artists_removed += result.deleted_count
+
+        if artists_removed > 0:
+            logger.info(f"  Removed {artists_removed} duplicate artists (kept most complete version)")
+            self.fixes_applied += artists_removed
+
     def validate_duplicates(self):
         """Check for duplicate records (sample check)."""
         logger.info("Validating for duplicates...")
@@ -510,16 +652,35 @@ def main():
 
             logger.info("Starting comprehensive data validation...\n")
 
-            # 1. Fix soundtrack consistency (auto-fix)
+            # === AUTO-FIXES (run first) ===
+            logger.info("=" * 40)
+            logger.info("PHASE 1: AUTO-FIXES")
+            logger.info("=" * 40)
+
+            # 1. Fix boolean fields (string "True"/"False" -> boolean)
+            validator.fix_boolean_fields()
+
+            # 2. Fix null required fields (remove unusable records)
+            validator.fix_null_required_fields()
+
+            # 3. Fix duplicates (remove case variations, keep best)
+            validator.fix_duplicates()
+
+            # 4. Fix soundtrack consistency (auto-fix)
             validator.validate_soundtrack_consistency()
 
-            # 2. Fix/validate enrichment_status (auto-fix)
+            # 5. Fix/validate enrichment_status (auto-fix)
             validator.validate_enrichment_status()
 
-            # 3. Validate required fields
+            logger.info("")
+            logger.info("=" * 40)
+            logger.info("PHASE 2: VALIDATION CHECKS")
+            logger.info("=" * 40)
+
+            # 6. Validate required fields
             validator.validate_required_fields()
 
-            # 4. Validate boolean fields
+            # 7. Validate boolean fields
             validator.validate_boolean_fields()
 
             # 5. Validate language fields
