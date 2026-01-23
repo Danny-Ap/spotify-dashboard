@@ -252,9 +252,6 @@ SOUNDTRACK_KEYWORDS = {
     'requiem', 'mass in', 'magnificat', 'stabat mater', 'te deum',
     'cantata', 'oratorio', 'passion',
 
-    # Performance/Recording indicators
-    'live at', 'recorded at', 'remastered', 'arrangement', 'transcription',
-    'performed by', 'conducted by', 'featuring the',
 }
 
 ORCHESTRA_KEYWORDS = {
