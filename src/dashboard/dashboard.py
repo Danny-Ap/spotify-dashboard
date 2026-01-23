@@ -1250,51 +1250,50 @@ def get_one_hit_wonders_list(limit=10):
 
 @st.cache_data(ttl=300)
 def get_soundtrack_analytics():
-    """Get soundtrack listening analytics using songs_master is_soundtrack field."""
+    """Get soundtrack listening analytics using language field in StreamingHistory."""
     db_conn, status = get_db_connection()
 
     if db_conn is None:
         return None, status
 
     try:
-        streaming_collection = db_conn.get_collection(STREAMING_COLLECTION)
-        songs_collection = db_conn.get_collection(SONGS_MASTER_COLLECTION)
+        collection = db_conn.get_collection(STREAMING_COLLECTION)
 
-        # Get soundtrack vs regular music hours via $lookup
-        comparison_pipeline = [
-            {"$match": {"spotify_track_uri": {"$exists": True, "$ne": None}}},
-            {"$lookup": {
-                "from": SONGS_MASTER_COLLECTION,
-                "localField": "spotify_track_uri",
-                "foreignField": "spotify_track_uri",
-                "as": "song_info"
-            }},
-            {"$unwind": "$song_info"},
+        # Get soundtrack vs regular music hours directly from StreamingHistory
+        pipeline = [
+            {"$match": {"language": {"$exists": True, "$nin": [None, ""]}}},
             {"$group": {
-                "_id": "$song_info.is_soundtrack",
+                "_id": {"$cond": [{"$eq": ["$language", "Soundtrack"]}, "Soundtrack", "Regular"]},
                 "total_hours": {"$sum": f"${DURATION_HOURS}"},
-                "play_count": {"$sum": 1}
+                "play_count": {"$sum": 1},
+                "unique_songs": {"$addToSet": "$spotify_track_uri"}
+            }},
+            {"$project": {
+                "_id": 1,
+                "total_hours": 1,
+                "play_count": 1,
+                "song_count": {"$size": "$unique_songs"}
             }}
         ]
 
-        comparison_results = list(streaming_collection.aggregate(comparison_pipeline, allowDiskUse=True))
+        results = list(collection.aggregate(pipeline, allowDiskUse=True))
 
         soundtrack_hours = 0
         regular_hours = 0
         soundtrack_plays = 0
         regular_plays = 0
+        soundtrack_songs = 0
+        regular_songs = 0
 
-        for result in comparison_results:
-            if result["_id"] is True:
+        for result in results:
+            if result["_id"] == "Soundtrack":
                 soundtrack_hours = result["total_hours"]
                 soundtrack_plays = result["play_count"]
+                soundtrack_songs = result["song_count"]
             else:
                 regular_hours = result["total_hours"]
                 regular_plays = result["play_count"]
-
-        # Get soundtrack song count from songs_master
-        soundtrack_songs = songs_collection.count_documents({"is_soundtrack": True})
-        regular_songs = songs_collection.count_documents({"is_soundtrack": {"$ne": True}})
+                regular_songs = result["song_count"]
 
         return {
             "soundtrack_hours": soundtrack_hours,
@@ -1319,18 +1318,11 @@ def get_top_soundtrack_artists(limit=10):
         return pd.DataFrame(), status
 
     try:
-        streaming_collection = db_conn.get_collection(STREAMING_COLLECTION)
+        collection = db_conn.get_collection(STREAMING_COLLECTION)
 
+        # Filter directly on language="Soundtrack" in StreamingHistory
         pipeline = [
-            {"$match": {"spotify_track_uri": {"$exists": True, "$ne": None}}},
-            {"$lookup": {
-                "from": SONGS_MASTER_COLLECTION,
-                "localField": "spotify_track_uri",
-                "foreignField": "spotify_track_uri",
-                "as": "song_info"
-            }},
-            {"$unwind": "$song_info"},
-            {"$match": {"song_info.is_soundtrack": True}},
+            {"$match": {"language": "Soundtrack", ARTIST_NAME: {"$exists": True, "$nin": [None, ""]}}},
             {"$group": {
                 "_id": f"${ARTIST_NAME}",
                 "total_hours": {"$sum": f"${DURATION_HOURS}"},
@@ -1346,7 +1338,7 @@ def get_top_soundtrack_artists(limit=10):
             {"$limit": limit}
         ]
 
-        results = list(streaming_collection.aggregate(pipeline, allowDiskUse=True))
+        results = list(collection.aggregate(pipeline, allowDiskUse=True))
         return pd.DataFrame(results), status
 
     except Exception as e:
