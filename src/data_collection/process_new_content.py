@@ -86,29 +86,16 @@ class ContentProcessor:
             artists_collection = self.db.get_collection(ARTISTS_MASTER_COLLECTION)
 
             # Get all existing songs (using song_name + artist_name as key)
-            # Only query records that have both required fields (not null)
             existing_songs = {}
-            for song in songs_collection.find(
-                {"song_name": {"$ne": None}, "artist_name": {"$ne": None}},
-                {"song_name": 1, "artist_name": 1}
-            ):
-                song_name = song.get("song_name")
-                artist_name = song.get("artist_name")
-                if song_name and artist_name:
-                    key = (song_name.lower().strip(), artist_name.lower().strip())
-                    existing_songs[key] = True
+            for song in songs_collection.find({}, {"song_name": 1, "artist_name": 1}):
+                key = (song["song_name"].lower().strip(), song["artist_name"].lower().strip())
+                existing_songs[key] = True
 
             # Get all existing artists (using artist_name as key)
-            # Only query records that have the required field (not null)
             existing_artists = {}
-            for artist in artists_collection.find(
-                {"artist_name": {"$ne": None}},
-                {"artist_name": 1}
-            ):
-                artist_name = artist.get("artist_name")
-                if artist_name:
-                    key = artist_name.lower().strip()
-                    existing_artists[key] = True
+            for artist in artists_collection.find({}, {"artist_name": 1}):
+                key = artist["artist_name"].lower().strip()
+                existing_artists[key] = True
 
             logger.info(
                 f"Found {len(existing_songs)} existing songs and "
