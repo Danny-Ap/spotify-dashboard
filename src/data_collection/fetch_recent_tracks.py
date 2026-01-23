@@ -165,6 +165,9 @@ class RecentTracksFetcher:
         """
         Get the latest timestamp from the StreamingHistory collection.
 
+        Uses the 'ts' field (MongoDB Date type) for reliable sorting,
+        since 'ts_utc' may be stored as a string in historical data.
+
         Returns:
             Latest timestamp as datetime, or None if collection is empty.
         """
@@ -172,12 +175,17 @@ class RecentTracksFetcher:
             collection = self.db.get_collection(STREAMING_COLLECTION)
 
             # Find the document with the latest timestamp
-            latest_doc = collection.find_one(sort=[("ts_utc", -1)])
+            # Use 'ts' field which is a proper MongoDB Date type
+            latest_doc = collection.find_one(sort=[("ts", -1)])
 
-            if latest_doc and 'ts_utc' in latest_doc:
-                latest_ts = latest_doc['ts_utc']
+            if latest_doc and 'ts' in latest_doc:
+                latest_ts = latest_doc['ts']
 
-                # Ensure the timestamp is timezone-naive
+                # Handle if ts is a string (ISO format) - convert to datetime
+                if isinstance(latest_ts, str):
+                    latest_ts = datetime.fromisoformat(latest_ts.replace('Z', '+00:00'))
+
+                # Ensure the timestamp is timezone-naive for comparison
                 if hasattr(latest_ts, 'tzinfo') and latest_ts.tzinfo is not None:
                     latest_ts = latest_ts.replace(tzinfo=None)
 
