@@ -506,20 +506,15 @@ def get_listening_heatmap_data(filters=None):
         # Use ts field (MongoDB Date object) to extract hour
         pipeline = [
             {"$match": {
-                "ts": {"$exists": True, "$ne": None},
+                "ts": {"$exists": True, "$ne": None, "$type": "date"},
                 DAY_OF_WEEK: {"$exists": True, "$ne": None}
-            }},
-            {"$project": {
-                "day_of_week": f"${DAY_OF_WEEK}",
-                "hour": {"$hour": "$ts"},
-                "h_played": f"${DURATION_HOURS}"
             }},
             {"$group": {
                 "_id": {
-                    "day": "$day_of_week",
-                    "hour": "$hour"
+                    "day": f"${DAY_OF_WEEK}",
+                    "hour": {"$hour": "$ts"}
                 },
-                "total_hours": {"$sum": "$h_played"}
+                "total_hours": {"$sum": f"${DURATION_HOURS}"}
             }},
             {"$project": {
                 "_id": 0,
@@ -580,7 +575,7 @@ def get_language_evolution_data():
         # Get language evolution by month (fast - no $lookup needed!)
         pipeline = [
             {"$match": {
-                "ts": {"$exists": True, "$ne": None},
+                "ts": {"$exists": True, "$ne": None, "$type": "date"},
                 "language": {"$in": top_languages}
             }},
             {"$group": {
@@ -1375,13 +1370,26 @@ def create_horizontal_bar_chart(df, title, value_col="hours", height=600, data_t
         value_title = "Hours"
 
     # Build tooltip based on data type
-    tooltip_list = [alt.Tooltip('name:N', title='Song' if data_type == 'songs' else title)]
-
-    # Add artist name for songs and play_count views
-    if data_type in ['songs', 'play_count'] and 'artist_name' in df.columns:
-        tooltip_list.append(alt.Tooltip('artist_name:N', title='Artist'))
-
-    tooltip_list.append(alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str))
+    if data_type == 'play_count':
+        # For play_count: show song name, artist name, and play count
+        tooltip_list = [
+            alt.Tooltip('track_name:N', title='Song'),
+            alt.Tooltip('artist_name:N', title='Artist'),
+            alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str)
+        ]
+    elif data_type == 'songs' and 'artist_name' in df.columns:
+        # For songs: show song name, artist name, and hours
+        tooltip_list = [
+            alt.Tooltip('name:N', title='Song'),
+            alt.Tooltip('artist_name:N', title='Artist'),
+            alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str)
+        ]
+    else:
+        # For artists/albums: show name and hours
+        tooltip_list = [
+            alt.Tooltip('name:N', title=title),
+            alt.Tooltip(f'{value_col}:Q', title=value_title, format=format_str)
+        ]
 
     chart = alt.Chart(df).mark_bar(
         color='#1DB954',
