@@ -26,6 +26,7 @@ def run_pipeline():
     stats = {
         "start_time": datetime.now(),
         "new_tracks": 0,
+        "tracks_added": [],  # List of track summaries
         "new_songs": 0,
         "new_artists": 0,
         "lyrics_fetched": 0,
@@ -36,7 +37,7 @@ def run_pipeline():
 
     try:
         # Step 1: Fetch recent tracks
-        stats["new_tracks"] = fetch_recent_tracks()
+        stats["new_tracks"], stats["tracks_added"] = fetch_recent_tracks()
 
         if stats["new_tracks"] == 0:
             stats["status"] = "no_new_tracks"
@@ -86,6 +87,13 @@ def write_log(stats):
             f"New tracks fetched: {stats['new_tracks']}",
             f"Duration: {stats['duration']:.1f}s",
         ])
+
+        # Add list of tracks added
+        if stats.get("tracks_added"):
+            lines.append("")
+            lines.append("Tracks added:")
+            for i, track in enumerate(stats["tracks_added"], 1):
+                lines.append(f"  {i}. {track['name']} by {track['artist']}")
     else:
         lines.extend([
             f"Status: FAILED",

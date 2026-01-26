@@ -280,9 +280,9 @@ def get_last_song_played(filters=None):
         pipeline = [
             {"$match": {
                 TRACK_NAME: {"$exists": True, "$nin": [None, ""]},
-                "ts_utc": {"$exists": True, "$ne": None}
+                "ts": {"$exists": True, "$ne": None}
             }},
-            {"$sort": {"ts_utc": -1}},
+            {"$sort": {"ts": -1}},
             {"$limit": 1}
         ]
 
@@ -293,7 +293,7 @@ def get_last_song_played(filters=None):
 
         if result:
             song = result[0]
-            utc_time = song.get("ts_utc")
+            utc_time = song.get("ts")
             if isinstance(utc_time, datetime):
                 if utc_time.tzinfo is None:
                     utc_time = utc_time.replace(tzinfo=timezone.utc)

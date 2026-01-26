@@ -11,7 +11,7 @@ Collections:
 
 import logging
 from datetime import datetime
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 from src.utils.database import MongoDBConnection
 from src.utils.spotify_api import SpotifyClient
@@ -87,7 +87,10 @@ class RecentTracksFetcher:
 
                 # Parse timestamp and make it timezone-naive (UTC)
                 ts = datetime.fromisoformat(played_at.replace('Z', '+00:00'))
-                ts_utc = ts.replace(tzinfo=None)
+                ts_datetime = ts.replace(tzinfo=None)  # Main Date field for MongoDB
+
+                # ts_utc as string to match Extended Streaming History format
+                ts_utc_string = ts_datetime.strftime('%Y-%m-%d %H:%M:%S+00:00')
 
                 # Get track duration (full track duration since recently-played = completed plays)
                 duration_ms = track['duration_ms']
@@ -98,22 +101,22 @@ class RecentTracksFetcher:
                 duration_hours = round(duration_ms / (1000.0 * 60.0 * 60.0), 8)
 
                 # Create date fields matching CSV format
-                date_str = ts_utc.strftime('%d/%m/%Y')  # DD/MM/YYYY format
-                year = ts_utc.year
-                month = ts_utc.strftime('%B')  # Full month name
-                day_of_week = ts_utc.strftime('%A')  # Full day name
-
-                # ISO timestamp string
-                ts_iso = ts_utc.strftime('%Y-%m-%dT%H:%M:%SZ')
+                date_str = ts_datetime.strftime('%d/%m/%Y')  # DD/MM/YYYY format
+                year = ts_datetime.year
+                month = ts_datetime.strftime('%B')  # Full month name
+                day_of_week = ts_datetime.strftime('%A')  # Full day name
 
                 # Get artist name (primary artist)
                 artist_name = track['artists'][0]['name'] if track['artists'] else None
 
                 # Build streaming record with new field names
+                # Format matches Extended Streaming History:
+                # - ts_utc: string like "2017-07-16 19:58:18+00:00"
+                # - ts: datetime object (main Date field for queries)
                 streaming_record = {
                     # Timestamps
-                    'ts_utc': ts_utc,
-                    STREAMING_FIELDS['ts']: ts_iso,
+                    'ts_utc': ts_utc_string,
+                    STREAMING_FIELDS['ts']: ts_datetime,
                     STREAMING_FIELDS['date']: date_str,
                     STREAMING_FIELDS['year']: year,
                     STREAMING_FIELDS['month']: month,
@@ -224,7 +227,8 @@ class RecentTracksFetcher:
 
         new_tracks = []
         for track in tracks:
-            track_ts = track['ts_utc']
+            # Use 'ts' field which is the datetime object
+            track_ts = track['ts']
 
             # Ensure both timestamps are timezone-naive for comparison
             if hasattr(track_ts, 'tzinfo') and track_ts.tzinfo is not None:
@@ -236,7 +240,7 @@ class RecentTracksFetcher:
         logger.info(f"Found {len(new_tracks)} new tracks (out of {len(tracks)} total)")
         return new_tracks
 
-    def insert_tracks(self, tracks: List[Dict[str, Any]]) -> int:
+    def insert_tracks(self, tracks: List[Dict[str, Any]]) -> Tuple[int, List[Dict[str, str]]]:
         """
         Insert new tracks into StreamingHistory collection.
 
@@ -244,17 +248,18 @@ class RecentTracksFetcher:
             tracks: List of track records to insert.
 
         Returns:
-            Number of tracks successfully inserted.
+            Tuple of (number of tracks inserted, list of track summaries).
+            Each summary contains 'name' and 'artist' keys.
         """
         if not tracks:
             logger.info("No new tracks to insert")
-            return 0
+            return 0, []
 
         try:
             collection = self.db.get_collection(STREAMING_COLLECTION)
 
             # Sort tracks by timestamp (oldest first) for insertion
-            sorted_tracks = sorted(tracks, key=lambda x: x['ts_utc'])
+            sorted_tracks = sorted(tracks, key=lambda x: x['ts'])
 
             # Look up languages from songs_master for denormalization
             songs_collection = self.db.get_collection(SONGS_MASTER_COLLECTION)
@@ -279,30 +284,37 @@ class RecentTracksFetcher:
             inserted_count = len(result.inserted_ids)
             logger.info(f"Successfully inserted {inserted_count} tracks")
 
-            # Log inserted tracks
+            # Build track summaries for logging
+            track_summaries = []
             for track in sorted_tracks:
                 duration_min = track[STREAMING_FIELDS['duration_minutes']]
-                timestamp_str = track['ts_utc'].strftime('%Y-%m-%d %H:%M:%S')
+                timestamp_str = track['ts'].strftime('%Y-%m-%d %H:%M:%S')
                 track_name = track[STREAMING_FIELDS['track_name']]
                 artist_name = track[STREAMING_FIELDS['artist_name']]
                 logger.info(
                     f"  + {timestamp_str} | {track_name} - {artist_name} | "
                     f"{duration_min:.2f}min"
                 )
+                track_summaries.append({
+                    'name': track_name,
+                    'artist': artist_name,
+                    'timestamp': timestamp_str
+                })
 
-            return inserted_count
+            return inserted_count, track_summaries
 
         except Exception as e:
             logger.error(f"Error inserting tracks: {e}")
-            return 0
+            return 0, []
 
 
-def main() -> int:
+def main() -> Tuple[int, List[Dict[str, str]]]:
     """
     Main execution function.
 
     Returns:
-        Number of new tracks added (0 means no new data, pipeline should stop).
+        Tuple of (number of new tracks added, list of track summaries).
+        0 tracks means no new data, pipeline should stop.
     """
     logger.info("Starting Spotify Recent Tracks Fetcher")
 
@@ -315,7 +327,7 @@ def main() -> int:
 
             if not tracks:
                 logger.error("Failed to retrieve recently played tracks")
-                return 0
+                return 0, []
 
             logger.info(f"Processing {len(tracks)} tracks...")
 
@@ -324,7 +336,7 @@ def main() -> int:
 
             if not streaming_tracks:
                 logger.error("No tracks successfully converted")
-                return 0
+                return 0, []
 
             # Get latest timestamp from database
             latest_db_timestamp = fetcher.get_latest_timestamp()
@@ -333,7 +345,7 @@ def main() -> int:
             new_tracks = fetcher.filter_new_tracks(streaming_tracks, latest_db_timestamp)
 
             # Insert new tracks
-            inserted_count = fetcher.insert_tracks(new_tracks)
+            inserted_count, track_summaries = fetcher.insert_tracks(new_tracks)
 
             # Summary
             logger.info("=" * 60)
@@ -351,12 +363,12 @@ def main() -> int:
                 )
 
             if new_tracks:
-                newest_track = max(new_tracks, key=lambda x: x['ts_utc'])
+                newest_track = max(new_tracks, key=lambda x: x['ts'])
                 track_name = newest_track[STREAMING_FIELDS['track_name']]
                 artist_name = newest_track[STREAMING_FIELDS['artist_name']]
                 logger.info(
                     f"Newest track added: "
-                    f"{newest_track['ts_utc'].strftime('%Y-%m-%d %H:%M:%S')} | "
+                    f"{newest_track['ts'].strftime('%Y-%m-%d %H:%M:%S')} | "
                     f"{track_name} - {artist_name}"
                 )
 
@@ -371,11 +383,11 @@ def main() -> int:
                 )
 
             logger.info(f"Returning {inserted_count} new tracks for pipeline decision")
-            return inserted_count
+            return inserted_count, track_summaries
 
     except Exception as e:
         logger.error(f"Error in main execution: {e}")
-        return 0
+        return 0, []
 
 
 if __name__ == "__main__":
@@ -385,5 +397,9 @@ if __name__ == "__main__":
         format='%(asctime)s - %(levelname)s - %(message)s'
     )
 
-    result = main()
-    print(f"Script completed. New tracks added: {result}")
+    count, tracks = main()
+    print(f"\nScript completed. New tracks added: {count}")
+    if tracks:
+        print("\nTracks added:")
+        for i, track in enumerate(tracks, 1):
+            print(f"  {i}. {track['name']} by {track['artist']}")
