@@ -175,8 +175,12 @@ class RecentTracksFetcher:
             collection = self.db.get_collection(STREAMING_COLLECTION)
 
             # Find the document with the latest timestamp
-            # Use 'ts' field which is a proper MongoDB Date type
-            latest_doc = collection.find_one(sort=[("ts", -1)])
+            # Only consider documents that have the 'ts' field (API-sourced data)
+            # This avoids null/missing 'ts' values from historical CSV data
+            latest_doc = collection.find_one(
+                {"ts": {"$exists": True, "$ne": None}},
+                sort=[("ts", -1)]
+            )
 
             if latest_doc and 'ts' in latest_doc:
                 latest_ts = latest_doc['ts']

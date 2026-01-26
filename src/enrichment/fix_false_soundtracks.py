@@ -13,8 +13,14 @@ This script:
 """
 
 import logging
+import sys
+from pathlib import Path
 from collections import Counter
 from typing import Optional, Tuple
+
+# Add project root to path for direct script execution
+project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(project_root))
 
 from src.utils.database import MongoDBConnection
 from src.utils.language_detection import LanguageDetector, SoundtrackClassifier

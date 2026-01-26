@@ -198,10 +198,33 @@ def get_filter_options():
         max_date = date_result[0]["max_date"] if date_result else None
 
         # Convert MongoDB Date objects to Python date
-        if min_date and isinstance(min_date, datetime):
-            min_date = min_date.date()
-        if max_date and isinstance(max_date, datetime):
-            max_date = max_date.date()
+        # Handle various date types that MongoDB/pymongo might return
+        def to_python_date(value):
+            if value is None:
+                return None
+            if isinstance(value, datetime):
+                return value.date()
+            if hasattr(value, 'date') and callable(value.date):
+                # Handles pandas Timestamp and similar objects
+                return value.date()
+            if hasattr(value, 'to_pydatetime'):
+                # Handles pandas Timestamp
+                return value.to_pydatetime().date()
+            if isinstance(value, str):
+                # Try parsing common date formats
+                for fmt in ["%Y-%m-%d", "%d/%m/%Y", "%m/%d/%Y"]:
+                    try:
+                        return datetime.strptime(value, fmt).date()
+                    except ValueError:
+                        continue
+            # If it's already a date object, return as-is
+            from datetime import date
+            if isinstance(value, date):
+                return value
+            return None
+
+        min_date = to_python_date(min_date)
+        max_date = to_python_date(max_date)
 
         return {
             "songs": sorted([s for s in songs if s]),
