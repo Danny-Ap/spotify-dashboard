@@ -1,0 +1,23 @@
+Spotify Pipeline - 2026-01-29 13:31:54
+==================================================
+Status: Success
+New tracks fetched: 15
+Duration: 46.9s
+
+Tracks added:
+  1. Belle by Richard White
+  2. Belle by Richard White
+  3. Belle Reprise by Paige O'Hara
+  4. Gaston by Richard White
+  5. Gaston (Reprise) by Jesse Corti
+  6. Be Our Guest by Angela Lansbury
+  7. Something There by Robby Benson
+  8. The Mob Song by Chorus - Beauty And the Beast
+  9. Beauty and the Beast by Angela Lansbury
+  10. To The Fair by Alan Menken
+  11. West Wing by Alan Menken
+  12. Be Our Guest by Angela Lansbury
+  13. Something There by Robby Benson
+  14. The Mob Song by Chorus - Beauty And the Beast
+  15. Beauty and the Beast by Angela Lansbury
+==================================================
