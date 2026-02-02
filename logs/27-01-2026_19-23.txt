@@ -1,9 +1,0 @@
-Spotify Pipeline - 2026-01-27 19:23:39
-==================================================
-Status: Success
-New tracks fetched: 1
-Duration: 52.4s
-
-Tracks added:
-  1. Flying by James Newton Howard
-==================================================

@@ -1,9 +1,0 @@
-Spotify Pipeline - 2026-02-02 05:12:59
-==================================================
-Status: Success
-New tracks fetched: 1
-Duration: 30.9s
-
-Tracks added:
-  1. The Burning Bush by Hans Zimmer
-==================================================

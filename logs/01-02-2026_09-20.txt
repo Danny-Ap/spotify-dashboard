@@ -1,9 +1,0 @@
-Spotify Pipeline - 2026-02-01 09:20:18
-==================================================
-Status: Success
-New tracks fetched: 1
-Duration: 50.4s
-
-Tracks added:
-  1. The Jabari by Ludwig Göransson
-==================================================
