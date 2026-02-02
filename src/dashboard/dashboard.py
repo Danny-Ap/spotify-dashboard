@@ -1368,6 +1368,55 @@ def get_top_soundtrack_artists(limit=10):
         return pd.DataFrame(), f"Error getting top soundtrack artists: {str(e)}"
 
 
+@st.cache_data(ttl=300)
+def get_last_played_tracks(limit=20):
+    """Get the last N played tracks."""
+    db_conn, status = get_db_connection()
+
+    if db_conn is None:
+        return pd.DataFrame(), status
+
+    try:
+        collection = db_conn.get_collection(STREAMING_COLLECTION)
+
+        pipeline = [
+            {"$match": {
+                TRACK_NAME: {"$exists": True, "$nin": [None, ""]},
+                "ts": {"$exists": True, "$ne": None}
+            }},
+            {"$sort": {"ts": -1}},
+            {"$limit": limit},
+            {"$project": {
+                "_id": 0,
+                "ts_utc": 1,
+                "ts": 1,
+                "Date": 1,
+                TRACK_NAME: 1,
+                ARTIST_NAME: 1,
+                "language": 1
+            }}
+        ]
+
+        results = list(collection.aggregate(pipeline, allowDiskUse=True))
+        df = pd.DataFrame(results)
+
+        if not df.empty:
+            # Rename columns for display
+            df = df.rename(columns={
+                "ts_utc": "Played At (UTC)",
+                "ts": "Played At (Local)",
+                "Date": "Date",
+                TRACK_NAME: "Track",
+                ARTIST_NAME: "Artist",
+                "language": "Language"
+            })
+
+        return df, status
+
+    except Exception as e:
+        return pd.DataFrame(), f"Error getting last played tracks: {str(e)}"
+
+
 def create_horizontal_bar_chart(df, title, value_col="hours", height=600, data_type="songs"):
     """Create a horizontal bar chart."""
     if df.empty:
@@ -2316,6 +2365,33 @@ def main():
                 st.info("No soundtrack artists found")
     else:
         st.info("No soundtrack data available")
+
+    st.divider()
+
+    # ==========================================================================
+    # LAST 20 PLAYED TRACKS
+    # ==========================================================================
+    st.subheader("Last 20 Played Tracks")
+
+    last_played_df, _ = get_last_played_tracks(limit=20)
+
+    if not last_played_df.empty:
+        st.dataframe(
+            last_played_df,
+            column_config={
+                "Played At (UTC)": st.column_config.TextColumn("Played At (UTC)", width="medium"),
+                "Played At (Local)": st.column_config.DatetimeColumn("Played At (Local)", width="medium"),
+                "Date": st.column_config.TextColumn("Date", width="small"),
+                "Track": st.column_config.TextColumn("Track", width="large"),
+                "Artist": st.column_config.TextColumn("Artist", width="medium"),
+                "Language": st.column_config.TextColumn("Language", width="small")
+            },
+            hide_index=True,
+            use_container_width=True,
+            height=500
+        )
+    else:
+        st.info("No recent tracks available")
 
     # Footer with GitHub Actions info
     st.divider()
