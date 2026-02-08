@@ -1,0 +1,16 @@
+Spotify Pipeline - 2026-02-08 09:20:15
+==================================================
+Status: Success
+New tracks fetched: 8
+Duration: 36.3s
+
+Tracks added:
+  1. Prologue: Beauty and the Beast by Alan Menken
+  2. Belle by Richard White
+  3. Belle Reprise by Paige O'Hara
+  4. Gaston by Richard White
+  5. Gaston (Reprise) by Jesse Corti
+  6. Be Our Guest by Angela Lansbury
+  7. Something There by Robby Benson
+  8. The Mob Song by Chorus - Beauty And the Beast
+==================================================
