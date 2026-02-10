@@ -1,0 +1,32 @@
+Spotify Pipeline - 2026-02-10 13:45:48
+==================================================
+Status: Success
+New tracks fetched: 24
+Duration: 55.6s
+
+Tracks added:
+  1. Stoick's Ship by John Powell
+  2. Alpha Comes to Berk by John Powell
+  3. Toothless Found by John Powell
+  4. Two New Alphas by John Powell
+  5. Where No One Goes by Jon Thor Birgisson
+  6. Into a Fantasy (From "How to Train Your Dragon 2") by Alexander Rybak
+  7. Dinner Talk / Grimmel's Introduction by John Powell
+  8. One Last Shot by Klaus Badelt
+  9. Panda Po by Hans Zimmer
+  10. Flight Home (The Guardian Theme) by David Hirschfelder
+  11. Ratatouille Main Theme by Michael Giacchino
+  12. Ride The Dragon by Harry Gregson-Williams
+  13. Exodus! by John Powell
+  14. Fog Bound by Klaus Badelt
+  15. Dragon Warrior Rises by Hans Zimmer
+  16. More Baggy Wrinkles by David Hirschfelder
+  17. High King and Queen of Narnia by David Arnold
+  18. Calling The Guardians by Alexandre Desplat
+  19. Raiders Return to Busy, Busy Berk by John Powell
+  20. Swords Crossed by Klaus Badelt
+  21. Let The Tournament Begin by Hans Zimmer
+  22. The Boy Was Right by David Hirschfelder
+  23. Over Hill by Howard Shore
+  24. Mhysa by Ramin Djawadi
+==================================================
