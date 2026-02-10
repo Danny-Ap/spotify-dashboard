@@ -1,0 +1,23 @@
+Spotify Pipeline - 2026-02-10 15:52:21
+==================================================
+Status: Success
+New tracks fetched: 15
+Duration: 34.4s
+
+Tracks added:
+  1. The Hidden World Suite [Bonus Track] by John Powell
+  2. Blood Ritual by Klaus Badelt
+  3. Oogway Ascends by Hans Zimmer
+  4. Time to Go Home by David Arnold
+  5. You Know We're Flying by David Hirschfelder
+  6. How To Train Your Dragon Epic Cover (We Go With the Sky) by Lucas Ricciotti
+  7. Furies in Love by John Powell
+  8. Walk The Plank by Klaus Badelt
+  9. Dragon Warrior Is Among Us by Hans Zimmer
+  10. Nine to Survival Job by Michael Giacchino
+  11. The Weasley Stomp by Nicholas Hooper
+  12. The Return Journey by Howard Shore
+  13. With Love Comes a Great Waterfall by John Powell
+  14. The Medallion Calls by Klaus Badelt
+  15. Training Po by Hans Zimmer
+==================================================
