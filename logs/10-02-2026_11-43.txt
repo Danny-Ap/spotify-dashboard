@@ -1,0 +1,30 @@
+Spotify Pipeline - 2026-02-10 11:43:37
+==================================================
+Status: Success
+New tracks fetched: 22
+Duration: 36.2s
+
+Tracks added:
+  1. The Kill Ring by John Powell
+  2. Ready The Ships by John Powell
+  3. Battling The Green Death by John Powell
+  4. Counter Attack by John Powell
+  5. Where's Hiccup? by John Powell
+  6. Coming Back Around by John Powell
+  7. Sticks & Stones by Jónsi
+  8. The Vikings Have Their Tea by John Powell
+  9. Dragon Racing by John Powell
+  10. Together We Map the World by John Powell
+  11. Hiccup the Chief / Drago's Coming by John Powell
+  12. Toothless Lost by John Powell
+  13. Should I Know You? by John Powell
+  14. Valka's Dragon Sanctuary by John Powell
+  15. Losing Mom / Meet the Good Alpha by John Powell
+  16. Meet Drago by John Powell
+  17. Stoick Finds Beauty by John Powell
+  18. Flying with Mother by John Powell
+  19. For the Dancing and the Dreaming by John Powell
+  20. Battle of the Bewilderbeast by John Powell
+  21. Hiccup Confronts Drago by John Powell
+  22. Stoick Saves Hiccup by John Powell
+==================================================
