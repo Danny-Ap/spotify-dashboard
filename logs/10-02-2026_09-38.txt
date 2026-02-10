@@ -1,0 +1,25 @@
+Spotify Pipeline - 2026-02-10 09:38:44
+==================================================
+Status: Success
+New tracks fetched: 17
+Duration: 47.1s
+
+Tracks added:
+  1. This Is Berk by John Powell
+  2. Dragon Battle by John Powell
+  3. The Downed Dragon by John Powell
+  4. Dragon Training by John Powell
+  5. Wounded by John Powell
+  6. The Dragon Book by John Powell
+  7. Focus, Hiccup! by John Powell
+  8. Forbidden Friendship by John Powell
+  9. New Tail by John Powell
+  10. See You Tomorrow by John Powell
+  11. Test Drive - From How To Train Your Dragon Music From The Motion Picture by John Powell
+  12. Not So Fireproof by John Powell
+  13. This Time For Sure by John Powell
+  14. Astrid Goes For A Spin by John Powell
+  15. Romantic Flight - From How To Train Your Dragon Music From The Motion Picture by John Powell
+  16. Dragon's Den by John Powell
+  17. The Cove by John Powell
+==================================================
