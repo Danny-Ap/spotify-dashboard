@@ -1,0 +1,13 @@
+Spotify Pipeline - 2026-02-11 13:42:07
+==================================================
+Status: Success
+New tracks fetched: 5
+Duration: 46.0s
+
+Tracks added:
+  1. The Nazgûl by Howard Shore
+  2. Weathertop by Howard Shore
+  3. The Caverns of Isengard by Howard Shore
+  4. Give up the Halfling by Howard Shore
+  5. Orthanc by Howard Shore
+==================================================
