@@ -1,0 +1,46 @@
+Spotify Pipeline - 2026-02-14 21:14:17
+==================================================
+Status: Success
+New tracks fetched: 38
+Duration: 33.1s
+
+Tracks added:
+  1. Rivendell by Howard Shore
+  2. Rivendell by Howard Shore
+  3. The Sword That Was Broken by Howard Shore
+  4. The Council of Elrond Assembles / "Aníron" (feat. Enya) by Howard Shore
+  5. The Great Eye by Howard Shore
+  6. Gilraen's Memorial by Howard Shore
+  7. The Pass of Caradhras by Howard Shore
+  8. Moria by Howard Shore
+  9. Gollum by Howard Shore
+  10. Balin's Tomb by Howard Shore
+  11. This Is Berk by John Powell
+  12. Dragon Battle by John Powell
+  13. The Downed Dragon by John Powell
+  14. Dragon Training by John Powell
+  15. Wounded by John Powell
+  16. The Dragon Book by John Powell
+  17. Focus, Hiccup! by John Powell
+  18. Forbidden Friendship by John Powell
+  19. New Tail by John Powell
+  20. See You Tomorrow by John Powell
+  21. Test Drive - From How To Train Your Dragon Music From The Motion Picture by John Powell
+  22. Not So Fireproof by John Powell
+  23. This Time For Sure by John Powell
+  24. Astrid Goes For A Spin by John Powell
+  25. Romantic Flight - From How To Train Your Dragon Music From The Motion Picture by John Powell
+  26. Dragon's Den by John Powell
+  27. The Cove by John Powell
+  28. The Kill Ring by John Powell
+  29. Ready The Ships by John Powell
+  30. Battling The Green Death by John Powell
+  31. Counter Attack by John Powell
+  32. Where's Hiccup? by John Powell
+  33. Coming Back Around by John Powell
+  34. Sticks & Stones by Jónsi
+  35. The Vikings Have Their Tea by John Powell
+  36. Moonlight Serenade by Klaus Badelt
+  37. They Don't Care About Us by Michael Jackson
+  38. Smooth Criminal - 2012 Remaster by Michael Jackson
+==================================================
