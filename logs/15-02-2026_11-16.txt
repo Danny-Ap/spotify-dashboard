@@ -1,0 +1,11 @@
+Spotify Pipeline - 2026-02-15 11:16:11
+==================================================
+Status: Success
+New tracks fetched: 3
+Duration: 46.7s
+
+Tracks added:
+  1. This Is Berk by John Powell
+  2. Dragon Battle by John Powell
+  3. The Downed Dragon by John Powell
+==================================================
