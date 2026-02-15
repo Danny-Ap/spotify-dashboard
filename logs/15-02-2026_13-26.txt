@@ -1,0 +1,13 @@
+Spotify Pipeline - 2026-02-15 13:26:06
+==================================================
+Status: Success
+New tracks fetched: 5
+Duration: 32.5s
+
+Tracks added:
+  1. Dragon Training by John Powell
+  2. Dragon Training by John Powell
+  3. Wounded by John Powell
+  4. The Dragon Book by John Powell
+  5. Focus, Hiccup! by John Powell
+==================================================
