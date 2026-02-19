@@ -1,0 +1,37 @@
+Spotify Pipeline - 2026-02-19 07:46:38
+==================================================
+Status: Success
+New tracks fetched: 29
+Duration: 37.7s
+
+Tracks added:
+  1. The Medallion Calls by Klaus Badelt
+  2. Fog Bound by Klaus Badelt
+  3. The Black Pearl by Klaus Badelt
+  4. Skull And Crossbones by Klaus Badelt
+  5. Barbossa Is Hungry by Klaus Badelt
+  6. Swords Crossed by Klaus Badelt
+  7. Underwater March by Klaus Badelt
+  8. Will And Elizabeth by Klaus Badelt
+  9. Moonlight Serenade by Klaus Badelt
+  10. Bootstrap's Bootstraps by Klaus Badelt
+  11. Walk The Plank by Klaus Badelt
+  12. Grieg: Piano Concerto in A Minor, Op. 16: II. Adagio by Edvard Grieg
+  13. Elgar: 5 Pomp and Circumstance Marches, Op. 39: No. 4 in G Major by Edward Elgar
+  14. Mahler: Symphony No. 1 in D Major "Titan": IV. Feierlich und gemessen, ohne zu schleppen by Gustav Mahler
+  15. Debussy: Prélude à l'après-midi d'un faune, CD 87, L. 86 by Claude Debussy
+  16. Elgar: 5 Pomp and Circumstance Marches, Op. 39: No. 5 in C Major by Edward Elgar
+  17. Ravel: Le Tombeau de Couperin, M. 68: I. Prélude by Maurice Ravel
+  18. Beethoven: Symphony No. 1 in C Major, Op. 21: I. Adagio molto - Allegro con brio by Ludwig van Beethoven
+  19. Pomp and Circumstance, Op. 39: No. 1, March in D Major by Edward Elgar
+  20. The Planets - Suite for large orchestra, Op.32: IV. Jupiter, the Bringer of Jollity (Allegro giocoso) by Sir Simon Rattle
+  21. Ravel: Le Tombeau de Couperin, M. 68: VI. Toccata by Maurice Ravel
+  22. He's a Pirate by Klaus Badelt
+  23. Wood: Fantasia on British Sea Songs by Sir Henry Wood
+  24. Rule, Britannia! (arr. Sir Malcolm Sargent) - 1990 Remastered Version by Thomas Arne
+  25. One Last Shot by Klaus Badelt
+  26. Tchaikovsky: The Nutcracker, Op. 71, Act 2: No. 13, Waltz of the Flowers by Pyotr Ilyich Tchaikovsky
+  27. Rossini: Guillaume Tell: Overture (Finale) by Gioachino Rossini
+  28. Vivaldi: The Four Seasons, Violin Concerto in F Minor, Op. 8 No. 4, RV 297 "Winter": I. Allegro non molto by Antonio Vivaldi
+  29. Blood Ritual by Klaus Badelt
+==================================================
