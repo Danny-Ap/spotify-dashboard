@@ -1,0 +1,44 @@
+Spotify Pipeline - 2026-03-04 19:33:16
+==================================================
+Status: Success
+New tracks fetched: 36
+Duration: 68.4s
+
+Tracks added:
+  1. Prologue by Jonathan Freeman
+  2. Gospel Truth I (Mount Olympus) by Brianna Ogunbawo
+  3. Gospel Truth II (Underworld) by Brianna Ogunbawo
+  4. Despina's Lullaby by Saffi Needham
+  5. Gospel Truth III (Herc Was Mortal) by Brianna Ogunbawo
+  6. Today's Gonna Be My Day by Luke Brady
+  7. Go the Distance by Luke Brady
+  8. Go the Distance Reprise by Luke Brady
+  9. One Last Hope by Trevor Dion Nicholas
+  10. Forget About It by Mae Ann Jorolan
+  11. Gospel Truth IV (So Not Dead) by Brianna Ogunbawo
+  12. Getting Even by Stephen Carlile
+  13. Zero to Hero by Luke Brady
+  14. A Muse Bouche by Brianna Ogunbawo
+  15. I'm Back! by Trevor Dion Nicholas
+  16. Getting Even Reprise by Craig Gallivan
+  17. Phil Goes the Distance/Doomed to Be Human by Trevor Dion Nicholas
+  18. I Won't Say (I'm in Love) by Mae Ann Jorolan
+  19. Great Bolts of Thunder by Brianna Ogunbawo
+  20. To Be Human by Luke Brady
+  21. Gospel Truth V (That's Our Tale) by Brianna Ogunbawo
+  22. A Star Is Born by Hercules Original London Cast
+  23. Long Ago... by Charlton Heston
+  24. The Gospel Truth I / Main Titles - Hercules by Cheryl Freeman
+  25. The Gospel Truth II by Roz Ryan
+  26. The Gospel Truth III by Lillias White
+  27. Go the Distance by Roger Bart
+  28. Oh Mighty Zeus by Alan Menken
+  29. Go The Distance (Reprise) by Roger Bart
+  30. One Last Hope by Danny DeVito
+  31. Zero To Hero by Chorus - Hercules
+  32. I Won't Say (I'm In Love) by Susan Egan
+  33. A Star Is Born by Cheryl Freeman
+  34. Go the Distance by Michael Bolton
+  35. Go the Distance by Roger Bart
+  36. Oh Mighty Zeus by Alan Menken
+==================================================
