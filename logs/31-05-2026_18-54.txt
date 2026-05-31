@@ -1,0 +1,5 @@
+Spotify Pipeline - 2026-05-31 18:54:58
+==================================================
+Status: No new tracks
+All recent tracks already in database.
+==================================================
